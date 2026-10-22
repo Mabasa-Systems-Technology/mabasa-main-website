@@ -74,6 +74,17 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
+const toPerson = (m: (typeof team)[number]) => ({
+  "@type": "Person",
+  name: m.name,
+  ...(m.alias ? { alternateName: m.alias } : {}),
+  jobTitle: m.role,
+  image: `${site.url}${m.image}`,
+  worksFor: { "@id": `${site.url}/#organization` },
+});
+const founders = team.filter((m) => m.name && m.founder).map(toPerson);
+const staff = team.filter((m) => m.name && !m.founder).map(toPerson);
+
 const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
@@ -100,20 +111,8 @@ const structuredData = {
       ],
       ...(site.publicEmail ? { email: site.publicEmail } : {}),
       // Only named people are published as structured data; nothing is invented.
-      ...(team.some((m) => m.name)
-        ? {
-            founder: team
-              .filter((m) => m.name)
-              .map((m) => ({
-                "@type": "Person",
-                name: m.name,
-                ...(m.alias ? { alternateName: m.alias } : {}),
-                jobTitle: m.role,
-                image: `${site.url}${m.image}`,
-                worksFor: { "@id": `${site.url}/#organization` },
-              })),
-          }
-        : {}),
+      ...(founders.length ? { founder: founders } : {}),
+      ...(staff.length ? { employee: staff } : {}),
       hasOfferCatalog: {
         "@type": "OfferCatalog",
         name: "Technology consulting and engineering services",

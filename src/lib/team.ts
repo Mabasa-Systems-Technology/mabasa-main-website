@@ -7,6 +7,8 @@
 export type TeamMember = {
   role: string;
   image: string;
+  /** Published as a founder (vs. a team member) in the site's search data. */
+  founder?: boolean;
   name?: string;
   /** Also-known-as name, published in search data only. */
   alias?: string;
@@ -16,6 +18,7 @@ export type TeamMember = {
 };
 
 export const team: TeamMember[] = [
-  { name: "Lethabo Scofield", role: "Co-founder & CEO", image: "/team/ceo.webp", focus: "50% 40%" },
-  { name: "Zamokuhle Mazibuko", role: "Co-founder & CTO", image: "/team/cto.webp", focus: "50% 25%" },
+  { name: "Lethabo Scofield", founder: true, role: "Co-founder & CEO", image: "/team/ceo.webp", focus: "50% 40%" },
+  { name: "Zamokuhle Mazibuko", founder: true, role: "Co-founder & CTO", image: "/team/cto.webp", focus: "50% 25%" },
+  { name: "Tshiamiso Moeng", founder: true, role: "Co-founder & CFO", image: "/team/cfo.webp", focus: "50% 25%" },
 ];

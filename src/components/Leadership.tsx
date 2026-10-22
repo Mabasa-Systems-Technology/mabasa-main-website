@@ -10,7 +10,7 @@ export function Leadership() {
       <div className="container-site">
         <SectionHeading title="The people behind the work." />
 
-        <ul className="mt-14 grid gap-8 sm:grid-cols-2 lg:mt-20 lg:max-w-4xl lg:gap-12">
+        <ul className="mt-14 grid gap-8 sm:grid-cols-2 lg:mt-20 lg:grid-cols-3 lg:gap-10">
           {team.map((m, i) => (
             <li key={m.role}>
               <Reveal delay={i * 0.1}>
@@ -20,7 +20,7 @@ export function Leadership() {
                       src={m.image}
                       alt={m.name ? `${m.name}, ${m.role} of ${site.name}` : `${m.role} of ${site.name}`}
                       fill
-                      sizes="(min-width: 1024px) 40vw, (min-width: 640px) 50vw, 100vw"
+                      sizes="(min-width: 1024px) 30vw, (min-width: 640px) 50vw, 100vw"
                       className="object-cover"
                       style={{ objectPosition: m.focus ?? "50% 30%" }}
                     />
