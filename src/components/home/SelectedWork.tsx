@@ -71,10 +71,7 @@ export function SelectedWork() {
       <div className="container-site">
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <SectionHeading
-              title="Recognise the problem?"
-              lead="Most engagements begin with a familiar challenge. Choose the one closest to yours and we'll take it from there."
-            />
+            <SectionHeading title="Recognise the problem?" />
           </div>
           <ul className="border-t border-line-strong lg:col-span-8">
             {startingPoints.map((p, i) => (
@@ -82,12 +79,9 @@ export function SelectedWork() {
                 <Reveal delay={i * 0.04} y={16}>
                   <Link
                     href={`/contact?service=${encodeURIComponent(p.service)}`}
-                    className="group grid gap-3 py-7 transition-colors duration-500 sm:grid-cols-[1fr_1fr_auto] sm:items-center sm:gap-8"
+                    className="group grid gap-3 py-7 transition-colors duration-500 sm:grid-cols-[1fr_auto] sm:items-center sm:gap-8"
                   >
                     <span className="text-lg leading-snug text-ink">“{p.problem}”</span>
-                    <span className="text-[0.9375rem] leading-relaxed text-muted transition-colors duration-500 group-hover:text-ink-soft">
-                      {p.approach}
-                    </span>
                     <span className="inline-flex items-center gap-2 text-sm font-medium text-accent">
                       <span className="sm:sr-only">Discuss this</span>
                       <span className="flex size-10 items-center justify-center rounded-full border border-accent/30 transition-colors duration-300 group-hover:bg-accent group-hover:text-white">

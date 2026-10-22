@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ContactForm } from "@/components/ContactForm";
+import { HeroBackground } from "@/components/HeroBackground";
 import { Reveal } from "@/components/ui/Reveal";
 import { site } from "@/lib/site";
 
@@ -30,14 +31,13 @@ export default async function ContactPage({ searchParams }: Props) {
 
   return (
     <>
-      <section className="hero-field relative isolate overflow-hidden text-white">
+      <section className="relative isolate overflow-hidden bg-navy-950 text-white">
+        <div aria-hidden="true" className="absolute inset-0 -z-10">
+          <HeroBackground />
+        </div>
         <div className="container-site pt-40 pb-40 lg:pt-48 lg:pb-56">
           <div className="rise">
             <h1 className="max-w-4xl text-display font-light text-balance">Tell us what you&apos;re building.</h1>
-            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/75 lg:text-xl">
-              Share the challenge you&apos;re trying to solve or the system you need. We&apos;ll help you explore the
-              right technical approach — no obligation.
-            </p>
           </div>
         </div>
       </section>
@@ -59,17 +59,12 @@ export default async function ContactPage({ searchParams }: Props) {
                     </span>
                     <div>
                       <h3 className="text-lg">{s.title}</h3>
-                      <p className="mt-1.5 text-[0.9375rem] leading-relaxed text-muted">{s.text}</p>
                     </div>
                   </li>
                 ))}
               </ol>
 
               <div className="mt-12 border-t border-line-strong pt-8 text-[0.9375rem] leading-relaxed text-muted">
-                <p>
-                  Prefer to share details under NDA? Mention it in your message and we&apos;ll arrange one before any
-                  detailed discussion.
-                </p>
                 {site.publicEmail && (
                   <p className="mt-4">
                     Email:{" "}

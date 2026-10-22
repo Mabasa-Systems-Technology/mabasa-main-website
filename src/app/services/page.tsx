@@ -17,10 +17,7 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <>
-      <PageHero
-        title="Engineering and consulting capabilities, under one roof."
-        lead="We design, develop, integrate and maintain the systems growing businesses depend on. Engage us for a single discipline, or combine them to solve a larger problem end to end."
-      />
+      <PageHero title="Engineering and consulting capabilities, under one roof." />
 
       <section className="bg-white py-20 lg:py-28">
         <div className="container-site">
@@ -33,7 +30,6 @@ export default function ServicesPage() {
               <Reveal className="lg:col-span-5">
                 <p className="font-mono text-sm text-accent">{s.number}</p>
                 <h2 className="mt-5 text-title font-light text-balance">{s.title}</h2>
-                <p className="mt-6 leading-relaxed text-muted">{s.intro}</p>
                 <div className="mt-10 flex flex-wrap items-center gap-4">
                   <ButtonLink href={`/services/${s.slug}`} variant="outline-dark">
                     Service details
@@ -41,8 +37,7 @@ export default function ServicesPage() {
                 </div>
               </Reveal>
               <Reveal delay={0.1} className="lg:col-span-6 lg:col-start-7">
-                <p className="eyebrow text-muted">Capabilities</p>
-                <ul className="mt-5 border-t border-line">
+                <ul className="border-t border-line">
                   {s.capabilities.map((c) => (
                     <li key={c} className="flex items-baseline gap-4 border-b border-line py-4 text-ink-soft">
                       <span aria-hidden="true" className="h-px w-4 shrink-0 translate-y-[-4px] bg-accent" />
@@ -67,10 +62,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <CtaBand
-        title="Not sure which service you need?"
-        body="Most business problems cross more than one discipline. Describe the challenge and we'll recommend a practical technical approach."
-      />
+      <CtaBand title="Not sure which service you need?" />
     </>
   );
 }

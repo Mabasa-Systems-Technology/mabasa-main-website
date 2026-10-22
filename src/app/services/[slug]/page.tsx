@@ -8,7 +8,6 @@ import { JsonLd } from "@/components/JsonLd";
 import { Reveal } from "@/components/ui/Reveal";
 import { ButtonLink } from "@/components/ui/Button";
 import { getService, services } from "@/lib/services";
-import { stages } from "@/lib/process";
 import { site } from "@/lib/site";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -64,7 +63,7 @@ export default async function ServicePage({ params }: Props) {
   return (
     <>
       <JsonLd data={ld} />
-      <PageHero title={service.title} lead={service.intro}>
+      <PageHero title={service.title}>
         <div className="mt-12 flex flex-col gap-3 sm:flex-row">
           <ButtonLink href={enquiryHref} variant="light">
             Discuss your project
@@ -115,47 +114,15 @@ export default async function ServicePage({ params }: Props) {
                 </li>
               ))}
             </ul>
-            <p className="eyebrow mt-14 text-muted">Tools & methods we commonly use</p>
-            <ul className="mt-5 flex flex-wrap gap-2">
-              {service.technologies.map((t) => (
-                <li
-                  key={t}
-                  className="rounded-full border border-line-strong bg-white px-3.5 py-1.5 text-sm text-ink-soft"
-                >
-                  {t}
-                </li>
-              ))}
-            </ul>
-            <p className="mt-4 text-sm leading-relaxed text-muted">
-              Technology choices are made per project, based on your existing environment, team and requirements.
-            </p>
           </Reveal>
         </div>
       </section>
 
       <section className="bg-white py-24 lg:py-36">
         <div className="container-site">
-          <Reveal className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
-            <div>
-              <h2 className="text-title font-light">Four stages, from problem to production.</h2>
-            </div>
-            <Link href="/how-we-work" className="text-[0.9375rem] font-medium text-accent hover:underline">
-              Read about our process
-            </Link>
-          </Reveal>
-          <ol className="mt-14 grid gap-px overflow-hidden rounded-[4px] border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
-            {stages.map((s) => (
-              <li key={s.number} className="bg-white p-8">
-                <p className="text-3xl font-light text-accent">{s.number}</p>
-                <p className="mt-6 text-lg">{s.title}</p>
-                <p className="mt-2 text-[0.9375rem] leading-relaxed text-muted">{s.summary}</p>
-              </li>
-            ))}
-          </ol>
-
           <Link
             href={`/services/${next.slug}`}
-            className="group mt-24 flex items-center justify-between gap-6 border-t border-line pt-10"
+            className="group flex items-center justify-between gap-6 border-t border-line pt-10"
           >
             <span>
               <span className="eyebrow block text-muted">Next service</span>

@@ -1,5 +1,6 @@
 import type { CSSProperties, ReactNode } from "react";
 import { cn } from "@/lib/cn";
+import { HeroBackground } from "./HeroBackground";
 
 /** Dark editorial header used at the top of inner pages. */
 export function PageHero({
@@ -14,8 +15,10 @@ export function PageHero({
   compact?: boolean;
 }) {
   return (
-    <section className="hero-field relative isolate overflow-hidden text-white">
-      <div aria-hidden="true" className="hero-orb -z-10 top-[-20%] right-[-10%] h-[70%] w-[55%] bg-accent/40" />
+    <section className="relative isolate overflow-hidden bg-navy-950 text-white">
+      <div aria-hidden="true" className="absolute inset-0 -z-10">
+        <HeroBackground />
+      </div>
       <div
         className={cn(
           "container-site flex flex-col justify-end",

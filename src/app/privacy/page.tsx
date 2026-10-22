@@ -20,11 +20,7 @@ function ToConfirm({ children }: { children: React.ReactNode }) {
 export default function PrivacyPage() {
   return (
     <>
-      <PageHero
-        compact
-        title="Privacy Policy"
-        lead={`How ${site.name} collects, uses and protects personal information.`}
-      />
+      <PageHero compact title="Privacy Policy" />
 
       <section className="bg-white py-16 lg:py-24">
         <div className="container-site grid gap-12 lg:grid-cols-12">

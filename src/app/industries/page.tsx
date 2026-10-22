@@ -16,10 +16,7 @@ export const metadata: Metadata = {
 export default function IndustriesPage() {
   return (
     <>
-      <PageHero
-        title="Engineering that adapts to the sector you operate in."
-        lead="The underlying technology is often similar; the context is not. Below are common challenges in the sectors we work with, and examples of how well-engineered systems can address them."
-      />
+      <PageHero title="Engineering that adapts to the sector you operate in." />
 
       <section className="bg-white py-20 lg:py-28">
         <div className="container-site space-y-24 lg:space-y-36">
@@ -54,23 +51,9 @@ export default function IndustriesPage() {
               <Reveal delay={0.1} className={cn("lg:col-span-6", i % 2 === 0 ? "lg:col-start-7" : "lg:order-1")}>
                 <h2 className="text-headline font-light">{ind.name}</h2>
                 <p className="mt-6 text-lg leading-relaxed text-muted">{ind.summary}</p>
-                <div className="mt-10 grid gap-10 sm:grid-cols-2">
+                <div className="mt-10">
                   <div>
-                    <p className="eyebrow text-muted">Common challenges</p>
-                    <ul className="mt-5 space-y-3">
-                      {ind.challenges.map((c) => (
-                        <li
-                          key={c}
-                          className="border-t border-line pt-3 text-[0.9375rem] leading-relaxed text-ink-soft"
-                        >
-                          {c}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div>
-                    <p className="eyebrow text-accent">How technology can help</p>
-                    <ul className="mt-5 space-y-3">
+                    <ul className="space-y-3">
                       {ind.solutions.map((s) => (
                         <li
                           key={s}
@@ -87,19 +70,6 @@ export default function IndustriesPage() {
           ))}
         </div>
       </section>
-
-      <section className="bg-paper py-20">
-        <div className="container-site">
-          <Reveal className="max-w-3xl">
-            <p className="text-lg leading-relaxed text-ink-soft">
-              Don&apos;t see your sector? The engineering principles behind these examples apply broadly. If your
-              organisation has a process to improve, systems to connect or data to put to work, we&apos;d be glad to
-              discuss it.
-            </p>
-          </Reveal>
-        </div>
-      </section>
-
       <CtaBand />
     </>
   );

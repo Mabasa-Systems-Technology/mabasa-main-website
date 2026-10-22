@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { ArrowUpRight, Check } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { services } from "@/lib/services";
 import { SectionHeading } from "../ui/SectionHeading";
 import { TextLink } from "../ui/Button";
@@ -17,10 +17,7 @@ export function ServicesShowcase() {
     <section id="services" className="bg-paper py-28 lg:py-40">
       <div className="container-site">
         <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
-          <SectionHeading
-            title="What we build."
-            lead="Six disciplines, one engineering team. Engage us for a single capability or bring them together to solve a larger problem."
-          />
+          <SectionHeading title="What we build." />
           <TextLink href="/services" className="shrink-0">
             All services
           </TextLink>
@@ -85,7 +82,7 @@ export function ServicesShowcase() {
           <div className="hidden lg:col-span-5 lg:block">
             <div className="sticky top-28 overflow-hidden rounded-[4px] bg-navy-900 text-white">
               <div aria-hidden="true" className="hero-field absolute inset-0 opacity-70" />
-              <div className="relative min-h-[520px] p-10">
+              <div className="relative min-h-[420px] p-10">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={current.slug}
@@ -97,18 +94,6 @@ export function ServicesShowcase() {
                     <p className="font-mono text-[5.5rem] leading-none font-light text-white/15">{current.number}</p>
                     <h3 className="mt-8 text-2xl font-light tracking-tight">{current.title}</h3>
                     <p className="mt-4 leading-relaxed text-white/70">{current.short}</p>
-                    <ul className="mt-8 space-y-3 border-t border-white/10 pt-8">
-                      {current.capabilities.slice(0, 4).map((c) => (
-                        <li key={c} className="flex gap-3 text-[0.9375rem] text-white/85">
-                          <Check
-                            aria-hidden="true"
-                            strokeWidth={1.75}
-                            className="mt-0.5 size-4 shrink-0 text-accent-soft"
-                          />
-                          {c}
-                        </li>
-                      ))}
-                    </ul>
                     <TextLink href={`/services/${current.slug}`} tone="light" className="mt-10">
                       Explore {current.title.split(" ")[0] === "Artificial" ? "AI & Automation" : current.title}
                     </TextLink>

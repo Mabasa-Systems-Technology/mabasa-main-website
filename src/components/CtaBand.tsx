@@ -5,7 +5,7 @@ import { unsplash } from "@/lib/site";
 
 export function CtaBand({
   title = "Let's build what's next.",
-  body = "Tell us what you're building or the challenge you're trying to solve. We'll help you explore the right technical approach.",
+  body,
   cta = "Discuss Your Project",
   href = "/contact",
 }: {
@@ -30,7 +30,7 @@ export function CtaBand({
       <div className="container-site py-28 lg:py-40">
         <Reveal className="max-w-3xl">
           <h2 className="text-display font-light text-balance">{title}</h2>
-          <p className="mt-8 max-w-xl text-lg leading-relaxed text-white/75">{body}</p>
+          {body && <p className="mt-8 max-w-xl text-lg leading-relaxed text-white/75">{body}</p>}
           <ButtonLink href={href} variant="light" className="mt-12">
             {cta}
           </ButtonLink>

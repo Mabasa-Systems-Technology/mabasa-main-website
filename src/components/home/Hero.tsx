@@ -1,10 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef, type CSSProperties } from "react";
 import { ButtonLink } from "../ui/Button";
-import heroBg from "../../../public/images/hero-bg.webp";
+import { HeroBackground } from "../HeroBackground";
 
 const headline = ["We build the technology", "that moves businesses", "forward."];
 
@@ -22,17 +21,7 @@ export function Hero() {
         style={{ opacity: fieldOpacity, y: fieldY }}
         className="absolute inset-0 -z-10 bg-navy-950"
       >
-        <Image
-          src={heroBg}
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          placeholder="blur"
-          className="object-cover object-center"
-        />
-        {/* Scrim keeps the white headline legible over the lighter lower half of the image. */}
-        <div className="absolute inset-0 bg-[radial-gradient(110%_80%_at_0%_100%,rgb(5_13_31/0.72)_0%,rgb(5_13_31/0.3)_55%,transparent_80%)]" />
+        <HeroBackground />
       </motion.div>
 
       <div className="container-site flex flex-1 flex-col justify-end pt-36 pb-12 lg:pb-16">
@@ -48,11 +37,7 @@ export function Hero() {
 
         <div className="rise mt-10" style={{ "--d": "0.6s" } as CSSProperties}>
           <div>
-            <p className="max-w-xl text-lg leading-relaxed text-pretty text-white/75 lg:text-xl">
-              From intelligent automation to enterprise-grade software, MST helps growing businesses design, build, and
-              scale the systems they need.
-            </p>
-            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+            <div className="flex flex-col gap-3 sm:flex-row">
               <ButtonLink href="/contact" variant="light">
                 Start a Project
               </ButtonLink>

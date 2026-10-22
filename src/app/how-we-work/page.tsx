@@ -32,25 +32,6 @@ const models = [
   },
 ];
 
-const expectations = [
-  {
-    title: "Transparency",
-    text: "Regular progress updates, working demonstrations and visibility of what is planned, in progress and complete.",
-  },
-  {
-    title: "Direct access",
-    text: "You speak with the engineers doing the work, not only an account manager.",
-  },
-  {
-    title: "Written agreements",
-    text: "Scope, responsibilities, intellectual property and access arrangements agreed in writing before work begins.",
-  },
-  {
-    title: "Maintainable outcomes",
-    text: "Documented code, infrastructure and decisions, so your systems remain understandable and supportable.",
-  },
-];
-
 const faqs = [
   {
     q: "How does an engagement usually start?",
@@ -88,14 +69,11 @@ export default function HowWeWorkPage() {
   return (
     <>
       <JsonLd data={faqLd} />
-      <PageHero
-        title="From problem to production."
-        lead="A structured, transparent engagement model. Each stage has a clear purpose, defined deliverables and a decision point, so you stay in control of scope and investment."
-      />
+      <PageHero title="From problem to production." />
 
       <section className="bg-white py-20 lg:py-28">
         <div className="container-site">
-          {stages.map((s, i) => (
+          {stages.map((s) => (
             <article
               key={s.number}
               id={`stage-${s.number}`}
@@ -107,13 +85,6 @@ export default function HowWeWorkPage() {
                     {s.number}
                   </p>
                   <h2 className="mt-6 text-headline font-light">{s.title}</h2>
-                  <p className="mt-6 max-w-md text-lg leading-relaxed text-muted">{s.detail}</p>
-                  {i < stages.length - 1 && (
-                    <p className="mt-8 text-sm text-muted">
-                      <span className="font-medium text-ink">Decision point:</span> you review the outcome before the
-                      next stage begins.
-                    </p>
-                  )}
                 </div>
               </Reveal>
               <div className="space-y-12 lg:col-span-6 lg:col-start-7">
@@ -127,24 +98,13 @@ export default function HowWeWorkPage() {
                     ))}
                   </ul>
                 </Reveal>
-                <Reveal className="grid gap-10 sm:grid-cols-2">
+                <Reveal>
                   <div>
                     <h3 className="eyebrow text-muted">Deliverables</h3>
                     <ul className="mt-5 space-y-3">
                       {s.deliverables.map((d) => (
                         <li key={d} className="flex gap-3 text-ink-soft">
                           <span aria-hidden="true" className="mt-3 h-px w-3 shrink-0 bg-accent" />
-                          {d}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div>
-                    <h3 className="eyebrow text-muted">What we need from you</h3>
-                    <ul className="mt-5 space-y-3">
-                      {s.fromYou.map((d) => (
-                        <li key={d} className="flex gap-3 text-ink-soft">
-                          <span aria-hidden="true" className="mt-3 h-px w-3 shrink-0 bg-line-strong" />
                           {d}
                         </li>
                       ))}
@@ -168,30 +128,12 @@ export default function HowWeWorkPage() {
                 <div className="h-full bg-navy-900 p-8 transition-colors duration-500 hover:bg-navy-800">
                   <p className="font-mono text-xs text-accent-soft">0{i + 1}</p>
                   <h3 className="mt-10 text-xl font-light">{m.title}</h3>
-                  <p className="mt-3 text-[0.9375rem] leading-relaxed text-white/65">{m.text}</p>
                 </div>
               </Reveal>
             ))}
           </div>
         </div>
       </section>
-
-      <section className="bg-white py-24 lg:py-36">
-        <div className="container-site grid gap-16 lg:grid-cols-12">
-          <Reveal className="lg:col-span-4">
-            <h2 className="text-title font-light text-balance">How we work with you, throughout.</h2>
-          </Reveal>
-          <div className="grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:col-span-8">
-            {expectations.map((e) => (
-              <Reveal key={e.title} className="border-t border-ink pt-6">
-                <h3 className="text-xl font-light">{e.title}</h3>
-                <p className="mt-3 leading-relaxed text-muted">{e.text}</p>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section className="bg-paper py-24 lg:py-36">
         <div className="container-site grid gap-16 lg:grid-cols-12">
           <Reveal className="lg:col-span-4">
