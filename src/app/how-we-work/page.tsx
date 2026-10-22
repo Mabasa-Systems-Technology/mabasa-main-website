@@ -9,7 +9,7 @@ import { stages } from "@/lib/process";
 export const metadata: Metadata = {
   title: "How We Work",
   description:
-    "MST's four-stage engagement model — Discover, Design, Build, Deploy & Improve — with clear deliverables, responsibilities and expectations at every step.",
+    "Mabasa Technologies' four-stage engagement model — Discover, Design, Build, Deploy & Improve — with clear deliverables, responsibilities and expectations at every step.",
   alternates: { canonical: "/how-we-work" },
 };
 

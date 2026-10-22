@@ -83,7 +83,7 @@ export async function POST(req: NextRequest) {
   ];
 
   const text = [
-    "New project enquiry from the MST website",
+    "New project enquiry from the Mabasa Technologies website",
     "",
     ...rows.map(([k, v]) => `${k}: ${v}`),
     "",
@@ -94,19 +94,19 @@ export async function POST(req: NextRequest) {
   ].join("\n");
 
   const html = `
-    <div style="font-family:Arial,sans-serif;color:#0b1220;max-width:640px">
+    <div style="font-family:Arial,sans-serif;color:#0a1324;max-width:640px">
       <h2 style="font-weight:400">New project enquiry</h2>
       <table cellpadding="8" style="border-collapse:collapse;width:100%">
         ${rows
           .map(
             ([k, v]) =>
-              `<tr><td style="border-bottom:1px solid #e2e4e8;color:#5d6676;width:180px">${k}</td><td style="border-bottom:1px solid #e2e4e8">${escapeHtml(v)}</td></tr>`,
+              `<tr><td style="border-bottom:1px solid #e5e5e5;color:#5e6778;width:180px">${k}</td><td style="border-bottom:1px solid #e5e5e5">${escapeHtml(v)}</td></tr>`,
           )
           .join("")}
       </table>
       <h3 style="font-weight:500;margin-top:24px">Project description</h3>
       <p style="white-space:pre-wrap;line-height:1.6">${escapeHtml(d.message)}</p>
-      <p style="color:#5d6676;font-size:12px;margin-top:24px">Submitted via the MST website contact form.</p>
+      <p style="color:#5e6778;font-size:12px;margin-top:24px">Submitted via the Mabasa Technologies website contact form.</p>
     </div>`;
 
   try {

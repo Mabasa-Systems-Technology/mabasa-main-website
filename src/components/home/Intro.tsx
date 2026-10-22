@@ -13,7 +13,7 @@ export function Intro() {
             We turn complex business challenges into practical, reliable technology.
           </p>
           <TextLink href="/about" className="mt-10">
-            About MST
+            About Mabasa Technologies
           </TextLink>
         </Reveal>
       </div>

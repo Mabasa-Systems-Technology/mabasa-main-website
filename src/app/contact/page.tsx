@@ -7,20 +7,14 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Tell MST about your project or the business challenge you're trying to solve. We'll help you explore the right technical approach.",
+    "Tell Mabasa Technologies about your project or the business challenge you're trying to solve. We'll help you explore the right technical approach.",
   alternates: { canonical: "/contact" },
 };
 
 const nextSteps = [
-  { title: "We review your enquiry", text: "An engineer reads what you've shared and considers how we could help." },
-  {
-    title: "An initial conversation",
-    text: "If there's a fit, we arrange a short call to understand your context and goals.",
-  },
-  {
-    title: "A recommended approach",
-    text: "We outline practical next steps — often a focused Discover stage — with clear scope and cost.",
-  },
+  { title: "We read your enquiry", text: "An engineer reviews what you've shared." },
+  { title: "We talk", text: "A short call to understand your goals." },
+  { title: "You get a plan", text: "Clear next steps, scope and cost." },
 ];
 
 type Props = { searchParams: Promise<{ service?: string | string[] }> };
@@ -35,46 +29,40 @@ export default async function ContactPage({ searchParams }: Props) {
         <div aria-hidden="true" className="absolute inset-0 -z-10">
           <HeroBackground />
         </div>
-        <div className="container-site pt-40 pb-40 lg:pt-48 lg:pb-56">
-          <div className="rise">
-            <h1 className="max-w-4xl text-display font-light text-balance">Tell us what you&apos;re building.</h1>
-          </div>
+        <div className="container-site pt-36 pb-32 lg:pt-44 lg:pb-44">
+          <h1 className="rise max-w-4xl text-display font-light text-balance">Tell us what you&apos;re building.</h1>
         </div>
       </section>
 
-      <section className="relative z-10 bg-paper pb-24 lg:pb-36">
-        <div className="container-site -mt-24 grid gap-14 lg:-mt-36 lg:grid-cols-12">
-          <Reveal delay={0.1} className="lg:col-span-7">
+      <section className="relative z-10 bg-paper pb-24 lg:pb-32">
+        <div className="container-site -mt-20 grid gap-10 lg:-mt-28 lg:grid-cols-12 lg:gap-14">
+          <Reveal delay={0.05} className="lg:col-span-7">
             <ContactForm initialService={initialService} publicEmail={site.publicEmail || undefined} />
           </Reveal>
 
-          <aside className="lg:col-span-4 lg:col-start-9 lg:pt-44">
-            <Reveal delay={0.2}>
-              <h2 className="eyebrow text-accent">What happens next</h2>
-              <ol className="mt-8 space-y-8">
+          <aside className="lg:col-span-4 lg:col-start-9 lg:pt-36">
+            <div className="lg:sticky lg:top-28">
+              <h2 className="text-xl font-light tracking-tight text-ink">What happens next</h2>
+              <ol className="mt-6 border-t border-line-strong">
                 {nextSteps.map((s, i) => (
-                  <li key={s.title} className="grid grid-cols-[auto_1fr] gap-5">
-                    <span className="flex size-9 items-center justify-center rounded-full border border-accent/30 font-mono text-xs text-accent">
-                      {i + 1}
-                    </span>
+                  <li key={s.title} className="flex gap-5 border-b border-line-strong py-5">
+                    <span className="font-mono text-xs leading-7 text-accent">0{i + 1}</span>
                     <div>
-                      <h3 className="text-lg">{s.title}</h3>
+                      <h3 className="text-ink">{s.title}</h3>
+                      <p className="mt-1 text-sm text-muted">{s.text}</p>
                     </div>
                   </li>
                 ))}
               </ol>
-
-              <div className="mt-12 border-t border-line-strong pt-8 text-[0.9375rem] leading-relaxed text-muted">
-                {site.publicEmail && (
-                  <p className="mt-4">
-                    Email:{" "}
-                    <a href={`mailto:${site.publicEmail}`} className="text-ink underline underline-offset-4">
-                      {site.publicEmail}
-                    </a>
-                  </p>
-                )}
-              </div>
-            </Reveal>
+              {site.publicEmail && (
+                <p className="mt-8 text-sm text-muted">
+                  Prefer email?{" "}
+                  <a href={`mailto:${site.publicEmail}`} className="text-ink underline underline-offset-4">
+                    {site.publicEmail}
+                  </a>
+                </p>
+              )}
+            </div>
           </aside>
         </div>
       </section>

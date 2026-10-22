@@ -1,30 +1,30 @@
 @import "tailwindcss";
 
-/* ─── MST design tokens ─────────────────────────────────────────────────── */
+/* ─── Mabasa Technologies design tokens ─────────────────────────────────────────────────── */
 @theme {
   --font-sans: var(--font-inter-tight), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-plex-mono), ui-monospace, SFMono-Regular, monospace;
 
   /* Neutrals */
-  --color-paper: #f6f6f3;
+  --color-paper: #f5f5f4;
   --color-white: #ffffff;
-  --color-ink: #0b1220;
-  --color-ink-soft: #2a3344;
-  --color-muted: #5d6676;
-  --color-line: #e2e4e8;
-  --color-line-strong: #c9cdd4;
+  --color-ink: #0a1324;
+  --color-ink-soft: #2a3448;
+  --color-muted: #5e6778;
+  --color-line: #e5e5e5;
+  --color-line-strong: #cfcfd1;
 
-  /* Navy (dark surfaces) */
-  --color-navy-950: #050d1f;
-  --color-navy-900: #08152e;
-  --color-navy-800: #0d1f42;
-  --color-navy-700: #16305f;
+  /* Navy (dark surfaces) — built around brand blue #002d72 */
+  --color-navy-950: #000c1f;
+  --color-navy-900: #00142f;
+  --color-navy-800: #001d45;
+  --color-navy-700: #002d72;
 
-  /* Blue accent — used sparingly */
-  --color-accent: #2c5cf0;
-  --color-accent-deep: #1b3fb8;
-  --color-accent-soft: #9db8ff;
-  --color-accent-wash: #eaf0ff;
+  /* Brand blue accent (#002d72) — used sparingly */
+  --color-accent: #002d72;
+  --color-accent-deep: #001d4a;
+  --color-accent-soft: #8fb0ea;
+  --color-accent-wash: #e9eef7;
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 
@@ -108,10 +108,9 @@
 /* ─── Hero gradient field ───────────────────────────────────────────────── */
 .hero-field {
   background:
-    radial-gradient(60% 70% at 78% 18%, rgb(157 184 255 / 0.55), transparent 70%),
-    radial-gradient(55% 60% at 22% 88%, rgb(44 92 240 / 0.55), transparent 70%),
-    radial-gradient(80% 90% at 60% 60%, rgb(22 48 95 / 0.9), transparent 75%),
-    linear-gradient(160deg, #0d1f42 0%, #08152e 55%, #050d1f 100%);
+    radial-gradient(60% 70% at 80% 15%, rgb(143 176 234 / 0.35), transparent 70%),
+    radial-gradient(55% 60% at 20% 95%, rgb(0 45 114 / 0.7), transparent 70%),
+    linear-gradient(160deg, #001d45 0%, #00142f 55%, #000c1f 100%);
 }
 
 .hero-orb {

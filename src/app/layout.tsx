@@ -25,8 +25,8 @@ const plexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "MST — Technology Consulting & Software Engineering",
-    template: "%s | MST",
+    default: "Mabasa Technologies — Technology Consulting & Software Engineering",
+    template: "%s | Mabasa Technologies",
   },
   description: site.description,
   applicationName: site.name,
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     locale: site.locale,
     siteName: site.name,
     url: "/",
-    title: "MST — Technology Consulting & Software Engineering",
+    title: "Mabasa Technologies — Technology Consulting & Software Engineering",
     description: site.description,
   },
   twitter: { card: "summary_large_image" },
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#08152e",
+  themeColor: "#00142f",
   width: "device-width",
   initialScale: 1,
 };
@@ -65,7 +65,7 @@ const organizationLd = {
   name: site.name,
   legalName: site.legalName,
   url: site.url,
-  logo: `${site.url}/icon.svg`,
+  logo: `${site.url}/brand/logo-dark.png`,
   description: site.description,
   areaServed: { "@type": "Country", name: site.country },
   ...(site.publicEmail ? { email: site.publicEmail } : {}),

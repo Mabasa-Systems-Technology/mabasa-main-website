@@ -8,7 +8,7 @@ import { unsplash } from "@/lib/site";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "MST is a South African technology consulting and engineering company. Learn about our purpose, engineering philosophy and approach to working with growing businesses.",
+    "Mabasa Technologies is a South African technology consulting and engineering company. Learn about our purpose, engineering philosophy and approach to working with growing businesses.",
   alternates: { canonical: "/about" },
 };
 

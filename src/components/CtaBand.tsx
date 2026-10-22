@@ -26,7 +26,7 @@ export function CtaBand({
           sizes="100vw"
           className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(100deg,rgb(5_13_31/0.7)_0%,rgb(5_13_31/0.35)_55%,rgb(5_13_31/0.1)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(100deg,rgb(0_12_31/0.7)_0%,rgb(0_12_31/0.35)_55%,rgb(0_12_31/0.1)_100%)]" />
       </div>
       <div className="container-site flex min-h-[80svh] flex-col justify-center py-28 lg:py-40">
         <Reveal className="max-w-3xl">

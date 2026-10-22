@@ -3,8 +3,8 @@ import { Intro } from "@/components/home/Intro";
 import { ServicesShowcase } from "@/components/home/ServicesShowcase";
 import { ClientSegments } from "@/components/home/ClientSegments";
 import { IndustryCarousel } from "@/components/home/IndustryCarousel";
-import { ProcessStepper } from "@/components/home/ProcessStepper";
 import { WhyMst } from "@/components/home/WhyMst";
+import { Clients } from "@/components/home/Clients";
 import { SelectedWork } from "@/components/home/SelectedWork";
 import { CtaBand } from "@/components/CtaBand";
 
@@ -16,7 +16,7 @@ export default function HomePage() {
       <ServicesShowcase />
       <ClientSegments />
       <IndustryCarousel />
-      <ProcessStepper />
+      <Clients />
       <WhyMst />
       <SelectedWork />
       <CtaBand />

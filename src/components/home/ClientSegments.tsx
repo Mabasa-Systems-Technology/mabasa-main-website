@@ -6,17 +6,17 @@ const segments = [
   {
     title: "Startups",
     text: "Build and launch reliable digital products with practical technical guidance.",
-    tone: "bg-[radial-gradient(120%_90%_at_100%_0%,#16305f_0%,#08152e_60%)]",
+    tone: "bg-[radial-gradient(120%_90%_at_100%_0%,#002d72_0%,#00142f_65%)]",
   },
   {
     title: "Small & Medium Enterprises",
     text: "Modernise operations, integrate systems, and automate repetitive processes.",
-    tone: "bg-[radial-gradient(120%_90%_at_100%_0%,#2c5cf0_0%,#16305f_45%,#08152e_100%)]",
+    tone: "bg-[radial-gradient(120%_90%_at_100%_0%,#1f4fa3_0%,#002d72_45%,#00142f_100%)]",
   },
   {
     title: "Growing Organisations",
     text: "Scale infrastructure, improve existing platforms, and introduce advanced engineering capabilities.",
-    tone: "bg-[radial-gradient(120%_90%_at_100%_0%,#9db8ff_0%,#2c5cf0_35%,#0d1f42_100%)]",
+    tone: "bg-[radial-gradient(120%_90%_at_100%_0%,#8fb0ea_0%,#1f4fa3_35%,#001d45_100%)]",
   },
 ];
 

@@ -6,7 +6,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "How MST collects, uses and protects personal information in line with the Protection of Personal Information Act (POPIA).",
+    "How Mabasa Technologies collects, uses and protects personal information in line with the Protection of Personal Information Act (POPIA).",
   alternates: { canonical: "/privacy" },
 };
 

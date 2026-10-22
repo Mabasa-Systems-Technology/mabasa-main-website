@@ -9,7 +9,7 @@ import { cn } from "@/lib/cn";
 export const metadata: Metadata = {
   title: "Industries",
   description:
-    "How MST applies software engineering, AI, cloud and data capabilities to challenges in financial services, logistics, retail, healthcare, professional services and manufacturing.",
+    "How Mabasa Technologies applies software engineering, AI, cloud and data capabilities to challenges in financial services, logistics, retail, healthcare, professional services and manufacturing.",
   alternates: { canonical: "/industries" },
 };
 

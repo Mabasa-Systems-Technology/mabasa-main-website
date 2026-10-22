@@ -1,9 +1,9 @@
 export const site = {
-  name: "MST",
-  legalName: "MST (Pty) Ltd",
+  name: "Mabasa Technologies",
+  legalName: "Mabasa Technologies (Pty) Ltd",
   tagline: "Technology consulting & software engineering",
   description:
-    "MST is a South African technology consultancy. We design, build, integrate and maintain software, AI, cloud and data systems for startups, SMEs and growing organisations.",
+    "Mabasa Technologies is a South African technology consultancy. We design, build, integrate and maintain software, AI, cloud and data systems for startups, SMEs and growing organisations.",
   url: (process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000").replace(/\/$/, ""),
   locale: "en_ZA",
   country: "South Africa",

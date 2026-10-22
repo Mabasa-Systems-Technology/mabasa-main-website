@@ -1,6 +1,6 @@
-# MST — Website
+# Mabasa Technologies — Website
 
-Marketing and lead-generation website for **MST**, a South African technology consulting and software engineering company.
+Marketing and lead-generation website for **Mabasa Technologies**, a South African technology consulting and software engineering company.
 
 Built with Next.js 16 (App Router), TypeScript, Tailwind CSS v4, Motion for React and Lucide icons. Ready to deploy on Vercel.
 
@@ -12,27 +12,27 @@ cp .env.example .env.local   # then fill in the values
 npm run dev                  # http://localhost:3000
 ```
 
-| Script              | Purpose                          |
-| ------------------- | -------------------------------- |
-| `npm run dev`       | Development server               |
-| `npm run build`     | Production build                 |
-| `npm run start`     | Serve the production build       |
-| `npm run lint`      | ESLint (Next.js + React rules)   |
-| `npm run typecheck` | TypeScript, no emit              |
-| `npm run format`    | Prettier                         |
+| Script              | Purpose                        |
+| ------------------- | ------------------------------ |
+| `npm run dev`       | Development server             |
+| `npm run build`     | Production build               |
+| `npm run start`     | Serve the production build     |
+| `npm run lint`      | ESLint (Next.js + React rules) |
+| `npm run typecheck` | TypeScript, no emit            |
+| `npm run format`    | Prettier                       |
 
 ## Environment variables
 
 See [`.env.example`](.env.example) for the full list.
 
-| Variable                    | Required        | Notes                                                                 |
-| --------------------------- | --------------- | --------------------------------------------------------------------- |
-| `NEXT_PUBLIC_SITE_URL`      | Yes (prod)      | Canonical URL used in metadata, sitemap, Open Graph, structured data. |
-| `CONTACT_TO_EMAIL`          | No              | Enquiry destination. Defaults to `info@olyxee.com`.                   |
-| `CONTACT_FROM_EMAIL`        | Yes (for email) | Sender address on a domain verified with your provider.               |
-| `RESEND_API_KEY`            | One of these    | Uses [Resend](https://resend.com) when set.                           |
-| `SMTP_HOST` / `SMTP_PORT` / `SMTP_USER` / `SMTP_PASSWORD` / `SMTP_SECURE` | One of these | Any SMTP provider, used when no Resend key is set. |
-| `NEXT_PUBLIC_CONTACT_EMAIL` | No              | Public address shown on the site. Leave empty to show none.           |
+| Variable                                                                  | Required        | Notes                                                                 |
+| ------------------------------------------------------------------------- | --------------- | --------------------------------------------------------------------- |
+| `NEXT_PUBLIC_SITE_URL`                                                    | Yes (prod)      | Canonical URL used in metadata, sitemap, Open Graph, structured data. |
+| `CONTACT_TO_EMAIL`                                                        | No              | Enquiry destination. Defaults to `info@olyxee.com`.                   |
+| `CONTACT_FROM_EMAIL`                                                      | Yes (for email) | Sender address on a domain verified with your provider.               |
+| `RESEND_API_KEY`                                                          | One of these    | Uses [Resend](https://resend.com) when set.                           |
+| `SMTP_HOST` / `SMTP_PORT` / `SMTP_USER` / `SMTP_PASSWORD` / `SMTP_SECURE` | One of these    | Any SMTP provider, used when no Resend key is set.                    |
+| `NEXT_PUBLIC_CONTACT_EMAIL`                                               | No              | Public address shown on the site. Leave empty to show none.           |
 
 If email delivery is not configured, the contact API responds with `503` and the form shows a clear "temporarily unavailable" message — it never pretends a submission succeeded.
 
@@ -55,15 +55,16 @@ All copy lives in typed data files so it can be edited without touching layout c
 - `src/lib/industries.ts` — industry challenges and illustrative solutions.
 - `src/lib/process.ts` — the four-stage engagement model.
 - `src/lib/case-studies.ts` — **empty by design.** Add only verified, client-approved case studies; when present, the homepage "Selected Work" section lists them automatically. Until then it shows a problem-led, services-to-contact section.
+- `src/lib/clients.ts` — client names shown on the homepage. Add each client's `feedback` (their own approved quote, the person's name and role) and a testimonial card appears automatically.
 - `src/lib/site.ts` — brand name, legal name, navigation.
 
 ## Before going live
 
 - [ ] **Privacy policy** (`/privacy`) is marked **draft**. Have it reviewed by a legal adviser and complete every highlighted "To be confirmed" item (registration number, Information Officer, address, providers, retention period, PAIA manual). Then remove the draft banner.
-- [ ] Confirm the legal entity name in `src/lib/site.ts` (`legalName`, currently `MST (Pty) Ltd`).
+- [ ] Confirm the legal entity name in `src/lib/site.ts` (`legalName`, currently `Mabasa Technologies (Pty) Ltd`).
 - [ ] Set `NEXT_PUBLIC_SITE_URL` and email variables in Vercel → Project → Settings → Environment Variables.
 - [ ] Verify the sender domain with your email provider and send a test enquiry.
-- [ ] Optionally replace the Unsplash photography (free licence, served via `next/image`) with MST's own imagery.
+- [ ] Optionally replace the Unsplash photography (free licence, served via `next/image`) with Mabasa Technologies' own imagery.
 
 ## Deploying to Vercel
 
