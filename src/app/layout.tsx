@@ -6,6 +6,7 @@ import { Providers } from "@/components/Providers";
 import { JsonLd } from "@/components/JsonLd";
 import { site } from "@/lib/site";
 import { services } from "@/lib/services";
+import { team } from "@/lib/team";
 import "./globals.css";
 
 const interTight = Inter_Tight({
@@ -98,6 +99,21 @@ const structuredData = {
         "Technology consulting",
       ],
       ...(site.publicEmail ? { email: site.publicEmail } : {}),
+      // Only named people are published as structured data; nothing is invented.
+      ...(team.some((m) => m.name)
+        ? {
+            founder: team
+              .filter((m) => m.name)
+              .map((m) => ({
+                "@type": "Person",
+                name: m.name,
+                ...(m.alias ? { alternateName: m.alias } : {}),
+                jobTitle: m.role,
+                image: `${site.url}${m.image}`,
+                worksFor: { "@id": `${site.url}/#organization` },
+              })),
+          }
+        : {}),
       hasOfferCatalog: {
         "@type": "OfferCatalog",
         name: "Technology consulting and engineering services",

@@ -1,43 +1,51 @@
+import Image from "next/image";
 import { clients, testimonials } from "@/lib/clients";
+import { cn } from "@/lib/cn";
 import { Reveal } from "../ui/Reveal";
-import { SectionHeading } from "../ui/SectionHeading";
 
+/** A slim band, not a full section: heading beside the client names. */
 export function Clients() {
   return (
-    <section className="bg-white py-28 lg:py-40">
+    <section aria-labelledby="clients-heading" className="border-y border-line bg-white py-12 lg:py-14">
       <div className="container-site">
-        <SectionHeading align="center" title="Businesses we've worked with." />
-
-        <Reveal className="mt-16 lg:mt-20">
-          <ul className="grid grid-cols-2 border-t border-l border-line sm:grid-cols-3">
+        <Reveal className="grid gap-6 lg:grid-cols-12 lg:items-center lg:gap-10">
+          <h2 id="clients-heading" className="text-xl font-light tracking-tight text-ink lg:col-span-3">
+            Businesses we&apos;ve worked with
+          </h2>
+          <ul className="grid grid-cols-2 items-center justify-items-start gap-x-8 gap-y-6 sm:flex sm:flex-wrap sm:gap-x-12 sm:gap-y-8 lg:col-span-9 lg:justify-between">
             {clients.map((c) => (
-              <li
-                key={c.name}
-                className="flex min-h-32 items-center justify-center border-r border-b border-line px-6 py-10 text-center lg:min-h-40"
-              >
-                <span className="text-lg font-medium tracking-tight text-ink/70 transition-colors duration-300 hover:text-ink lg:text-xl">
-                  {c.name}
-                </span>
+              <li key={c.name} className="flex h-10 items-center">
+                {c.logo ? (
+                  <Image
+                    src={c.logo.src}
+                    alt={c.name}
+                    width={c.logo.width}
+                    height={c.logo.height}
+                    className={cn(
+                      "w-auto max-w-[8.5rem] object-contain object-left opacity-70 grayscale transition duration-300 hover:opacity-100 hover:grayscale-0 sm:max-w-none",
+                      c.logo.heightClass,
+                    )}
+                  />
+                ) : (
+                  <span className="text-lg font-medium tracking-tight text-ink/60">{c.name}</span>
+                )}
               </li>
             ))}
           </ul>
         </Reveal>
 
         {testimonials.length > 0 && (
-          <div className="mt-20 grid gap-5 lg:mt-28 lg:grid-cols-2">
+          <div className="mt-12 grid gap-5 border-t border-line pt-12 lg:grid-cols-2">
             {testimonials.map((t, i) => (
               <Reveal key={t.name} delay={(i % 2) * 0.08} className="h-full">
-                <figure className="flex h-full flex-col justify-between rounded-[4px] border border-line bg-paper p-8 lg:p-10">
-                  <blockquote className="text-xl leading-relaxed font-light text-ink lg:text-2xl">
+                <figure className="flex h-full flex-col justify-between rounded-[4px] bg-paper p-8">
+                  <blockquote className="text-lg leading-relaxed font-light text-ink lg:text-xl">
                     &ldquo;{t.feedback.quote}&rdquo;
                   </blockquote>
-                  <figcaption className="mt-8 flex items-center gap-4 border-t border-line pt-6 text-sm">
-                    <span aria-hidden="true" className="size-2 bg-accent" />
-                    <span>
-                      <span className="block font-medium text-ink">{t.feedback.person}</span>
-                      <span className="block text-muted">
-                        {t.feedback.role}, {t.name}
-                      </span>
+                  <figcaption className="mt-6 text-sm">
+                    <span className="block font-medium text-ink">{t.feedback.person}</span>
+                    <span className="block text-muted">
+                      {t.feedback.role}, {t.name}
                     </span>
                   </figcaption>
                 </figure>

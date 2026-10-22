@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { PageHero } from "@/components/PageHero";
 import { CtaBand } from "@/components/CtaBand";
+import { Leadership } from "@/components/Leadership";
 import { Reveal } from "@/components/ui/Reveal";
 import { unsplash } from "@/lib/site";
 
@@ -60,6 +61,8 @@ export default function AboutPage() {
           </Reveal>
         </div>
       </section>
+
+      <Leadership />
 
       <section className="relative isolate overflow-hidden bg-navy-950">
         <div className="relative aspect-[16/9] max-h-[640px] w-full sm:aspect-[21/9]">
