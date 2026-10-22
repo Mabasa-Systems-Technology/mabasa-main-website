@@ -16,6 +16,6 @@ export type TeamMember = {
 };
 
 export const team: TeamMember[] = [
-  { name: "Lethabo Makonto", alias: "Scofield", role: "Co-founder & CEO", image: "/team/ceo.webp", focus: "50% 40%" },
+  { name: "Lethabo Scofield", role: "Co-founder & CEO", image: "/team/ceo.webp", focus: "50% 40%" },
   { name: "Zamokuhle Mazibuko", role: "Co-founder & CTO", image: "/team/cto.webp", focus: "50% 25%" },
 ];
