@@ -1,22 +1,31 @@
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "../ui/Reveal";
 import { SectionHeading } from "../ui/SectionHeading";
-import { cn } from "@/lib/cn";
+import { unsplash } from "@/lib/site";
 
 const segments = [
   {
     title: "Startups",
-    text: "Build and launch reliable digital products with practical technical guidance.",
-    tone: "bg-[radial-gradient(120%_90%_at_100%_0%,#002d72_0%,#00142f_65%)]",
+    image: unsplash("photo-1568658176307-bfbd2873abda"),
+    alt: "Two founders reviewing work on a laptop",
+    who: "You have an idea or early product and need it built properly.",
+    help: "We build and launch reliable products, with practical technical guidance.",
   },
   {
     title: "Small & Medium Enterprises",
-    text: "Modernise operations, integrate systems, and automate repetitive processes.",
-    tone: "bg-[radial-gradient(120%_90%_at_100%_0%,#1f4fa3_0%,#002d72_45%,#00142f_100%)]",
+    image: unsplash("photo-1687422808248-f807f4ea2a2e"),
+    alt: "A small business owner checking orders on his phone",
+    who: "Your business runs, but manual work and disconnected tools slow you down.",
+    help: "We modernise operations, connect your systems and automate repetitive work.",
   },
   {
     title: "Growing Organisations",
-    text: "Scale infrastructure, improve existing platforms, and introduce advanced engineering capabilities.",
-    tone: "bg-[radial-gradient(120%_90%_at_100%_0%,#8fb0ea_0%,#1f4fa3_35%,#001d45_100%)]",
+    image: unsplash("photo-1758518730136-1bf4fa26ccbf"),
+    alt: "A team of professionals meeting around a conference table",
+    who: "You're scaling fast and your systems need to keep up.",
+    help: "We scale infrastructure, improve existing platforms and add advanced capabilities.",
   },
 ];
 
@@ -25,21 +34,44 @@ export function ClientSegments() {
     <section className="bg-white py-28 lg:py-40">
       <div className="container-site">
         <SectionHeading align="center" title="Built for businesses at every stage of growth." />
-        <div className="mt-16 grid gap-5 lg:mt-24 lg:grid-cols-3">
+        <div className="mt-16 grid gap-6 lg:mt-24 lg:grid-cols-3">
           {segments.map((s, i) => (
             <Reveal key={s.title} delay={i * 0.1} className="h-full">
-              <article
-                className={cn(
-                  "group relative flex h-full min-h-[380px] flex-col overflow-hidden rounded-[4px] p-8 text-white lg:p-10",
-                  s.tone,
-                )}
+              <Link
+                href="/contact"
+                className="group flex h-full flex-col overflow-hidden rounded-[4px] border border-line bg-white transition-shadow duration-500 hover:shadow-[0_24px_60px_-30px_rgb(0_20_47/0.35)]"
               >
-                <p className="relative font-mono text-xs text-white/50">0{i + 1}</p>
-                <h3 className="relative mt-auto pt-16 text-[2.25rem] leading-[1.08] font-light tracking-[-0.025em] text-balance">
-                  {s.title}
-                </h3>
-                <p className="relative mt-5 leading-relaxed text-white/75">{s.text}</p>
-              </article>
+                <div className="relative aspect-[4/3] overflow-hidden bg-navy-900">
+                  <Image
+                    src={s.image}
+                    alt={s.alt}
+                    fill
+                    sizes="(min-width: 1024px) 33vw, 100vw"
+                    className="object-cover transition-transform duration-[1.2s] ease-out-expo group-hover:scale-[1.04]"
+                  />
+                  <div
+                    aria-hidden="true"
+                    className="absolute inset-0 bg-gradient-to-t from-navy-950/85 via-navy-950/15 to-transparent"
+                  />
+                  <h3 className="absolute inset-x-0 bottom-0 p-6 text-[1.75rem] leading-tight font-light tracking-tight text-white lg:p-8">
+                    {s.title}
+                  </h3>
+                </div>
+
+                <div className="flex flex-1 flex-col p-6 lg:p-8">
+                  <p className="text-sm font-medium text-accent">You&apos;re here if…</p>
+                  <p className="mt-2 text-lg leading-snug text-ink">{s.who}</p>
+                  <p className="mt-6 border-t border-line pt-6 leading-relaxed text-muted">{s.help}</p>
+                  <span className="mt-auto inline-flex items-center gap-1.5 pt-8 text-sm font-medium text-accent">
+                    Talk to us
+                    <ArrowUpRight
+                      aria-hidden="true"
+                      strokeWidth={1.75}
+                      className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                    />
+                  </span>
+                </div>
+              </Link>
             </Reveal>
           ))}
         </div>
