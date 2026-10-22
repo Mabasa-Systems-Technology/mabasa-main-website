@@ -69,8 +69,9 @@ export function Footer() {
         </div>
 
         <div className="flex flex-col gap-4 pt-8 text-sm text-white/45 sm:flex-row sm:items-center sm:justify-between">
-          <p>
-            © {year} {site.legalName}. All rights reserved.
+          <p className="max-w-2xl">
+            © {year} {site.legalName}. All rights reserved. Site content, design and code may not be copied, reproduced
+            or used to train AI models without written permission.
           </p>
           <Link href="/privacy" className="transition-colors hover:text-white">
             Privacy Policy

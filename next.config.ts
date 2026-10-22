@@ -6,10 +6,14 @@ const securityHeaders = [
   { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
   { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(), interest-cohort=()" },
   { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains; preload" },
+  // Reserve text-and-data-mining rights (W3C TDMRep). Search indexing is unaffected.
+  { key: "tdm-reservation", value: "1" },
 ];
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  // Never ship original source to browsers.
+  productionBrowserSourceMaps: false,
   turbopack: { root: __dirname },
   images: {
     formats: ["image/avif", "image/webp"],

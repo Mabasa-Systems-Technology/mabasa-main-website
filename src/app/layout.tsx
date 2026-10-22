@@ -32,12 +32,17 @@ export const metadata: Metadata = {
   applicationName: site.name,
   keywords: [
     "technology consulting South Africa",
-    "software development company",
+    "software development company South Africa",
     "custom software development",
-    "AI automation",
-    "cloud infrastructure",
-    "data engineering",
+    "web application development",
+    "website and platform development for SMEs",
+    "AI automation for business",
+    "business process automation",
+    "cloud infrastructure and migration",
+    "data engineering and analytics",
     "systems integration",
+    "ERP and e-commerce integration",
+    "software consultancy for startups",
   ],
   alternates: { canonical: "/" },
   openGraph: {
@@ -49,7 +54,17 @@ export const metadata: Metadata = {
     description: site.description,
   },
   twitter: { card: "summary_large_image" },
-  robots: { index: true, follow: true },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
+  },
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION || undefined,
+    other: process.env.BING_SITE_VERIFICATION ? { "msvalidate.01": process.env.BING_SITE_VERIFICATION } : undefined,
+  },
+  // Text-and-data-mining rights reserved (W3C TDMRep); does not affect search indexing.
+  other: { "tdm-reservation": "1" },
 };
 
 export const viewport: Viewport = {
@@ -58,25 +73,55 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-const organizationLd = {
+const structuredData = {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "@id": `${site.url}/#organization`,
-  name: site.name,
-  legalName: site.legalName,
-  url: site.url,
-  logo: `${site.url}/brand/logo-dark.png`,
-  description: site.description,
-  areaServed: { "@type": "Country", name: site.country },
-  ...(site.publicEmail ? { email: site.publicEmail } : {}),
-  hasOfferCatalog: {
-    "@type": "OfferCatalog",
-    name: "Technology consulting and engineering services",
-    itemListElement: services.map((s) => ({
-      "@type": "Offer",
-      itemOffered: { "@type": "Service", name: s.title, description: s.short, url: `${site.url}/services/${s.slug}` },
-    })),
-  },
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": `${site.url}/#organization`,
+      name: site.name,
+      legalName: site.legalName,
+      url: site.url,
+      logo: `${site.url}/brand/logo-dark.png`,
+      image: `${site.url}/opengraph-image`,
+      description: site.description,
+      slogan: "We build the technology that moves businesses forward.",
+      areaServed: { "@type": "Country", name: site.country },
+      audience: { "@type": "BusinessAudience", audienceType: "Startups, SMEs and growing organisations" },
+      knowsAbout: [
+        "Custom software development",
+        "Web applications",
+        "Artificial intelligence and automation",
+        "Cloud infrastructure",
+        "Data engineering and analytics",
+        "Systems integration",
+        "Technology consulting",
+      ],
+      ...(site.publicEmail ? { email: site.publicEmail } : {}),
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Technology consulting and engineering services",
+        itemListElement: services.map((s) => ({
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: s.title,
+            description: s.short,
+            url: `${site.url}/services/${s.slug}`,
+          },
+        })),
+      },
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${site.url}/#website`,
+      url: site.url,
+      name: site.name,
+      description: site.description,
+      inLanguage: "en-ZA",
+      publisher: { "@id": `${site.url}/#organization` },
+    },
+  ],
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
@@ -88,7 +133,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <main id="main">{children}</main>
           <Footer />
         </Providers>
-        <JsonLd data={organizationLd} />
+        <JsonLd data={structuredData} />
       </body>
     </html>
   );

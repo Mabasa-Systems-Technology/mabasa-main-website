@@ -58,6 +58,24 @@ All copy lives in typed data files so it can be edited without touching layout c
 - `src/lib/clients.ts` — client names shown on the homepage. Add each client's `feedback` (their own approved quote, the person's name and role) and a testimonial card appears automatically.
 - `src/lib/site.ts` — brand name, legal name, navigation.
 
+## Search visibility & content protection
+
+**Discoverability**
+
+- `sitemap.xml`, `robots.txt`, Open Graph image and `/llms.txt` (a plain summary for AI assistants) are generated automatically.
+- Structured data (schema.org `ProfessionalService`, `WebSite`, `Service`, `FAQPage`, breadcrumbs) is on every relevant page.
+- **Set `NEXT_PUBLIC_SITE_URL`** to the live domain, or every canonical URL, sitemap entry and llms.txt link will point at localhost.
+- After launch: verify the domain in Google Search Console and Bing Webmaster Tools (`GOOGLE_SITE_VERIFICATION`, `BING_SITE_VERIFICATION`) and submit `/sitemap.xml`.
+
+**Protection** (`src/app/robots.ts`, `next.config.ts`, `public/.well-known/tdmrep.json`)
+
+- AI _training_ crawlers (GPTBot, ClaudeBot, CCBot, Bytespider, Meta, Cohere, …) are disallowed.
+- Search engines and AI _assistants_ that answer users and link back (Google, Bing, ChatGPT search, Claude search, Perplexity) are allowed, so the site can be found and recommended. `Google-Extended` is allowed because it powers Gemini's cited answers; move it to the blocked list if you'd rather opt out of Gemini entirely.
+- Text-and-data-mining rights are reserved via the W3C TDMRep header, meta tag and `.well-known/tdmrep.json`.
+- No source maps are shipped to browsers.
+
+**Limits — read this.** A public website must send its HTML, CSS and text to every visitor, so it cannot be made uncopyable; robots.txt and TDMRep are honoured by reputable operators, not enforced. For stronger protection: keep this repository **private**, turn on Vercel's Firewall / Bot Protection to rate-limit and challenge scrapers, and rely on the copyright notice for legal recourse.
+
 ## Before going live
 
 - [ ] **Privacy policy** (`/privacy`) is marked **draft**. Have it reviewed by a legal adviser and complete every highlighted "To be confirmed" item (registration number, Information Officer, address, providers, retention period, PAIA manual). Then remove the draft banner.
