@@ -1,5 +1,11 @@
+import { unsplash } from "./site";
+
 export type Service = {
   slug: string;
+  /** One plain-language sentence for quick scanning. */
+  plain: string;
+  image: string;
+  imageAlt: string;
   number: string;
   title: string;
   short: string;
@@ -13,6 +19,9 @@ export type Service = {
 export const services: Service[] = [
   {
     slug: "custom-software-development",
+    plain: "We build the websites, apps and internal tools your business runs on.",
+    image: unsplash("photo-1549692520-acc6669e2f0c"),
+    imageAlt: "A developer writing code at a desk",
     number: "01",
     title: "Custom Software Development",
     short: "Design and development of web applications, internal platforms, APIs, and business-critical systems.",
@@ -42,6 +51,9 @@ export const services: Service[] = [
   },
   {
     slug: "ai-and-automation",
+    plain: "We take repetitive, manual work off your team's plate.",
+    image: unsplash("photo-1716191299980-a6e8827ba10b"),
+    imageAlt: "An industrial robot arm on a production line",
     number: "02",
     title: "Artificial Intelligence & Automation",
     short: "Intelligent workflows, machine learning applications, AI integrations, and practical automation.",
@@ -71,6 +83,9 @@ export const services: Service[] = [
   },
   {
     slug: "cloud-and-infrastructure",
+    plain: "We set up and look after secure, reliable hosting for your systems.",
+    image: unsplash("photo-1584169417032-d34e8d805e8b"),
+    imageAlt: "An aisle of server racks in a data centre",
     number: "03",
     title: "Cloud & Infrastructure",
     short: "Cloud architecture, application deployment, infrastructure engineering, and systems reliability.",
@@ -100,6 +115,9 @@ export const services: Service[] = [
   },
   {
     slug: "data-engineering-and-analytics",
+    plain: "We turn scattered numbers into reports you can trust.",
+    image: unsplash("photo-1551288049-bebda4e38f71"),
+    imageAlt: "Performance charts on a laptop screen",
     number: "04",
     title: "Data Engineering & Analytics",
     short: "Data platforms, integrations, reporting, and decision-support systems.",
@@ -129,6 +147,9 @@ export const services: Service[] = [
   },
   {
     slug: "systems-integration",
+    plain: "We connect your systems so information is captured once.",
+    image: unsplash("photo-1544197150-b99a580bb7a8"),
+    imageAlt: "Network cables plugged into a switch",
     number: "05",
     title: "Systems Integration",
     short: "Connecting business applications, databases, APIs, and legacy systems.",
@@ -158,6 +179,9 @@ export const services: Service[] = [
   },
   {
     slug: "technology-consulting",
+    plain: "We help you make the right technology decisions before you spend.",
+    image: unsplash("photo-1557804506-669a67965ba0"),
+    imageAlt: "A team discussing a plan at a whiteboard",
     number: "06",
     title: "Technology Consulting",
     short: "Architecture, technical strategy, feasibility assessments, and engineering guidance.",

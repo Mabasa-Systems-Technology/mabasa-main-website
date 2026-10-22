@@ -15,19 +15,20 @@ export function CtaBand({
   href?: string;
 }) {
   return (
-    <section className="relative isolate overflow-hidden bg-navy-900 text-white">
-      <Image
-        src={unsplash("photo-1479292889369-1a48f234247e")}
-        alt=""
-        fill
-        sizes="100vw"
-        className="-z-20 object-cover opacity-40"
-      />
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 -z-10 bg-[linear-gradient(100deg,var(--color-navy-950)_15%,rgb(5_13_31/0.82)_50%,rgb(27_63_184/0.45)_100%)]"
-      />
-      <div className="container-site py-28 lg:py-40">
+    // clip-path turns the section into a window onto a viewport-fixed photo,
+    // so the image stays still while the page scrolls past it.
+    <section className="relative isolate bg-navy-900 text-white [clip-path:inset(0)]">
+      <div aria-hidden="true" className="fixed inset-0 -z-10">
+        <Image
+          src={unsplash("photo-1508385082359-f38ae991e8f2")}
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(100deg,rgb(5_13_31/0.7)_0%,rgb(5_13_31/0.35)_55%,rgb(5_13_31/0.1)_100%)]" />
+      </div>
+      <div className="container-site flex min-h-[80svh] flex-col justify-center py-28 lg:py-40">
         <Reveal className="max-w-3xl">
           <h2 className="text-display font-light text-balance">{title}</h2>
           {body && <p className="mt-8 max-w-xl text-lg leading-relaxed text-white/75">{body}</p>}
