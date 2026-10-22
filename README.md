@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MST — Website
 
-## Getting Started
+Marketing and lead-generation website for **MST**, a South African technology consulting and software engineering company.
 
-First, run the development server:
+Built with Next.js 16 (App Router), TypeScript, Tailwind CSS v4, Motion for React and Lucide icons. Ready to deploy on Vercel.
+
+## Getting started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+cp .env.example .env.local   # then fill in the values
+npm run dev                  # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+| Script              | Purpose                          |
+| ------------------- | -------------------------------- |
+| `npm run dev`       | Development server               |
+| `npm run build`     | Production build                 |
+| `npm run start`     | Serve the production build       |
+| `npm run lint`      | ESLint (Next.js + React rules)   |
+| `npm run typecheck` | TypeScript, no emit              |
+| `npm run format`    | Prettier                         |
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+See [`.env.example`](.env.example) for the full list.
 
-## Learn More
+| Variable                    | Required        | Notes                                                                 |
+| --------------------------- | --------------- | --------------------------------------------------------------------- |
+| `NEXT_PUBLIC_SITE_URL`      | Yes (prod)      | Canonical URL used in metadata, sitemap, Open Graph, structured data. |
+| `CONTACT_TO_EMAIL`          | No              | Enquiry destination. Defaults to `info@olyxee.com`.                   |
+| `CONTACT_FROM_EMAIL`        | Yes (for email) | Sender address on a domain verified with your provider.               |
+| `RESEND_API_KEY`            | One of these    | Uses [Resend](https://resend.com) when set.                           |
+| `SMTP_HOST` / `SMTP_PORT` / `SMTP_USER` / `SMTP_PASSWORD` / `SMTP_SECURE` | One of these | Any SMTP provider, used when no Resend key is set. |
+| `NEXT_PUBLIC_CONTACT_EMAIL` | No              | Public address shown on the site. Leave empty to show none.           |
 
-To learn more about Next.js, take a look at the following resources:
+If email delivery is not configured, the contact API responds with `503` and the form shows a clear "temporarily unavailable" message — it never pretends a submission succeeded.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Contact workflow
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+`POST /api/contact` (`src/app/api/contact/route.ts`):
 
-## Deploy on Vercel
+- **Validation** — shared Zod schema (`src/lib/contact-schema.ts`) on both client and server.
+- **Spam protection** — hidden honeypot field plus a minimum fill-time check; caught submissions are discarded silently.
+- **Rate limiting** — 5 submissions per IP per 10 minutes (`src/lib/rate-limit.ts`). This is in-memory and per serverless instance; for a strict global limit, back it with Vercel KV / Upstash Redis.
+- **Origin check** — cross-site POSTs are rejected.
+- **Delivery** — Resend or SMTP (`src/lib/mail.ts`); user input is HTML-escaped and the enquirer's address is set as `Reply-To`.
+- **Failure handling** — `422` validation, `429` rate limit, `502` provider failure, `503` not configured, each surfaced to the user.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Content
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+All copy lives in typed data files so it can be edited without touching layout code:
+
+- `src/lib/services.ts` — the six services (also drives `/services/[slug]` pages, footer, form options).
+- `src/lib/industries.ts` — industry challenges and illustrative solutions.
+- `src/lib/process.ts` — the four-stage engagement model.
+- `src/lib/case-studies.ts` — **empty by design.** Add only verified, client-approved case studies; when present, the homepage "Selected Work" section lists them automatically. Until then it shows a problem-led, services-to-contact section.
+- `src/lib/site.ts` — brand name, legal name, navigation.
+
+## Before going live
+
+- [ ] **Privacy policy** (`/privacy`) is marked **draft**. Have it reviewed by a legal adviser and complete every highlighted "To be confirmed" item (registration number, Information Officer, address, providers, retention period, PAIA manual). Then remove the draft banner.
+- [ ] Confirm the legal entity name in `src/lib/site.ts` (`legalName`, currently `MST (Pty) Ltd`).
+- [ ] Set `NEXT_PUBLIC_SITE_URL` and email variables in Vercel → Project → Settings → Environment Variables.
+- [ ] Verify the sender domain with your email provider and send a test enquiry.
+- [ ] Optionally replace the Unsplash photography (free licence, served via `next/image`) with MST's own imagery.
+
+## Deploying to Vercel
+
+1. Push this folder to a Git repository and import it in Vercel (framework preset: Next.js; no extra config needed).
+2. Add the environment variables above.
+3. Deploy. `sitemap.xml`, `robots.txt`, the Open Graph image and the favicon are generated automatically.
