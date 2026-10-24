@@ -36,6 +36,7 @@ ${stages.map((s) => `${Number(s.number)}. ${s.title}: ${s.summary}`).join("\n")}
 - [Home](${site.url}/)
 - [Services](${site.url}/services)
 - [How we work](${site.url}/how-we-work)
+- [Outsourced development](${site.url}/outsourced-development): a South Africa and Pakistan delivery team shaped around the client
 - [About](${site.url}/about)
 - [Start a project enquiry](${site.url}/contact)
 

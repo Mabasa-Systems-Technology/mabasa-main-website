@@ -1,69 +1,102 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Logo } from "./ui/Logo";
 import { BbbeeBadge } from "./ui/BbbeeBadge";
 import { SocialLinks } from "./SocialLinks";
 import { navigation, site } from "@/lib/site";
+import { services } from "@/lib/services";
 import wordmark from "../../public/brand/wordmark-light.png";
+
+const link = "text-[0.9375rem] leading-snug text-white/70 transition-colors hover:text-white focus-visible:text-white";
+const heading = "mb-5 text-sm font-medium text-white";
 
 export function Footer() {
   const year = new Date().getFullYear();
   return (
     <footer className="overflow-hidden bg-navy-950 text-white">
       <div className="container-site pt-20 lg:pt-28">
-        <div className="grid gap-16 lg:grid-cols-12">
-          <div className="lg:col-span-7">
-            <p className="text-headline font-light text-balance">Let&apos;s talk.</p>
-            <a
-              href={`mailto:${site.publicEmail}`}
-              className="mt-8 inline-block text-[clamp(1.25rem,3vw,2.25rem)] font-light tracking-tight underline decoration-white/25 underline-offset-8 transition-colors hover:decoration-white"
-            >
-              {site.publicEmail}
-            </a>
-            <p className="mt-4">
-              <a
-                href={`tel:${site.phone}`}
-                className="text-lg text-white/70 transition-colors hover:text-white lg:text-xl"
-              >
-                {site.phoneDisplay}
-              </a>
-            </p>
-            <SocialLinks className="mt-10 gap-5 [&_svg]:size-5" />
+        <div className="grid gap-14 lg:grid-cols-12">
+          <div className="lg:col-span-3">
+            <Logo tone="light" />
+            <BbbeeBadge className="mt-10 h-28 w-auto" />
           </div>
 
-          <div className="flex items-end justify-between gap-10 lg:col-span-4 lg:col-start-9 lg:flex-col lg:items-start lg:justify-between">
-            <nav aria-label="Footer">
-              <ul className="space-y-3">
-                {navigation.slice(1).map((item) => (
+          <nav
+            aria-label="Footer"
+            className="grid grid-cols-2 gap-x-6 gap-y-12 sm:grid-cols-3 lg:col-span-9 lg:col-start-4 lg:gap-x-10"
+          >
+            <div className="order-1">
+              <h2 className={heading}>Company</h2>
+              <ul className="space-y-3.5">
+                {navigation.map((item) => (
                   <li key={item.href}>
-                    <Link
-                      href={item.href}
-                      className="text-2xl font-light tracking-tight text-white/80 transition-colors hover:text-white"
-                    >
+                    <Link href={item.href} className={link}>
                       {item.label}
                     </Link>
                   </li>
                 ))}
                 <li>
-                  <Link
-                    href={site.clientPortalUrl}
-                    className="text-2xl font-light tracking-tight text-white/80 transition-colors hover:text-white"
-                  >
+                  <Link href={site.clientPortalUrl} className={link}>
                     Login
                   </Link>
                 </li>
+                <li>
+                  <Link href="/privacy" className={link}>
+                    Privacy Policy
+                  </Link>
+                </li>
               </ul>
-            </nav>
-            <BbbeeBadge className="h-28 w-auto shrink-0 lg:h-32" />
-          </div>
+            </div>
+
+            <div className="order-3 col-span-2 sm:order-2 sm:col-span-1">
+              <h2 className={heading}>Services</h2>
+              <ul className="space-y-3.5">
+                {services.map((s) => (
+                  <li key={s.slug}>
+                    <Link href={`/services/${s.slug}`} className={link}>
+                      {s.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="order-2 sm:order-3">
+              <h2 className={heading}>Contact</h2>
+              <ul className="space-y-3.5">
+                <li>
+                  <a href={`mailto:${site.publicEmail}`} className={`${link} break-all`}>
+                    {site.publicEmail}
+                  </a>
+                </li>
+                <li>
+                  <a href={`tel:${site.phone}`} className={link}>
+                    {site.phoneDisplay}
+                  </a>
+                </li>
+                <li>
+                  <a href={site.social.whatsapp} target="_blank" rel="noopener noreferrer" className={link}>
+                    Chat on WhatsApp
+                  </a>
+                </li>
+                <li>
+                  <Link href="/contact" className={link}>
+                    Start a project
+                  </Link>
+                </li>
+                <li className="pt-2 text-white/70">
+                  <SocialLinks className="gap-5 [&_svg]:size-5" />
+                </li>
+              </ul>
+            </div>
+          </nav>
         </div>
 
         <div className="mt-16 flex flex-col gap-3 border-t border-white/10 pt-6 text-sm text-white/45 sm:flex-row sm:items-center sm:justify-between">
           <p>
-            © {year} {site.legalName}
+            © {year} {site.legalName}. All rights reserved.
           </p>
-          <Link href="/privacy" className="transition-colors hover:text-white">
-            Privacy Policy
-          </Link>
+          <p>{site.country}</p>
         </div>
       </div>
 

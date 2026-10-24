@@ -24,6 +24,7 @@ export const site = {
 export const navigation = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
+  { label: "Outsourcing", href: "/outsourced-development" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ] as const;

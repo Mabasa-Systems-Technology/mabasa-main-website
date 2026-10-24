@@ -3,6 +3,7 @@ import { IBM_Plex_Mono, Inter_Tight } from "next/font/google";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Providers } from "@/components/Providers";
+import { CookieBanner } from "@/components/CookieBanner";
 import { JsonLd } from "@/components/JsonLd";
 import { site } from "@/lib/site";
 import { services } from "@/lib/services";
@@ -144,6 +145,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <Header />
           <main id="main">{children}</main>
           <Footer />
+          <CookieBanner />
         </Providers>
         <JsonLd data={structuredData} />
       </body>

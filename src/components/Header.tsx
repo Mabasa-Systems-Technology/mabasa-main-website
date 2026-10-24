@@ -189,21 +189,28 @@ export function Header() {
               aria-label={open ? "Close menu" : "Open menu"}
               onClick={() => setOpen((o) => !o)}
               className={cn(
-                "relative flex size-11 items-center justify-center rounded-full border transition-colors duration-500 lg:hidden",
-                solid ? "border-line-strong text-ink" : "border-white/30 text-white",
+                "relative -mr-2.5 flex size-11 items-center justify-center transition-colors duration-500 lg:hidden",
+                solid ? "text-ink" : "text-white",
               )}
             >
-              <span className="relative block h-3 w-6">
+              {/* Three plain bars that fold into a cross. */}
+              <span className="relative block h-[18px] w-6">
                 <span
                   className={cn(
-                    "absolute left-0 h-px w-6 bg-current transition-all duration-500 ease-out-expo",
-                    open ? "top-1.5 rotate-45" : "top-0",
+                    "absolute left-0 h-0.5 w-6 rounded-full bg-current transition-all duration-500 ease-out-expo",
+                    open ? "top-2 rotate-45" : "top-0",
                   )}
                 />
                 <span
                   className={cn(
-                    "absolute left-0 h-px w-6 bg-current transition-all duration-500 ease-out-expo",
-                    open ? "top-1.5 -rotate-45" : "top-3",
+                    "absolute top-2 left-0 h-0.5 w-6 rounded-full bg-current transition-all duration-300",
+                    open ? "scale-x-0 opacity-0" : "opacity-100",
+                  )}
+                />
+                <span
+                  className={cn(
+                    "absolute left-0 h-0.5 w-6 rounded-full bg-current transition-all duration-500 ease-out-expo",
+                    open ? "top-2 -rotate-45" : "top-4",
                   )}
                 />
               </span>

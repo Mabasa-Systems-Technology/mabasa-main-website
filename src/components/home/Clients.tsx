@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { User } from "lucide-react";
 import { clients, testimonials } from "@/lib/clients";
 import { cn } from "@/lib/cn";
 import { Reveal } from "../ui/Reveal";
@@ -10,8 +11,8 @@ const LOGOS_MS = 5000;
 const QUOTE_MS = 7000;
 
 /**
- * A slim band: the client logos, which give way to one team member's feedback for a few seconds
- * and then return. With no approved feedback on file it simply stays on the logos.
+ * A slim band: the client logos, which slide away for a card showing one person's feedback (their
+ * photo, name, role and company logo) and then return. With no feedback on file it stays on the logos.
  */
 export function Clients() {
   // -1 shows the logos; 0..n-1 shows that testimonial. The next one follows after each logo pause.
@@ -37,9 +38,10 @@ export function Clients() {
   }, [shown, next, paused]);
 
   const quote = testimonials[shown] ?? testimonials[(next + testimonials.length - 1) % testimonials.length];
+  const showingQuote = shown !== -1;
 
   return (
-    <section aria-labelledby="clients-heading" className="border-y border-line bg-white py-12 lg:py-14">
+    <section aria-labelledby="clients-heading" className="overflow-hidden border-y border-line bg-white py-12 lg:py-14">
       <div className="container-site">
         <Reveal className="grid gap-6 lg:grid-cols-12 lg:items-center lg:gap-10">
           <h2 id="clients-heading" className="text-xl font-light tracking-tight text-ink lg:col-span-3">
@@ -53,10 +55,10 @@ export function Clients() {
             onMouseLeave={() => setPaused(false)}
           >
             <ul
-              aria-hidden={shown !== -1}
+              aria-hidden={showingQuote}
               className={cn(
-                "grid grid-cols-2 items-center justify-items-start gap-x-8 gap-y-6 transition-opacity duration-700 sm:flex sm:flex-wrap sm:gap-x-12 sm:gap-y-8 lg:justify-between",
-                shown === -1 ? "opacity-100" : "pointer-events-none opacity-0",
+                "grid grid-cols-2 items-center justify-items-start gap-x-8 gap-y-6 transition-[transform,opacity] duration-700 ease-out-expo sm:flex sm:flex-wrap sm:gap-x-12 sm:gap-y-8 lg:justify-between",
+                showingQuote ? "pointer-events-none -translate-x-10 opacity-0" : "translate-x-0 opacity-100",
               )}
             >
               {clients.map((c) => (
@@ -81,19 +83,49 @@ export function Clients() {
 
             {quote && (
               <figure
-                aria-hidden={shown === -1}
+                aria-hidden={!showingQuote}
                 className={cn(
-                  "flex flex-col justify-center transition-opacity duration-700",
-                  shown === -1 ? "pointer-events-none opacity-0" : "opacity-100",
+                  "flex w-full items-start gap-4 self-center rounded-[8px] border border-line bg-white p-5 shadow-[0_18px_50px_-24px_rgb(0_0_0/0.3)] transition-[transform,opacity] duration-700 ease-out-expo sm:gap-5 sm:p-6",
+                  showingQuote ? "translate-x-0 opacity-100" : "pointer-events-none translate-x-12 opacity-0",
                 )}
               >
-                <blockquote className="max-w-3xl text-lg leading-snug font-light text-ink lg:text-2xl">
-                  &ldquo;{quote.feedback.quote}&rdquo;
-                </blockquote>
-                <figcaption className="mt-4 text-sm text-muted">
-                  <span className="font-medium text-ink">{quote.feedback.person}</span>, {quote.feedback.role},{" "}
-                  {quote.name}
-                </figcaption>
+                <div className="relative flex size-12 shrink-0 items-center justify-center overflow-hidden rounded-full bg-paper text-muted sm:size-14">
+                  {quote.feedback.photo ? (
+                    <Image
+                      src={quote.feedback.photo}
+                      alt=""
+                      fill
+                      sizes="56px"
+                      loading="eager"
+                      className="object-cover"
+                    />
+                  ) : (
+                    <User aria-hidden="true" strokeWidth={1.5} className="size-6" />
+                  )}
+                </div>
+                <div className="min-w-0 flex-1">
+                  <blockquote className="text-base leading-snug font-light text-ink sm:text-lg lg:text-xl">
+                    &ldquo;{quote.feedback.quote}&rdquo;
+                  </blockquote>
+                  <figcaption className="mt-4 flex flex-wrap items-center justify-between gap-x-6 gap-y-3">
+                    <p className="text-sm text-muted">
+                      <span className="block font-medium text-ink">{quote.feedback.person}</span>
+                      {quote.feedback.role}, {quote.name}
+                    </p>
+                    {quote.logo ? (
+                      <Image
+                        src={quote.logo.src}
+                        alt={quote.name}
+                        width={quote.logo.width}
+                        height={quote.logo.height}
+                        loading="eager"
+                        className="h-6 w-auto max-w-[8rem] object-contain object-right"
+                      />
+                    ) : (
+                      <span className="text-sm font-medium text-ink">{quote.name}</span>
+                    )}
+                  </figcaption>
+                </div>
               </figure>
             )}
           </div>

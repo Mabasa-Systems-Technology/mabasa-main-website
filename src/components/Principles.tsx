@@ -62,13 +62,10 @@ export function Principles() {
           <Reveal>
             <h2 className="text-headline font-light text-balance">Three principles we work by.</h2>
           </Reveal>
-          <ul className="mt-12 border-t border-ink lg:mt-16">
+          <ul className="mt-10 lg:mt-14">
             {principles.map((p, i) => (
               <li key={p.title}>
-                <Reveal
-                  delay={0.1 + i * 0.1}
-                  className="flex items-center gap-5 border-b border-line-strong py-7 lg:gap-7 lg:py-9"
-                >
+                <Reveal delay={0.1 + i * 0.1} className="flex items-center gap-5 py-5 lg:gap-7 lg:py-6">
                   <PillarIcon color={p.color} />
                   <div>
                     <h3 className="text-2xl font-light tracking-tight lg:text-3xl">{p.title}</h3>

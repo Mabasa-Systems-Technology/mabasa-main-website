@@ -16,7 +16,11 @@ export type Client = {
     height: number;
     /** Tailwind height class, to balance visual weight. */ heightClass: string;
   };
-  feedback?: { quote: string; person: string; role: string };
+  /**
+   * `photo` is optional: a square portrait of the person in /public/people (e.g. "/people/jane.jpg").
+   * Without it the card shows a neutral avatar.
+   */
+  feedback?: { quote: string; person: string; role: string; photo?: string };
 };
 
 export const clients: Client[] = [
