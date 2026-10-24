@@ -13,7 +13,7 @@ export function HowWeWork() {
   const [active, setActive] = useState<number | null>(null);
 
   return (
-    <section aria-labelledby="how-we-work-heading" className="border-t border-line bg-black py-12 lg:py-14">
+    <section aria-labelledby="how-we-work-heading" className="border-t border-line bg-white py-12 lg:py-14">
       <div className="container-site">
         <div className="flex items-baseline justify-between gap-6">
           <h2 id="how-we-work-heading" className="text-xl font-light tracking-tight text-ink">
@@ -55,7 +55,7 @@ export function HowWeWork() {
                     aria-hidden="true"
                     className={cn(
                       "relative z-10 block size-[13px] rounded-full border transition-colors duration-300",
-                      isActive ? "border-accent bg-accent" : "border-ink/40 bg-black group-hover:border-ink",
+                      isActive ? "border-accent bg-accent" : "border-ink/40 bg-white group-hover:border-ink",
                     )}
                   />
                   <span className="mt-4 text-xs text-muted">{s.number}</span>

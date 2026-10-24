@@ -47,7 +47,7 @@ export function SelectedWork() {
           <div className="mt-16 grid gap-5 lg:grid-cols-2">
             {caseStudies.map((c) => (
               <Reveal key={c.slug}>
-                <article className="h-full rounded-[4px] border border-line bg-black p-10">
+                <article className="h-full rounded-[4px] border border-line bg-white p-10">
                   <p className="eyebrow text-accent">{c.sector}</p>
                   <h3 className="mt-5 text-2xl font-light">{c.title}</h3>
                   <p className="mt-2 text-sm text-muted">{c.client}</p>
@@ -84,7 +84,7 @@ export function SelectedWork() {
                     <span className="text-lg leading-snug text-ink">“{p.problem}”</span>
                     <span className="inline-flex items-center gap-2 text-sm font-medium text-accent">
                       <span className="sm:sr-only">Discuss this</span>
-                      <span className="flex size-10 items-center justify-center rounded-full border border-accent/30 transition-colors duration-300 group-hover:bg-white group-hover:text-black">
+                      <span className="flex size-10 items-center justify-center rounded-full border border-accent/30 transition-colors duration-300 group-hover:bg-accent group-hover:text-white">
                         <ArrowUpRight aria-hidden="true" strokeWidth={1.5} className="size-4" />
                       </span>
                     </span>

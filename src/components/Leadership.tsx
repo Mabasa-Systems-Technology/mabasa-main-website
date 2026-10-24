@@ -6,7 +6,7 @@ import { SectionHeading } from "./ui/SectionHeading";
 
 export function Leadership() {
   return (
-    <section className="bg-black pt-24 pb-36 lg:pt-36 lg:pb-52">
+    <section className="bg-white pt-24 pb-36 lg:pt-36 lg:pb-52">
       <div className="container-site">
         <SectionHeading title="The people behind the work." />
 

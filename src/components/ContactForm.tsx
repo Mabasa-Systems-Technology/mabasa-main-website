@@ -18,7 +18,7 @@ const MIN_MESSAGE = 30;
 const empty: Values = { name: "", email: "", company: "", service: "", budget: "", message: "" };
 
 const inputBase =
-  "block w-full rounded-[3px] border bg-black px-4 py-3.5 text-[1rem] text-ink placeholder:text-muted/60 transition-[border-color,box-shadow] duration-200 outline-none focus:border-ink focus:ring-4 focus:ring-ink/5";
+  "block w-full rounded-[3px] border bg-white px-4 py-3.5 text-[1rem] text-ink placeholder:text-muted/60 transition-[border-color,box-shadow] duration-200 outline-none focus:border-ink focus:ring-4 focus:ring-ink/5";
 
 /** Validates one field with the shared schema so client and server rules never drift. */
 function validateField(name: FieldName, value: unknown) {
@@ -101,8 +101,8 @@ function ChipGroup({
                   "inline-flex items-center gap-1.5 rounded-full border px-4 py-2 text-sm transition-colors duration-200",
                   "peer-focus-visible:ring-4 peer-focus-visible:ring-ink/10",
                   checked
-                    ? "border-white bg-white text-black"
-                    : cn("bg-black text-ink-soft hover:border-ink", error ? "border-red-600" : "border-line-strong"),
+                    ? "border-ink bg-ink text-white"
+                    : cn("bg-white text-ink-soft hover:border-ink", error ? "border-red-600" : "border-line-strong"),
                 )}
               >
                 {checked && <Check aria-hidden="true" strokeWidth={2} className="size-3.5" />}
@@ -239,7 +239,7 @@ export function ContactForm({ initialService, publicEmail }: { initialService?: 
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="rounded-[4px] border border-line bg-black p-8 sm:p-12"
+          className="rounded-[4px] border border-line bg-white p-8 sm:p-12"
         >
           <CheckCircle2 aria-hidden="true" strokeWidth={1.25} className="size-12 text-accent" />
           <h2 className="mt-8 text-title font-light">Thanks, {sent.name.split(" ")[0]} — we&apos;ve got it.</h2>
@@ -273,7 +273,7 @@ export function ContactForm({ initialService, publicEmail }: { initialService?: 
           noValidate
           onSubmit={onSubmit}
           exit={{ opacity: 0, y: -12 }}
-          className="rounded-[4px] border border-line bg-black p-6 sm:p-10"
+          className="rounded-[4px] border border-line bg-white p-6 sm:p-10"
         >
           <fieldset>
             <legend className="text-xl font-light tracking-tight text-ink">About you</legend>

@@ -78,7 +78,7 @@ export default async function ServicePage({ params }: Props) {
         </div>
       </PageHero>
 
-      <section className="bg-black py-24 lg:py-36">
+      <section className="bg-white py-24 lg:py-36">
         <div className="container-site grid gap-16 lg:grid-cols-12">
           <Reveal className="lg:col-span-4">
             <h2 className="text-title font-light text-balance">Problems we are typically asked to solve.</h2>
@@ -86,7 +86,7 @@ export default async function ServicePage({ params }: Props) {
           <div className="grid gap-px overflow-hidden rounded-[4px] border border-line bg-line sm:grid-cols-2 lg:col-span-8">
             {service.problems.map((p, i) => (
               <Reveal key={p} delay={i * 0.06} className="h-full">
-                <div className="h-full bg-black p-8">
+                <div className="h-full bg-white p-8">
                   <p className="font-mono text-xs text-muted">0{i + 1}</p>
                   <p className="mt-6 text-lg leading-snug text-ink">{p}</p>
                 </div>
@@ -122,7 +122,7 @@ export default async function ServicePage({ params }: Props) {
         </div>
       </section>
 
-      <section className="bg-black py-24 lg:py-36">
+      <section className="bg-white py-24 lg:py-36">
         <div className="container-site">
           <Link
             href={`/services/${next.slug}`}

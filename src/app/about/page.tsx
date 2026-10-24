@@ -81,7 +81,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-black py-24 lg:py-36">
+      <section className="bg-white py-24 lg:py-36">
         <div className="container-site grid gap-16 lg:grid-cols-12">
           <Reveal className="lg:col-span-5">
             <h2 className="text-headline font-light text-balance">Built Around Business.</h2>

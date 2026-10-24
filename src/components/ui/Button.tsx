@@ -6,10 +6,10 @@ import { cn } from "@/lib/cn";
 type Variant = "primary" | "light" | "outline-light" | "outline-dark";
 
 const variants: Record<Variant, string> = {
-  primary: "bg-white text-black hover:bg-accent-deep",
-  light: "bg-white text-black hover:bg-white/85",
-  "outline-light": "border border-white/40 text-white hover:border-white hover:bg-white hover:text-black",
-  "outline-dark": "border border-ink/25 text-ink hover:border-ink hover:bg-white hover:text-black",
+  primary: "bg-accent text-white hover:bg-accent-deep",
+  light: "bg-white text-ink hover:bg-accent-wash",
+  "outline-light": "border border-white/40 text-white hover:border-white hover:bg-white hover:text-ink",
+  "outline-dark": "border border-ink/25 text-ink hover:border-ink hover:bg-ink hover:text-white",
 };
 
 export function buttonClasses(variant: Variant = "primary", className?: string) {

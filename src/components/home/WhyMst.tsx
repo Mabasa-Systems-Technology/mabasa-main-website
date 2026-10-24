@@ -27,7 +27,7 @@ export const differentiators = [
 
 export function WhyMst() {
   return (
-    <section className="bg-black py-28 lg:py-40">
+    <section className="bg-white py-28 lg:py-40">
       <div className="container-site grid gap-16 lg:grid-cols-12">
         <div className="lg:col-span-5">
           <div className="lg:sticky lg:top-32">
@@ -37,7 +37,7 @@ export function WhyMst() {
         <div className="grid gap-px overflow-hidden rounded-[4px] border border-line bg-line sm:grid-cols-2 lg:col-span-7">
           {differentiators.map((d, i) => (
             <Reveal key={d.title} delay={i * 0.08} className="h-full">
-              <article className="group flex h-full flex-col bg-black p-8 transition-colors duration-500 hover:bg-accent-wash/60 lg:p-10">
+              <article className="group flex h-full flex-col bg-white p-8 transition-colors duration-500 hover:bg-accent-wash/60 lg:p-10">
                 <d.icon
                   aria-hidden="true"
                   strokeWidth={1.25}

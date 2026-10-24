@@ -6,7 +6,7 @@ import { Reveal } from "../ui/Reveal";
 /** A slim band, not a full section: heading beside the client names. */
 export function Clients() {
   return (
-    <section aria-labelledby="clients-heading" className="border-y border-line bg-black py-12 lg:py-14">
+    <section aria-labelledby="clients-heading" className="border-y border-line bg-white py-12 lg:py-14">
       <div className="container-site">
         <Reveal className="grid gap-6 lg:grid-cols-12 lg:items-center lg:gap-10">
           <h2 id="clients-heading" className="text-xl font-light tracking-tight text-ink lg:col-span-3">
@@ -14,11 +14,7 @@ export function Clients() {
           </h2>
           <ul className="grid grid-cols-2 items-center justify-items-start gap-x-8 gap-y-6 sm:flex sm:flex-wrap sm:gap-x-12 sm:gap-y-8 lg:col-span-9 lg:justify-between">
             {clients.map((c) => (
-              // The logos are dark artwork, so each sits on a small white tile against the black page.
-              <li
-                key={c.name}
-                className={cn("flex items-center", c.logo ? "h-14 rounded-[3px] bg-white px-4" : "h-10")}
-              >
+              <li key={c.name} className="flex h-10 items-center">
                 {c.logo ? (
                   <Image
                     src={c.logo.src}

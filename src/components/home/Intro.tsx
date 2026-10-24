@@ -3,7 +3,7 @@ import { TextLink } from "../ui/Button";
 
 export function Intro() {
   return (
-    <section className="bg-black py-28 lg:py-40">
+    <section className="bg-white py-28 lg:py-40">
       <div className="container-site grid gap-12 lg:grid-cols-12">
         <Reveal className="lg:col-span-5">
           <h2 className="text-headline font-light text-balance">Beyond Technology. Focused on Business.</h2>

@@ -31,7 +31,7 @@ const segments = [
 
 export function ClientSegments() {
   return (
-    <section className="bg-black py-28 lg:py-40">
+    <section className="bg-white py-28 lg:py-40">
       <div className="container-site">
         <SectionHeading align="center" title="Built for businesses at every stage of growth." />
         <div className="mt-16 grid gap-6 lg:mt-24 lg:grid-cols-3">
@@ -39,7 +39,7 @@ export function ClientSegments() {
             <Reveal key={s.title} delay={i * 0.1} className="h-full">
               <Link
                 href="/contact"
-                className="group flex h-full flex-col overflow-hidden rounded-[4px] border border-line bg-black transition-shadow duration-500 hover:shadow-[0_24px_60px_-30px_rgb(0_0_0/0.3)]"
+                className="group flex h-full flex-col overflow-hidden rounded-[4px] border border-line bg-white transition-shadow duration-500 hover:shadow-[0_24px_60px_-30px_rgb(0_20_47/0.35)]"
               >
                 <div className="relative aspect-[4/3] overflow-hidden bg-navy-900">
                   <Image
