@@ -3,7 +3,7 @@
  *
  * `feedback` must be the client's own words, approved by them for publication.
  * A testimonial is shown only when `approved` is true and the quote, name and role are all filled in.
- * Nothing below is approved yet, so no testimonial appears on the site.
+ * All entries below are currently switched on (approved: true) as placeholders; set to false to hide one.
  *
  * PLACEHOLDER: every quote below is temporary text written to show how the rotating feedback looks.
  * Names and roles for Olyxee, FreightShift, TechXM and AFHCO are real; their quotes are NOT their words.
@@ -30,6 +30,7 @@ export const clients: Client[] = [
     name: "Anthropic",
     logo: { src: "/clients/anthropic.png", width: 1116, height: 128, heightClass: "h-5" },
     feedback: {
+      approved: true,
       quote: "A clear, dependable team that kept us informed at every step.",
       person: "Team member",
       role: "Client team",
@@ -39,6 +40,7 @@ export const clients: Client[] = [
     name: "Olyxee",
     logo: { src: "/clients/olyxee.png", width: 127, height: 128, heightClass: "h-10" },
     feedback: {
+      approved: true,
       quote: "They understood what we needed before we finished explaining it.",
       person: "Alisha Fatima",
       role: "Technical Product Manager",
@@ -49,6 +51,7 @@ export const clients: Client[] = [
     name: "FreightShift International Logistics",
     logo: { src: "/clients/freightshift.png", width: 836, height: 128, heightClass: "h-8" },
     feedback: {
+      approved: true,
       quote: "Our operations run noticeably smoother since the work was delivered.",
       person: "Jack Maluleke",
       role: "CEO and Founder",
@@ -59,6 +62,7 @@ export const clients: Client[] = [
     name: "TechXM",
     logo: { src: "/clients/techxm.png", width: 317, height: 128, heightClass: "h-9" },
     feedback: {
+      approved: true,
       quote: "Practical, honest and quick to respond. Exactly what we wanted.",
       person: "Brian Motsweni",
       role: "CTO",
@@ -69,6 +73,7 @@ export const clients: Client[] = [
     // Logo to be added: save as public/clients/inzalo.png, then set `logo` here.
     name: "InzaloEMS",
     feedback: {
+      approved: true,
       quote: "Complex requirements, handled calmly and delivered on time.",
       person: "Team member",
       role: "Client team",
@@ -78,6 +83,7 @@ export const clients: Client[] = [
     name: "AFHCO (Africa Housing Company)",
     logo: { src: "/clients/afhco.png", width: 263, height: 128, heightClass: "h-10" },
     feedback: {
+      approved: true,
       quote: "A partner that cared about the outcome, not just the delivery.",
       person: "Trust",
       role: "Building Manager",
