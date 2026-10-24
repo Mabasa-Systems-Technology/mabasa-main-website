@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
+import type { CSSProperties } from "react";
 import Image from "next/image";
-import { PageHero } from "@/components/PageHero";
+import { HeroBackground } from "@/components/HeroBackground";
 import { CtaBand } from "@/components/CtaBand";
 import { Leadership } from "@/components/Leadership";
 import { Reveal } from "@/components/ui/Reveal";
 import { unsplash } from "@/lib/site";
+import markLight from "../../../public/brand/mark-light.png";
 
 export const metadata: Metadata = {
   title: "About",
@@ -43,26 +45,41 @@ const principles = [
 export default function AboutPage() {
   return (
     <>
-      <PageHero title="About Blackroid">
-        <div className="mt-8 max-w-2xl space-y-5 text-lg leading-relaxed text-white/80 lg:text-xl">
-          <p>
-            Blackroid is an enterprise technology company that helps organisations design, develop, and modernise their
-            technology.
-          </p>
-          <p>
-            We specialise in software engineering, artificial intelligence, automation, and strategic technology
-            consulting, delivering solutions that address complex business challenges and improve operational
-            efficiency.
-          </p>
-          <p>
-            Our approach combines engineering expertise with a deep understanding of business needs to build practical,
-            scalable systems that support long-term growth.
-          </p>
-          <p className="font-semibold text-white">
-            Blackroid is built on a simple principle: engineering technology that moves business forward.
-          </p>
+      <section className="relative isolate overflow-hidden bg-navy-950 text-white">
+        <div aria-hidden="true" className="absolute inset-0 -z-10">
+          <HeroBackground />
         </div>
-      </PageHero>
+        <div className="container-site grid items-center gap-12 pt-40 pb-16 lg:min-h-[72svh] lg:grid-cols-12 lg:pb-24">
+          <div className="lg:col-span-7">
+            <h1 className="rise text-display font-light text-balance">About Blackroid</h1>
+            <div
+              className="rise mt-8 max-w-2xl space-y-5 text-lg leading-relaxed text-white/80 lg:text-xl"
+              style={{ "--d": "0.12s" } as CSSProperties}
+            >
+              <p>
+                Blackroid is an enterprise technology company that helps organisations design, develop, and modernise
+                their technology.
+              </p>
+              <p>
+                We specialise in software engineering, artificial intelligence, automation, and strategic technology
+                consulting, delivering solutions that address complex business challenges and improve operational
+                efficiency.
+              </p>
+              <p>
+                Our approach combines engineering expertise with a deep understanding of business needs to build
+                practical, scalable systems that support long-term growth.
+              </p>
+              <p className="font-semibold text-white">
+                Blackroid is built on a simple principle: engineering technology that moves business forward.
+              </p>
+            </div>
+          </div>
+          {/* The official B monogram, large, to balance the text column. */}
+          <div aria-hidden="true" className="hidden lg:col-span-5 lg:flex lg:justify-end">
+            <Image src={markLight} alt="" priority className="h-[22rem] w-auto" />
+          </div>
+        </div>
+      </section>
 
       <section className="bg-white py-24 lg:py-36">
         <div className="container-site grid gap-16 lg:grid-cols-12">

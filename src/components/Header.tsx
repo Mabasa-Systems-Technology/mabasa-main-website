@@ -110,18 +110,17 @@ export function Header() {
           </nav>
 
           <div className="flex items-center gap-3">
-            {site.clientPortalUrl && (
+            {
               <a
                 href={site.clientPortalUrl}
                 className={cn(
-                  "hidden items-center gap-1.5 px-2 text-sm font-medium transition-colors duration-300 lg:inline-flex",
+                  "hidden h-11 items-center px-3 text-sm font-medium transition-colors duration-300 lg:inline-flex",
                   solid ? "text-ink-soft hover:text-ink" : "text-white/75 hover:text-white",
                 )}
               >
-                <LogIn aria-hidden="true" strokeWidth={1.5} className="size-4" />
-                Client Portal
+                Login
               </a>
-            )}
+            }
             <div className="hidden sm:block">
               <ButtonLink href="/contact" variant={solid ? "primary" : "outline-light"} className="h-11 px-5">
                 Start a Project
@@ -197,7 +196,7 @@ export function Header() {
                 transition={{ delay: 0.5 }}
                 className="mt-10"
               >
-                {site.clientPortalUrl && (
+                {
                   <a
                     href={site.clientPortalUrl}
                     className="mb-4 flex items-center justify-center gap-2 py-3 text-sm font-medium text-white/80"
@@ -205,7 +204,7 @@ export function Header() {
                     <LogIn aria-hidden="true" strokeWidth={1.5} className="size-4" />
                     Client Portal login
                   </a>
-                )}
+                }
                 <ButtonLink href="/contact" variant="light" className="w-full">
                   Start a Project
                 </ButtonLink>

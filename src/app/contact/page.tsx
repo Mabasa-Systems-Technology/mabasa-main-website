@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ContactForm } from "@/components/ContactForm";
 import { HeroBackground } from "@/components/HeroBackground";
+import { SelectedWork } from "@/components/home/SelectedWork";
 import { Reveal } from "@/components/ui/Reveal";
 import { site } from "@/lib/site";
 
@@ -68,6 +69,11 @@ export default async function ContactPage({ searchParams }: Props) {
           </aside>
         </div>
       </section>
+
+      {/* "Recognise the problem?": each item pre-selects the matching service in the form above. */}
+      <div className="border-t border-line-strong">
+        <SelectedWork />
+      </div>
     </>
   );
 }

@@ -8,14 +8,13 @@ export const site = {
   locale: "en_ZA",
   country: "South Africa",
   publicEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "Scofield@blackroid.com",
-  /** Where the client portal login lives. The Client Portal links appear only once this is set. */
-  clientPortalUrl: process.env.NEXT_PUBLIC_CLIENT_PORTAL_URL || "",
+  /** Where the client portal login lives. Until it is set the Client Portal links point to "#". */
+  clientPortalUrl: process.env.NEXT_PUBLIC_CLIENT_PORTAL_URL || "#",
 } as const;
 
 export const navigation = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
-  { label: "How We Work", href: "/how-we-work" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ] as const;
