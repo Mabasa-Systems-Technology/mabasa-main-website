@@ -19,14 +19,14 @@ export type Service = {
 export const services: Service[] = [
   {
     slug: "custom-software-development",
-    plain: "We build the websites, apps and internal tools your business runs on.",
+    plain: "We help organisations develop, modernise and connect the systems their operations depend on.",
     image: unsplash("photo-1549692520-acc6669e2f0c"),
     imageAlt: "A developer writing code at a desk",
     number: "01",
     title: "Custom Software Development",
-    short: "Design and development of web applications, internal platforms, APIs, and business-critical systems.",
+    short: "Enterprise applications, custom platforms and APIs that support business-critical operations.",
     intro:
-      "When off-the-shelf software no longer fits the way your business works, we design and build software that does. From customer-facing web applications to internal operational platforms, we engineer systems that are reliable on day one and maintainable for years.",
+      "Organisations outgrow off-the-shelf software when it stops fitting how they actually work. We help them develop, modernise and connect the systems that support their operations, from customer-facing platforms to internal tools, engineered to be reliable on day one and maintainable for years.",
     capabilities: [
       "Web applications and client portals",
       "Internal operations platforms and admin tools",
@@ -51,14 +51,14 @@ export const services: Service[] = [
   },
   {
     slug: "ai-and-automation",
-    plain: "We take repetitive, manual work off your team's plate.",
+    plain: "We apply AI, automation and data to improve how organisations operate and make decisions.",
     image: unsplash("photo-1716191299980-a6e8827ba10b"),
     imageAlt: "An industrial robot arm on a production line",
     number: "02",
     title: "Artificial Intelligence & Automation",
-    short: "Intelligent workflows, machine learning applications, AI integrations, and practical automation.",
+    short: "Intelligent workflows, machine learning and AI integration applied to real operational processes.",
     intro:
-      "We apply AI where it produces a measurable operational benefit, not for its own sake. That can mean automating document-heavy processes, adding language-model capabilities to existing systems, or building machine learning models that support specific decisions.",
+      "We apply AI and automation where they produce a measurable operational benefit, not for their own sake. That can mean automating document-heavy processes, adding intelligent capabilities to existing systems, or building models that support specific decisions.",
     capabilities: [
       "Document processing and data extraction",
       "Large language model integrations and assistants",
@@ -83,14 +83,14 @@ export const services: Service[] = [
   },
   {
     slug: "cloud-and-infrastructure",
-    plain: "We set up and look after secure, reliable hosting for your systems.",
+    plain: "We keep critical systems secure, reliable and ready for growth.",
     image: unsplash("photo-1584169417032-d34e8d805e8b"),
     imageAlt: "An aisle of server racks in a data centre",
     number: "03",
     title: "Cloud & Infrastructure",
-    short: "Cloud architecture, application deployment, infrastructure engineering, and systems reliability.",
+    short: "Cloud architecture, deployment and infrastructure engineering that keep critical systems reliable.",
     intro:
-      "Good infrastructure is invisible: applications stay available, deployments are routine, and costs are predictable. We design, provision and operate cloud environments that support your software rather than complicate it.",
+      "Good infrastructure is invisible: systems stay available, releases are routine and costs are predictable. We design and operate cloud environments that give critical systems a dependable foundation.",
     capabilities: [
       "Cloud architecture and environment design",
       "Infrastructure as code and environment automation",
@@ -115,14 +115,14 @@ export const services: Service[] = [
   },
   {
     slug: "data-engineering-and-analytics",
-    plain: "We turn scattered numbers into reports you can trust.",
+    plain: "We turn scattered operational data into information leaders can act on.",
     image: unsplash("photo-1551288049-bebda4e38f71"),
     imageAlt: "Performance charts on a laptop screen",
     number: "04",
     title: "Data Engineering & Analytics",
-    short: "Data platforms, integrations, reporting, and decision-support systems.",
+    short: "Data platforms, integrations and reporting that support better decisions.",
     intro:
-      "Most organisations already have the data they need; it is simply spread across systems and difficult to trust. We build the pipelines, models and reporting that turn operational data into dependable information for decision-makers.",
+      "Most organisations already hold the data they need; it is simply spread across systems and difficult to trust. We build the pipelines, models and reporting that turn operational data into dependable information for leadership.",
     capabilities: [
       "Data pipelines and scheduled integrations",
       "Data warehouse and data model design",
@@ -147,14 +147,14 @@ export const services: Service[] = [
   },
   {
     slug: "systems-integration",
-    plain: "We connect your systems so information is captured once.",
+    plain: "We connect disconnected systems so information flows once, accurately.",
     image: unsplash("photo-1544197150-b99a580bb7a8"),
     imageAlt: "Network cables plugged into a switch",
     number: "05",
     title: "Systems Integration",
-    short: "Connecting business applications, databases, APIs, and legacy systems.",
+    short: "Connecting business applications, databases, APIs and legacy systems.",
     intro:
-      "Growing businesses accumulate systems: accounting, CRM, ERP, e-commerce, logistics and in-house tools. We connect them so information flows automatically, accurately and securely between the platforms your teams rely on.",
+      "Growing organisations accumulate systems: accounting, CRM, ERP, e-commerce, logistics and internal tools. We connect them so information flows accurately and securely, and teams stop re-capturing the same data.",
     capabilities: [
       "API integrations between business applications",
       "ERP, CRM, accounting and e-commerce connectivity",
@@ -179,14 +179,15 @@ export const services: Service[] = [
   },
   {
     slug: "technology-consulting",
-    plain: "We help you make the right technology decisions before you spend.",
+    plain:
+      "We evaluate technology challenges, define practical solutions and guide execution against business objectives.",
     image: unsplash("photo-1557804506-669a67965ba0"),
     imageAlt: "A team discussing a plan at a whiteboard",
     number: "06",
     title: "Technology Consulting",
-    short: "Architecture, technical strategy, feasibility assessments, and engineering guidance.",
+    short: "Architecture, technical strategy and feasibility assessments aligned with business objectives.",
     intro:
-      "Some decisions are expensive to get wrong: choosing a platform, committing to an architecture, or deciding whether to build or buy. We provide independent, practical engineering guidance so you can make those decisions with confidence.",
+      "Some decisions are expensive to get wrong: choosing a platform, committing to an architecture, or deciding whether to build or buy. We provide independent guidance grounded in business objectives, so those decisions can be made with confidence.",
     capabilities: [
       "Technical strategy and technology roadmaps",
       "Architecture design and review",

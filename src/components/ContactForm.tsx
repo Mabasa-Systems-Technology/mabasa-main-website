@@ -13,7 +13,7 @@ type Values = { name: string; email: string; company: string; service: string; b
 type FieldName = keyof Values | "consent";
 type Errors = Partial<Record<FieldName, string>>;
 
-const DRAFT_KEY = "mabasa-enquiry-draft";
+const DRAFT_KEY = "blackroid-enquiry-draft";
 const MIN_MESSAGE = 30;
 const empty: Values = { name: "", email: "", company: "", service: "", budget: "", message: "" };
 
@@ -400,7 +400,7 @@ export function ContactForm({ initialService, publicEmail }: { initialService?: 
                 className="mt-0.5 size-[18px] shrink-0 cursor-pointer accent-accent"
               />
               <span>
-                Mabasa Technologies may use these details to respond to my enquiry (
+                Blackroid may use these details to respond to my enquiry (
                 <Link href="/privacy" className="underline underline-offset-4 hover:text-ink">
                   Privacy Policy
                 </Link>

@@ -7,14 +7,14 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Tell Mabasa Technologies about your project or the business challenge you're trying to solve. We'll help you explore the right technical approach.",
+    "Tell Blackroid about your project or the business challenge you're trying to solve. We'll help you explore the right technical approach.",
   alternates: { canonical: "/contact" },
 };
 
 const nextSteps = [
-  { title: "We read your enquiry", text: "An engineer reviews what you've shared." },
+  { title: "We read your enquiry", text: "The team reviews what you've shared." },
   { title: "We talk", text: "A short call to understand your goals." },
-  { title: "You get a plan", text: "Clear next steps, scope and cost." },
+  { title: "You get a clear approach", text: "Next steps, scope and cost." },
 ];
 
 type Props = { searchParams: Promise<{ service?: string | string[] }> };
@@ -30,7 +30,9 @@ export default async function ContactPage({ searchParams }: Props) {
           <HeroBackground />
         </div>
         <div className="container-site pt-36 pb-32 lg:pt-44 lg:pb-44">
-          <h1 className="rise max-w-4xl text-display font-light text-balance">Tell us what you&apos;re building.</h1>
+          <h1 className="rise max-w-4xl text-display font-light text-balance">
+            Tell us about your business challenge.
+          </h1>
         </div>
       </section>
 

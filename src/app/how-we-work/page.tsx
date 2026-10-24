@@ -9,7 +9,7 @@ import { stages } from "@/lib/process";
 export const metadata: Metadata = {
   title: "How We Work",
   description:
-    "Mabasa Technologies' four-stage engagement model — Discover, Design, Build, Deploy & Improve — with clear deliverables, responsibilities and expectations at every step.",
+    "Blackroid's business-first approach: Understand the Business, Identify Opportunities, Engineer the Solution, Measure and Improve, with clear deliverables, responsibilities and expectations at every step.",
   alternates: { canonical: "/how-we-work" },
 };
 
@@ -35,7 +35,7 @@ const models = [
 const faqs = [
   {
     q: "How does an engagement usually start?",
-    a: "With a conversation about the problem you want to solve. If there is a fit, we propose a short Discover stage to understand the requirements properly before committing to a full scope and estimate.",
+    a: "With a conversation about the problem you want to solve. If there is a fit, we propose a short Understand the Business stage to establish the objectives and constraints properly before committing to a full scope and estimate.",
   },
   {
     q: "Do you work with businesses that have no in-house technical team?",
@@ -47,7 +47,7 @@ const faqs = [
   },
   {
     q: "How do you price projects?",
-    a: "Pricing depends on scope and engagement model. Defined-scope work is usually quoted as a fixed or phased price after the Discover stage; ongoing support and advisory work can be arranged on an agreed time-and-materials or retainer basis.",
+    a: "Pricing depends on scope and engagement model. Defined-scope work is usually quoted as a fixed or phased price after the Understand the Business stage; ongoing support and advisory work can be arranged on an agreed time-and-materials or retainer basis.",
   },
   {
     q: "How long does a typical project take?",
@@ -69,7 +69,7 @@ export default function HowWeWorkPage() {
   return (
     <>
       <JsonLd data={faqLd} />
-      <PageHero title="From problem to production." />
+      <PageHero title="From business challenge to lasting value." />
 
       <section className="bg-white py-20 lg:py-28">
         <div className="container-site">

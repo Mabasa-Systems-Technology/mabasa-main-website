@@ -13,7 +13,7 @@ import { cn } from "@/lib/cn";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Custom software, AI and automation, cloud infrastructure, data engineering, systems integration and technology consulting from Mabasa Technologies.",
+    "Business-focused technology services from Blackroid: custom software, AI and automation, cloud, data, systems integration and technology consulting.",
   alternates: { canonical: "/services" },
 };
 

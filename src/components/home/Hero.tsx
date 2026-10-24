@@ -5,7 +5,7 @@ import { useRef, type CSSProperties } from "react";
 import { ButtonLink } from "../ui/Button";
 import { HeroBackground } from "../HeroBackground";
 
-const headline = ["We build the technology", "that moves businesses", "forward."];
+const headline = ["Engineering Better", "Businesses."];
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -37,12 +37,16 @@ export function Hero() {
 
         <div className="rise mt-10" style={{ "--d": "0.6s" } as CSSProperties}>
           <div>
+            <p className="mb-8 max-w-xl text-lg leading-relaxed text-pretty text-white/80 lg:text-xl">
+              Blackroid partners with organisations to solve complex business challenges, strengthen operations, and
+              create lasting value through technology, engineering, and strategic execution.
+            </p>
             <div className="flex flex-col gap-3 sm:flex-row">
               <ButtonLink href="/contact" variant="light">
-                Start a Project
+                Discuss Your Business Challenges
               </ButtonLink>
               <ButtonLink href="/services" variant="outline-light">
-                Explore Our Services
+                Explore Our Capabilities
               </ButtonLink>
             </div>
           </div>

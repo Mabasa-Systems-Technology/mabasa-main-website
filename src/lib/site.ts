@@ -1,9 +1,9 @@
 export const site = {
-  name: "Mabasa Technologies",
-  legalName: "Mabasa Technologies (Pty) Ltd",
-  tagline: "Technology consulting & software engineering",
+  name: "Blackroid",
+  legalName: "Blackroid (Pty) Ltd",
+  tagline: "Engineering better businesses.",
   description:
-    "Mabasa Technologies is a South African technology consultancy. We design, build, integrate and maintain software, AI, cloud and data systems for startups, SMEs and growing organisations.",
+    "Blackroid partners with organisations to solve complex business challenges, strengthen operations, and create lasting value through technology, engineering, and strategic execution.",
   url: (process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000").replace(/\/$/, ""),
   locale: "en_ZA",
   country: "South Africa",

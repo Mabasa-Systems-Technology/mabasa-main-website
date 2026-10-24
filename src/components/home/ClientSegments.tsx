@@ -10,22 +10,22 @@ const segments = [
     title: "Startups",
     image: unsplash("photo-1568658176307-bfbd2873abda"),
     alt: "Two founders reviewing work on a laptop",
-    who: "You have an idea or early product and need it built properly.",
-    help: "We build and launch reliable products, with practical technical guidance.",
+    who: "You have an early product or idea and need a sound foundation.",
+    help: "We help founders turn early ideas into dependable products, with practical guidance along the way.",
   },
   {
     title: "Small & Medium Enterprises",
     image: unsplash("photo-1687422808248-f807f4ea2a2e"),
     alt: "A small business owner checking orders on his phone",
     who: "Your business runs, but manual work and disconnected tools slow you down.",
-    help: "We modernise operations, connect your systems and automate repetitive work.",
+    help: "We strengthen operations by modernising systems, connecting tools and automating repetitive work.",
   },
   {
     title: "Growing Organisations",
     image: unsplash("photo-1758518730136-1bf4fa26ccbf"),
     alt: "A team of professionals meeting around a conference table",
     who: "You're scaling fast and your systems need to keep up.",
-    help: "We scale infrastructure, improve existing platforms and add advanced capabilities.",
+    help: "We help build the capabilities to scale: stronger platforms, reliable infrastructure and advanced engineering.",
   },
 ];
 

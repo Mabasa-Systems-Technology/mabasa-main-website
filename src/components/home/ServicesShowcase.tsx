@@ -9,12 +9,12 @@ import { cn } from "@/lib/cn";
 
 /** Short label for the always-visible buttons, and the phrase shown in the headline. */
 const display: Record<string, { label: string; phrase: string; icon: LucideIcon }> = {
-  "custom-software-development": { label: "Software", phrase: "custom software.", icon: Code2 },
-  "ai-and-automation": { label: "AI & automation", phrase: "smart automation.", icon: Workflow },
-  "cloud-and-infrastructure": { label: "Cloud", phrase: "reliable cloud platforms.", icon: Cloud },
-  "data-engineering-and-analytics": { label: "Data & reports", phrase: "reports you can trust.", icon: BarChart3 },
-  "systems-integration": { label: "Integrations", phrase: "connected systems.", icon: Plug },
-  "technology-consulting": { label: "Consulting", phrase: "clear technical plans.", icon: Compass },
+  "custom-software-development": { label: "Software", phrase: "modernise systems.", icon: Code2 },
+  "ai-and-automation": { label: "AI & automation", phrase: "automate processes.", icon: Workflow },
+  "cloud-and-infrastructure": { label: "Cloud", phrase: "run reliably.", icon: Cloud },
+  "data-engineering-and-analytics": { label: "Data & reports", phrase: "decide with data.", icon: BarChart3 },
+  "systems-integration": { label: "Integrations", phrase: "connect operations.", icon: Plug },
+  "technology-consulting": { label: "Consulting", phrase: "plan with clarity.", icon: Compass },
 };
 
 const SLIDE_SECONDS = 3.5;
@@ -40,11 +40,11 @@ export function ServicesShowcase() {
   return (
     <section id="services" className="bg-paper py-20 lg:py-28">
       <div className="container-site" onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)}>
-        <h2 className="sr-only">What we build</h2>
+        <h2 className="sr-only">What we do</h2>
 
         {/* Headline: "We build" + the active service, which changes on its own. */}
         <div aria-hidden="true" className="text-headline font-light">
-          <p className="text-ink">We build</p>
+          <p className="text-ink">We help organisations</p>
           <div className="relative h-[1.2em] overflow-hidden">
             <AnimatePresence mode="wait" initial={false}>
               <motion.p
@@ -69,7 +69,7 @@ export function ServicesShowcase() {
             href={`/services/${current.slug}`}
             className="group inline-flex shrink-0 items-center gap-1.5 text-[0.9375rem] font-medium text-accent"
           >
-            Explore {currentDisplay.label.toLowerCase()}
+            Explore {currentDisplay.label}
             <ArrowUpRight
               aria-hidden="true"
               strokeWidth={1.75}

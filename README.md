@@ -1,6 +1,6 @@
-# Mabasa Technologies — Website
+# Blackroid — Website
 
-Marketing and lead-generation website for **Mabasa Technologies**, a South African technology consulting and software engineering company.
+Marketing and lead-generation website for **Blackroid**, a South African technology consulting and software engineering company.
 
 Built with Next.js 16 (App Router), TypeScript, Tailwind CSS v4, Motion for React and Lucide icons. Ready to deploy on Vercel.
 
@@ -79,10 +79,10 @@ All copy lives in typed data files so it can be edited without touching layout c
 ## Before going live
 
 - [ ] **Privacy policy** (`/privacy`) is marked **draft**. Have it reviewed by a legal adviser and complete every highlighted "To be confirmed" item (registration number, Information Officer, address, providers, retention period, PAIA manual). Then remove the draft banner.
-- [ ] Confirm the legal entity name in `src/lib/site.ts` (`legalName`, currently `Mabasa Technologies (Pty) Ltd`).
+- [ ] Confirm the legal entity name in `src/lib/site.ts` (`legalName`, currently `Blackroid (Pty) Ltd`).
 - [ ] Set `NEXT_PUBLIC_SITE_URL` and email variables in Vercel → Project → Settings → Environment Variables.
 - [ ] Verify the sender domain with your email provider and send a test enquiry.
-- [ ] Optionally replace the Unsplash photography (free licence, served via `next/image`) with Mabasa Technologies' own imagery.
+- [ ] Optionally replace the Unsplash photography (free licence, served via `next/image`) with Blackroid's own imagery.
 
 ## Deploying to Vercel
 

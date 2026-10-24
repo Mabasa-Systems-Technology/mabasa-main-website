@@ -83,7 +83,7 @@ export async function POST(req: NextRequest) {
   ];
 
   const text = [
-    "New project enquiry from the Mabasa Technologies website",
+    "New project enquiry from the Blackroid website",
     "",
     ...rows.map(([k, v]) => `${k}: ${v}`),
     "",
@@ -106,7 +106,7 @@ export async function POST(req: NextRequest) {
       </table>
       <h3 style="font-weight:500;margin-top:24px">Project description</h3>
       <p style="white-space:pre-wrap;line-height:1.6">${escapeHtml(d.message)}</p>
-      <p style="color:#5e6778;font-size:12px;margin-top:24px">Submitted via the Mabasa Technologies website contact form.</p>
+      <p style="color:#5e6778;font-size:12px;margin-top:24px">Submitted via the Blackroid website contact form.</p>
     </div>`;
 
   try {

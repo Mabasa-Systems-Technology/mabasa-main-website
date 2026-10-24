@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* ─── Mabasa Technologies design tokens ─────────────────────────────────────────────────── */
+/* ─── Blackroid design tokens ─────────────────────────────────────────────────── */
 @theme {
   --font-sans: var(--font-inter-tight), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-plex-mono), ui-monospace, SFMono-Regular, monospace;

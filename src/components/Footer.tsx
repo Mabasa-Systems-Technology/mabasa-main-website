@@ -12,7 +12,8 @@ export function Footer() {
           <div className="lg:col-span-4">
             <Logo tone="light" />
             <p className="mt-6 max-w-xs text-[0.9375rem] leading-relaxed text-white/60">
-              Technology consulting and software engineering for growing businesses in {site.country}.
+              A business-focused technology company helping organisations solve complex challenges and strengthen
+              operations.
             </p>
           </div>
 

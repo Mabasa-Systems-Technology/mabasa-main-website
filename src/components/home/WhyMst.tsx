@@ -31,7 +31,7 @@ export function WhyMst() {
       <div className="container-site grid gap-16 lg:grid-cols-12">
         <div className="lg:col-span-5">
           <div className="lg:sticky lg:top-32">
-            <SectionHeading title="A different approach to technology consulting." />
+            <SectionHeading title="A different approach to business challenges." />
           </div>
         </div>
         <div className="grid gap-px overflow-hidden rounded-[4px] border border-line bg-line sm:grid-cols-2 lg:col-span-7">

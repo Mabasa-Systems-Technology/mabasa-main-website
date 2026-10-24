@@ -9,7 +9,7 @@ import { unsplash } from "@/lib/site";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Mabasa Technologies is a South African technology consulting and engineering company. Learn about our purpose, engineering philosophy and approach to working with growing businesses.",
+    "Blackroid is a business-focused technology company helping organisations address complex operational and technical challenges. Learn about our approach, our principles and our leadership.",
   alternates: { canonical: "/about" },
 };
 
@@ -43,20 +43,55 @@ const principles = [
 export default function AboutPage() {
   return (
     <>
-      <PageHero title="Established engineering capability, made accessible to growing businesses." />
+      <PageHero title="About Blackroid">
+        <div className="mt-8 max-w-2xl space-y-5 text-lg leading-relaxed text-white/80 lg:text-xl">
+          <p>
+            Blackroid is an enterprise technology company that helps organisations design, develop, and modernise their
+            technology.
+          </p>
+          <p>
+            We specialise in software engineering, artificial intelligence, automation, and strategic technology
+            consulting, delivering solutions that address complex business challenges and improve operational
+            efficiency.
+          </p>
+          <p>
+            Our approach combines engineering expertise with a deep understanding of business needs to build practical,
+            scalable systems that support long-term growth.
+          </p>
+          <p className="font-semibold text-white">
+            Blackroid is built on a simple principle: engineering technology that moves business forward.
+          </p>
+        </div>
+      </PageHero>
 
       <section className="bg-white py-24 lg:py-36">
         <div className="container-site grid gap-16 lg:grid-cols-12">
           <Reveal className="lg:col-span-5">
-            <h2 className="text-headline font-light text-balance">Technology that solves real business problems.</h2>
+            <h2 className="text-headline font-light text-balance">Built Around Business.</h2>
           </Reveal>
           <Reveal
             delay={0.1}
             className="space-y-6 text-lg leading-relaxed text-ink-soft lg:col-span-6 lg:col-start-7 lg:pt-12"
           >
             <p>
-              We bring established engineering capability to growing businesses — directly, flexibly, and without the
-              overhead.
+              Blackroid is a business-focused technology company established to help organisations address complex
+              operational and technical challenges.
+            </p>
+            <p>
+              We combine business understanding, engineering expertise, and strategic thinking to develop solutions that
+              improve how organisations function.
+            </p>
+            <p>
+              Our approach begins with the problem, not the technology. We seek to understand what an organisation needs
+              to achieve, identify the constraints standing in its way, and determine how best to address them.
+            </p>
+            <p>
+              We believe sustainable progress comes from building the right capabilities, strengthening existing
+              operations, and making deliberate decisions about where technology can create value.
+            </p>
+            <p>
+              Blackroid is being developed with a long-term perspective, one that prioritises enduring business
+              relationships, practical execution, and opportunities to create lasting value.
             </p>
           </Reveal>
         </div>

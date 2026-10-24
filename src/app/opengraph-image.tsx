@@ -2,7 +2,7 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
 
-export const alt = "Mabasa Technologies — technology consulting and software engineering";
+export const alt = "Blackroid — Engineering better businesses";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -28,7 +28,7 @@ export default async function OpengraphImage() {
       <img src={logoSrc} height={84} alt="" />
       <div style={{ display: "flex", flexDirection: "column" }}>
         <div style={{ fontSize: 76, lineHeight: 1.05, letterSpacing: -2.5, maxWidth: 960 }}>
-          We build the technology that moves businesses forward.
+          Engineering better businesses.
         </div>
         <div style={{ marginTop: 32, fontSize: 26, color: "rgba(255,255,255,0.7)" }}>
           Software engineering · AI & automation · Cloud · Data · Integration · Consulting

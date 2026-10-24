@@ -1,5 +1,5 @@
 /**
- * Businesses Mabasa Technologies has worked with.
+ * Businesses Blackroid has worked with.
  *
  * `feedback` must be the client's own words, approved by them for publication.
  * Leave it undefined until you have that — the site only shows a testimonial
