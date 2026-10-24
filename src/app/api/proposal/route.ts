@@ -84,7 +84,7 @@ export async function POST(req: NextRequest) {
 
   try {
     await sendMail({
-      subject: `Team proposal request: ${d.company} | ${d.startingPoint}`.replace(/[\r\n]+/g, " "),
+      subject: `[Blackroid] Team proposal request: ${d.company} | ${d.startingPoint}`.replace(/[\r\n]+/g, " "),
       text,
       html,
       replyTo: d.email,

@@ -6,6 +6,17 @@ export class MailNotConfiguredError extends Error {}
 type Mail = { subject: string; text: string; html: string; replyTo: string };
 
 const DEFAULT_TO = "info@blackroid.com";
+const SENDER_NAME = "Blackroid";
+
+/**
+ * Always sends as "Blackroid". Only the address is taken from CONTACT_FROM_EMAIL, so an old display
+ * name left in the environment (for example from before the rebrand) can never reach the inbox.
+ */
+function brandedFrom(raw: string) {
+  const angled = raw.match(/<([^>]+)>/);
+  const address = (angled ? angled[1] : raw).trim().replace(/^"+|"+$/g, "");
+  return `${SENDER_NAME} <${address}>`;
+}
 
 function config() {
   return {
@@ -35,7 +46,7 @@ export async function sendMail(mail: Mail) {
       method: "POST",
       headers: { Authorization: `Bearer ${c.resendKey}`, "Content-Type": "application/json" },
       body: JSON.stringify({
-        from: c.from,
+        from: brandedFrom(c.from),
         to: [c.to],
         reply_to: mail.replyTo,
         subject: mail.subject,
@@ -58,7 +69,7 @@ export async function sendMail(mail: Mail) {
     socketTimeout: 15_000,
   });
   await transport.sendMail({
-    from: c.from,
+    from: brandedFrom(c.from),
     to: c.to,
     replyTo: mail.replyTo,
     subject: mail.subject,
