@@ -5,7 +5,8 @@
  * The site shows a testimonial only when a quote, the person's name and their role are all filled in.
  *
  * PLACEHOLDER: every quote below is temporary text written to show how the rotating feedback looks.
- * Replace each with the client's real, approved words (and the person's real name and role) before launch.
+ * Names and roles for Olyxee, FreightShift, TechXM and AFHCO are real; their quotes are NOT their words.
+ * Replace each quote with the person's own approved words before it is shown publicly.
  */
 export type Client = {
   name: string;
@@ -38,8 +39,8 @@ export const clients: Client[] = [
     logo: { src: "/clients/olyxee.png", width: 127, height: 128, heightClass: "h-10" },
     feedback: {
       quote: "They understood what we needed before we finished explaining it.",
-      person: "Team member",
-      role: "Client team",
+      person: "Alisha Fatima",
+      role: "Technical Product Manager",
     },
   },
   {
@@ -47,8 +48,8 @@ export const clients: Client[] = [
     logo: { src: "/clients/freightshift.png", width: 836, height: 128, heightClass: "h-8" },
     feedback: {
       quote: "Our operations run noticeably smoother since the work was delivered.",
-      person: "Team member",
-      role: "Client team",
+      person: "Jack Maluleke",
+      role: "CEO and Founder",
     },
   },
   {
@@ -56,8 +57,8 @@ export const clients: Client[] = [
     logo: { src: "/clients/techxm.png", width: 317, height: 128, heightClass: "h-9" },
     feedback: {
       quote: "Practical, honest and quick to respond. Exactly what we wanted.",
-      person: "Team member",
-      role: "Client team",
+      person: "Brian Motsweni",
+      role: "CTO",
     },
   },
   {
@@ -74,8 +75,8 @@ export const clients: Client[] = [
     logo: { src: "/clients/afhco.png", width: 263, height: 128, heightClass: "h-10" },
     feedback: {
       quote: "A partner that cared about the outcome, not just the delivery.",
-      person: "Team member",
-      role: "Client team",
+      person: "Trust",
+      role: "Building Manager",
     },
   },
 ];
