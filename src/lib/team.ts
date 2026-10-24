@@ -1,7 +1,7 @@
 /**
  * Leadership shown on the About page.
  *
- * `name` is left empty until the person's full name is supplied — cards then show the
+ * `name` is left empty until the person's full name is supplied - cards then show the
  * role only, and no named Person is added to the site's search data. `bio` is optional.
  */
 export type TeamMember = {

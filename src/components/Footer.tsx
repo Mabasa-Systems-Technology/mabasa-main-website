@@ -1,90 +1,75 @@
+import Image from "next/image";
 import Link from "next/link";
-import { Logo } from "./ui/Logo";
+import { BbbeeBadge } from "./ui/BbbeeBadge";
+import { SocialLinks } from "./SocialLinks";
 import { navigation, site } from "@/lib/site";
-import { services } from "@/lib/services";
+import wordmark from "../../public/brand/wordmark-light.png";
 
 export function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="bg-navy-950 text-white">
-      <div className="container-site pt-20 pb-10 lg:pt-28">
-        <div className="grid gap-14 border-b border-white/10 pb-16 lg:grid-cols-12">
-          <div className="lg:col-span-4">
-            <Logo tone="light" />
-            <p className="mt-6 max-w-xs text-[0.9375rem] leading-relaxed text-white/60">
-              A business-focused technology company helping organisations solve complex challenges and strengthen
-              operations.
+    <footer className="overflow-hidden bg-navy-950 text-white">
+      <div className="container-site pt-20 lg:pt-28">
+        <div className="grid gap-16 lg:grid-cols-12">
+          <div className="lg:col-span-7">
+            <p className="text-headline font-light text-balance">Let&apos;s talk.</p>
+            <a
+              href={`mailto:${site.publicEmail}`}
+              className="mt-8 inline-block text-[clamp(1.25rem,3vw,2.25rem)] font-light tracking-tight underline decoration-white/25 underline-offset-8 transition-colors hover:decoration-white"
+            >
+              {site.publicEmail}
+            </a>
+            <p className="mt-4">
+              <a
+                href={`tel:${site.phone}`}
+                className="text-lg text-white/70 transition-colors hover:text-white lg:text-xl"
+              >
+                {site.phoneDisplay}
+              </a>
             </p>
+            <SocialLinks className="mt-10 gap-5 [&_svg]:size-5" />
           </div>
 
-          <nav aria-label="Footer" className="grid gap-10 sm:grid-cols-3 lg:col-span-8">
-            <div>
-              <p className="eyebrow mb-5 text-white/40">Company</p>
+          <div className="flex items-end justify-between gap-10 lg:col-span-4 lg:col-start-9 lg:flex-col lg:items-start lg:justify-between">
+            <nav aria-label="Footer">
               <ul className="space-y-3">
-                {navigation.map((item) => (
+                {navigation.slice(1).map((item) => (
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      className="text-[0.9375rem] text-white/75 transition-colors hover:text-white"
+                      className="text-2xl font-light tracking-tight text-white/80 transition-colors hover:text-white"
                     >
                       {item.label}
                     </Link>
                   </li>
                 ))}
-              </ul>
-            </div>
-            <div>
-              <p className="eyebrow mb-5 text-white/40">Services</p>
-              <ul className="space-y-3">
-                {services.map((s) => (
-                  <li key={s.slug}>
-                    <Link
-                      href={`/services/${s.slug}`}
-                      className="text-[0.9375rem] text-white/75 transition-colors hover:text-white"
-                    >
-                      {s.title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <p className="eyebrow mb-5 text-white/40">Get in touch</p>
-              <ul className="space-y-3 text-[0.9375rem] text-white/75">
                 <li>
-                  <Link href="/contact" className="transition-colors hover:text-white">
-                    Start a project enquiry
+                  <Link
+                    href={site.clientPortalUrl}
+                    className="text-2xl font-light tracking-tight text-white/80 transition-colors hover:text-white"
+                  >
+                    Login
                   </Link>
                 </li>
-                {site.publicEmail && (
-                  <li>
-                    <a href={`mailto:${site.publicEmail}`} className="transition-colors hover:text-white">
-                      {site.publicEmail}
-                    </a>
-                  </li>
-                )}
-                {
-                  <li>
-                    <a href={site.clientPortalUrl} className="transition-colors hover:text-white">
-                      Client Portal login
-                    </a>
-                  </li>
-                }
-                <li className="text-white/50">Serving clients across {site.country}</li>
               </ul>
-            </div>
-          </nav>
+            </nav>
+            <BbbeeBadge className="h-28 w-auto shrink-0 lg:h-32" />
+          </div>
         </div>
 
-        <div className="flex flex-col gap-4 pt-8 text-sm text-white/45 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-2xl">
-            © {year} {site.legalName}. All rights reserved. Site content, design and code may not be copied, reproduced
-            or used to train AI models without written permission.
+        <div className="mt-16 flex flex-col gap-3 border-t border-white/10 pt-6 text-sm text-white/45 sm:flex-row sm:items-center sm:justify-between">
+          <p>
+            © {year} {site.legalName}
           </p>
           <Link href="/privacy" className="transition-colors hover:text-white">
             Privacy Policy
           </Link>
         </div>
+      </div>
+
+      {/* A large, faint wordmark closes the page. */}
+      <div aria-hidden="true" className="container-site select-none pt-10 pb-6">
+        <Image src={wordmark} alt="" className="h-auto w-full opacity-[0.07]" />
       </div>
     </footer>
   );

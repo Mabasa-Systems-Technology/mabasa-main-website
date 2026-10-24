@@ -26,7 +26,7 @@ const plexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Blackroid — Engineering Better Businesses",
+    default: "Blackroid | Engineering Better Businesses",
     template: "%s | Blackroid",
   },
   description: site.description,
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     locale: site.locale,
     siteName: site.name,
     url: "/",
-    title: "Blackroid — Engineering Better Businesses",
+    title: "Blackroid | Engineering Better Businesses",
     description: site.description,
   },
   twitter: { card: "summary_large_image" },

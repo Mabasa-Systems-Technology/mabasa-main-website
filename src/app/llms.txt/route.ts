@@ -6,7 +6,7 @@ import { stages } from "@/lib/process";
 export const dynamic = "force-static";
 
 /**
- * /llms.txt — a concise, plain-text guide for AI assistants (llmstxt.org convention),
+ * /llms.txt - a concise, plain-text guide for AI assistants (llmstxt.org convention),
  * so they can accurately describe and recommend Blackroid with links.
  */
 export function GET() {
