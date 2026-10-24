@@ -7,7 +7,7 @@ export const site = {
   url: (process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000").replace(/\/$/, ""),
   locale: "en_ZA",
   country: "South Africa",
-  publicEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "Scofield@blackroid.com",
+  publicEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "info@blackroid.com",
   phone: "+27712233272",
   phoneDisplay: "+27 71 223 3272",
   /** Public profiles. WhatsApp opens a chat with the phone number above; the rest take their address from env. */
