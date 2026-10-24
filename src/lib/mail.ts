@@ -5,7 +5,7 @@ export class MailNotConfiguredError extends Error {}
 
 type Mail = { subject: string; text: string; html: string; replyTo: string };
 
-const DEFAULT_TO = "info@olyxee.com";
+const DEFAULT_TO = "Scofield@blackroid.com";
 
 function config() {
   return {

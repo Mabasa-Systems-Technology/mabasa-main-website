@@ -63,6 +63,13 @@ export function Footer() {
                     </a>
                   </li>
                 )}
+                {site.clientPortalUrl && (
+                  <li>
+                    <a href={site.clientPortalUrl} className="transition-colors hover:text-white">
+                      Client Portal login
+                    </a>
+                  </li>
+                )}
                 <li className="text-white/50">Serving clients across {site.country}</li>
               </ul>
             </div>
