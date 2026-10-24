@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { rememberSubmitter } from "@/lib/thanks";
 import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { AlertCircle, ArrowUpRight, Check, CheckCircle2, Loader2 } from "lucide-react";
@@ -126,6 +128,7 @@ export function ContactForm({ initialService, publicEmail }: { initialService?: 
   const [status, setStatus] = useState<Status>("idle");
   const [formError, setFormError] = useState("");
   const [sent, setSent] = useState<Values | null>(null);
+  const router = useRouter();
   const startedAt = useRef(0);
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -200,6 +203,8 @@ export function ContactForm({ initialService, publicEmail }: { initialService?: 
       if (res.ok) {
         setSent(values);
         setStatus("success");
+        rememberSubmitter(values.name);
+        router.push("/contact/thanks");
         try {
           localStorage.removeItem(DRAFT_KEY);
         } catch {}

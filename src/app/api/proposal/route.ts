@@ -49,10 +49,10 @@ export async function POST(req: NextRequest) {
     ["Name", d.name],
     ["Email", d.email],
     ["Company", d.company],
+    ["Starting point", d.startingPoint],
+    ...(d.link ? ([["Website or app", d.link]] as Array<[string, string]>) : []),
     ["Roles needed", d.roles.join(", ")],
-    ["Team size", d.teamSize],
     ["Duration", d.duration],
-    ["Start", d.start],
   ];
 
   const text = [
@@ -60,7 +60,7 @@ export async function POST(req: NextRequest) {
     "",
     ...rows.map(([k, v]) => `${k}: ${v}`),
     "",
-    "What they want to build:",
+    "Their description:",
     d.message,
     "",
     `Submitted: ${new Date().toISOString()}`,
@@ -77,14 +77,14 @@ export async function POST(req: NextRequest) {
           )
           .join("")}
       </table>
-      <h3 style="font-weight:500;margin-top:24px">What they want to build</h3>
+      <h3 style="font-weight:500;margin-top:24px">Their description</h3>
       <p style="white-space:pre-wrap;line-height:1.6">${escapeHtml(d.message)}</p>
       <p style="color:#666;font-size:12px;margin-top:24px">Submitted via the Blackroid outsourcing proposal form.</p>
     </div>`;
 
   try {
     await sendMail({
-      subject: `Team proposal request: ${d.company} | ${d.teamSize}`.replace(/[\r\n]+/g, " "),
+      subject: `Team proposal request: ${d.company} | ${d.startingPoint}`.replace(/[\r\n]+/g, " "),
       text,
       html,
       replyTo: d.email,

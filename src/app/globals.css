@@ -167,6 +167,46 @@
     transform: translateY(0.35em);
   }
 }
+/* Thank-you tick: the ring draws, the tick draws, then a soft pulse. */
+@keyframes thanks-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes thanks-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+}
+@keyframes thanks-ring {
+  from {
+    opacity: 0.6;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.7);
+  }
+}
+.thanks-fill {
+  transform-origin: center;
+  animation: thanks-pop 0.5s var(--ease-out-expo) 0.1s both;
+}
+.thanks-circle {
+  stroke-dasharray: 164;
+  stroke-dashoffset: 164;
+  animation: thanks-draw 0.7s cubic-bezier(0.65, 0, 0.35, 1) 0.1s forwards;
+}
+.thanks-check {
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: thanks-draw 0.45s cubic-bezier(0.65, 0, 0.35, 1) 0.75s forwards;
+}
+.thanks-ring {
+  animation: thanks-ring 1.4s ease-out 1s both;
+}
+
 .word-swap {
   display: inline-block;
   animation: word-swap 0.5s var(--ease-out-expo) both;

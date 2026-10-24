@@ -2,18 +2,20 @@
 
 import { useRef, useState, type FormEvent, type ReactNode } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { rememberSubmitter } from "@/lib/thanks";
 import { AlertCircle, Check, Loader2 } from "lucide-react";
-import { durationOptions, proposalSchema, roleOptions, startOptions, teamSizeOptions } from "@/lib/proposal-schema";
+import { durationOptions, proposalSchema, roleOptions, startingPointOptions } from "@/lib/proposal-schema";
 import { cn } from "@/lib/cn";
 
 type Values = {
   name: string;
   email: string;
   company: string;
+  startingPoint: string;
+  link: string;
   roles: string[];
-  teamSize: string;
   duration: string;
-  start: string;
   message: string;
 };
 
@@ -21,11 +23,31 @@ const empty: Values = {
   name: "",
   email: "",
   company: "",
+  startingPoint: "",
+  link: "",
   roles: [],
-  teamSize: "",
   duration: "",
-  start: "",
   message: "",
+};
+
+/** What we ask for in the description depends on where the visitor is starting from. */
+const prompts: Record<string, { label: string; placeholder: string }> = {
+  "Starting from scratch": {
+    label: "Tell us about your idea",
+    placeholder: "What you want to build, who it is for, and what it must do.",
+  },
+  "I have a website or app": {
+    label: "What should change?",
+    placeholder: "What is not working today, and what you want improved or added.",
+  },
+  "I have systems to fix or connect": {
+    label: "What needs fixing or connecting?",
+    placeholder: "Which systems are involved and where they fall short.",
+  },
+};
+const defaultPrompt = {
+  label: "What are you trying to achieve?",
+  placeholder: "Tell us the goal and we will help shape the team.",
 };
 
 const input =
@@ -114,7 +136,7 @@ export function ProposalForm() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [formError, setFormError] = useState("");
   const [sending, setSending] = useState(false);
-  const [sentTo, setSentTo] = useState("");
+  const router = useRouter();
   // Set on the first interaction, so the server can tell a person from a script.
   const startedAt = useRef(0);
   const honeypot = useRef<HTMLInputElement>(null);
@@ -159,7 +181,8 @@ export function ProposalForm() {
       });
       const data = (await res.json().catch(() => ({}))) as { message?: string; fieldErrors?: Record<string, string> };
       if (res.ok) {
-        setSentTo(values.name.split(" ")[0] || "there");
+        rememberSubmitter(values.name);
+        router.push("/outsourced-development/proposal/thanks");
         return;
       }
       if (data.fieldErrors) setErrors(data.fieldErrors);
@@ -169,21 +192,6 @@ export function ProposalForm() {
     } finally {
       setSending(false);
     }
-  }
-
-  if (sentTo) {
-    return (
-      <div role="status" className="rounded-[4px] border border-line bg-white p-8 sm:p-12">
-        <span className="flex size-12 items-center justify-center rounded-full bg-ink text-white">
-          <Check aria-hidden="true" strokeWidth={1.5} className="size-6" />
-        </span>
-        <h2 className="mt-8 text-title font-light">Thanks, {sentTo}. We&apos;ve got it.</h2>
-        <p className="mt-4 max-w-md text-ink-soft">We&apos;ll come back with a team, a plan and a price.</p>
-        <Link href="/outsourced-development" className="mt-8 inline-block text-ink underline underline-offset-4">
-          Back to outsourcing
-        </Link>
-      </div>
-    );
   }
 
   return (
@@ -229,6 +237,27 @@ export function ProposalForm() {
       </div>
 
       <Chips
+        legend="Where are you starting from?"
+        name="startingPoint"
+        options={startingPointOptions}
+        selected={[values.startingPoint]}
+        onToggle={(o) => set("startingPoint", o)}
+        error={errors.startingPoint}
+      />
+      {values.startingPoint === "I have a website or app" && (
+        <Field id="link" label="Your website or app address (optional)" error={errors.link}>
+          <input
+            id="link"
+            inputMode="url"
+            autoComplete="url"
+            value={values.link}
+            onChange={(e) => set("link", e.target.value)}
+            placeholder="www.yourcompany.co.za"
+            className={cn(input, errors.link ? "border-red-600" : "border-line-strong")}
+          />
+        </Field>
+      )}
+      <Chips
         legend="Who do you need on the team?"
         name="roles"
         options={roleOptions}
@@ -238,14 +267,6 @@ export function ProposalForm() {
         error={errors.roles}
       />
       <Chips
-        legend="Team size"
-        name="teamSize"
-        options={teamSizeOptions}
-        selected={[values.teamSize]}
-        onToggle={(o) => set("teamSize", o)}
-        error={errors.teamSize}
-      />
-      <Chips
         legend="For how long?"
         name="duration"
         options={durationOptions}
@@ -253,22 +274,14 @@ export function ProposalForm() {
         onToggle={(o) => set("duration", o)}
         error={errors.duration}
       />
-      <Chips
-        legend="When do you want to start?"
-        name="start"
-        options={startOptions}
-        selected={[values.start]}
-        onToggle={(o) => set("start", o)}
-        error={errors.start}
-      />
 
-      <Field id="message" label="What do you want to build?" error={errors.message}>
+      <Field id="message" label={(prompts[values.startingPoint] ?? defaultPrompt).label} error={errors.message}>
         <textarea
           id="message"
           rows={5}
           value={values.message}
           onChange={(e) => set("message", e.target.value)}
-          placeholder="A short description of the product, the stack you use, and where you need help."
+          placeholder={(prompts[values.startingPoint] ?? defaultPrompt).placeholder}
           className={cn(input, "resize-y", errors.message ? "border-red-600" : "border-line-strong")}
         />
       </Field>
