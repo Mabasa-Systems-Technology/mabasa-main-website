@@ -41,6 +41,7 @@ export const clients: Client[] = [
       quote: "They understood what we needed before we finished explaining it.",
       person: "Alisha Fatima",
       role: "Technical Product Manager",
+      photo: "/people/alisha-fatima.webp",
     },
   },
   {
@@ -50,6 +51,7 @@ export const clients: Client[] = [
       quote: "Our operations run noticeably smoother since the work was delivered.",
       person: "Jack Maluleke",
       role: "CEO and Founder",
+      photo: "/people/jack-maluleke.webp",
     },
   },
   {
@@ -59,6 +61,7 @@ export const clients: Client[] = [
       quote: "Practical, honest and quick to respond. Exactly what we wanted.",
       person: "Brian Motsweni",
       role: "CTO",
+      photo: "/people/brian-motsweni.webp",
     },
   },
   {

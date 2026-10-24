@@ -1,136 +1,117 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { User } from "lucide-react";
-import { clients, testimonials } from "@/lib/clients";
-import { cn } from "@/lib/cn";
+import { testimonials } from "@/lib/clients";
 import { Reveal } from "../ui/Reveal";
 
-const LOGOS_MS = 5000;
-const QUOTE_MS = 7000;
+const SLIDE_MS = 5500;
+
+// One colour per card: the three markers from the principles animation, then three that sit with them.
+const palette = [
+  { bg: "#B49C84", fg: "#1c1710", sub: "rgb(28 23 16 / 0.7)" },
+  { bg: "#143424", fg: "#ffffff", sub: "rgb(255 255 255 / 0.7)" },
+  { bg: "#8CA4BC", fg: "#0f1a26", sub: "rgb(15 26 38 / 0.7)" },
+  { bg: "#C47A5A", fg: "#1f0f08", sub: "rgb(31 15 8 / 0.72)" },
+  { bg: "#4A3552", fg: "#ffffff", sub: "rgb(255 255 255 / 0.7)" },
+  { bg: "#D9C9A3", fg: "#231d0c", sub: "rgb(35 29 12 / 0.7)" },
+];
 
 /**
- * A slim band: the client logos, which slide away for a card showing one person's feedback (their
- * photo, name, role and company logo) and then return. With no feedback on file it stays on the logos.
+ * Feedback from the people we have worked with, as a row of colour-coded cards that slides on its own.
+ * Visitors can swipe or scroll it too; it pauses while they are interacting with it.
  */
 export function Clients() {
-  // -1 shows the logos; 0..n-1 shows that testimonial. The next one follows after each logo pause.
-  const [shown, setShown] = useState(-1);
-  const [next, setNext] = useState(0);
-  const [paused, setPaused] = useState(false);
+  const track = useRef<HTMLUListElement>(null);
+  const paused = useRef(false);
 
   useEffect(() => {
-    if (testimonials.length === 0 || paused) return;
-    const showingLogos = shown === -1;
-    const timer = setTimeout(
-      () => {
-        if (showingLogos) {
-          setShown(next);
-          setNext((next + 1) % testimonials.length);
-        } else {
-          setShown(-1);
-        }
-      },
-      showingLogos ? LOGOS_MS : QUOTE_MS,
-    );
-    return () => clearTimeout(timer);
-  }, [shown, next, paused]);
+    const el = track.current;
+    if (!el || testimonials.length < 2) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-  const quote = testimonials[shown] ?? testimonials[(next + testimonials.length - 1) % testimonials.length];
-  const showingQuote = shown !== -1;
+    const timer = setInterval(() => {
+      if (paused.current) return;
+      const cards = Array.from(el.children) as HTMLElement[];
+      const atEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 8;
+      const nextCard = cards.find((c) => c.offsetLeft > el.scrollLeft + 8);
+      el.scrollTo({ left: atEnd || !nextCard ? 0 : nextCard.offsetLeft, behavior: "smooth" });
+    }, SLIDE_MS);
+    return () => clearInterval(timer);
+  }, []);
+
+  if (testimonials.length === 0) return null;
 
   return (
-    <section aria-labelledby="clients-heading" className="overflow-hidden border-y border-line bg-white py-12 lg:py-14">
+    <section aria-labelledby="clients-heading" className="overflow-hidden border-y border-line bg-white py-16 lg:py-20">
       <div className="container-site">
-        <Reveal className="grid gap-6 lg:grid-cols-12 lg:items-center lg:gap-10">
-          <h2 id="clients-heading" className="text-xl font-light tracking-tight text-ink lg:col-span-3">
+        <Reveal>
+          <h2 id="clients-heading" className="text-title font-light text-balance">
             Businesses we&apos;ve worked with
           </h2>
-
-          {/* Both states share one grid cell, so the band keeps the height of the taller one. */}
-          <div
-            className="grid lg:col-span-9 [&>*]:col-start-1 [&>*]:row-start-1"
-            onMouseEnter={() => setPaused(true)}
-            onMouseLeave={() => setPaused(false)}
-          >
-            <ul
-              aria-hidden={showingQuote}
-              className={cn(
-                "grid grid-cols-2 items-center justify-items-start gap-x-8 gap-y-6 transition-[transform,opacity] duration-700 ease-out-expo sm:flex sm:flex-wrap sm:gap-x-12 sm:gap-y-8 lg:justify-between",
-                showingQuote ? "pointer-events-none -translate-x-10 opacity-0" : "translate-x-0 opacity-100",
-              )}
-            >
-              {clients.map((c) => (
-                <li key={c.name} className="flex h-10 items-center">
-                  {c.logo ? (
-                    <Image
-                      src={c.logo.src}
-                      alt={c.name}
-                      width={c.logo.width}
-                      height={c.logo.height}
-                      className={cn(
-                        "w-auto max-w-[8.5rem] object-contain object-left opacity-70 grayscale transition duration-300 hover:opacity-100 hover:grayscale-0 sm:max-w-none",
-                        c.logo.heightClass,
-                      )}
-                    />
-                  ) : (
-                    <span className="text-lg font-medium tracking-tight text-ink/60">{c.name}</span>
-                  )}
-                </li>
-              ))}
-            </ul>
-
-            {quote && (
-              <figure
-                aria-hidden={!showingQuote}
-                className={cn(
-                  "flex w-full items-start gap-4 self-center rounded-[8px] border border-line bg-white p-5 shadow-[0_18px_50px_-24px_rgb(0_0_0/0.3)] transition-[transform,opacity] duration-700 ease-out-expo sm:gap-5 sm:p-6",
-                  showingQuote ? "translate-x-0 opacity-100" : "pointer-events-none translate-x-12 opacity-0",
-                )}
-              >
-                <div className="relative flex size-12 shrink-0 items-center justify-center overflow-hidden rounded-full bg-paper text-muted sm:size-14">
-                  {quote.feedback.photo ? (
-                    <Image
-                      src={quote.feedback.photo}
-                      alt=""
-                      fill
-                      sizes="56px"
-                      loading="eager"
-                      className="object-cover"
-                    />
-                  ) : (
-                    <User aria-hidden="true" strokeWidth={1.5} className="size-6" />
-                  )}
-                </div>
-                <div className="min-w-0 flex-1">
-                  <blockquote className="text-base leading-snug font-light text-ink sm:text-lg lg:text-xl">
-                    &ldquo;{quote.feedback.quote}&rdquo;
-                  </blockquote>
-                  <figcaption className="mt-4 flex flex-wrap items-center justify-between gap-x-6 gap-y-3">
-                    <p className="text-sm text-muted">
-                      <span className="block font-medium text-ink">{quote.feedback.person}</span>
-                      {quote.feedback.role}, {quote.name}
-                    </p>
-                    {quote.logo ? (
-                      <Image
-                        src={quote.logo.src}
-                        alt={quote.name}
-                        width={quote.logo.width}
-                        height={quote.logo.height}
-                        loading="eager"
-                        className="h-6 w-auto max-w-[8rem] object-contain object-right"
-                      />
-                    ) : (
-                      <span className="text-sm font-medium text-ink">{quote.name}</span>
-                    )}
-                  </figcaption>
-                </div>
-              </figure>
-            )}
-          </div>
         </Reveal>
       </div>
+
+      <ul
+        ref={track}
+        onPointerEnter={() => (paused.current = true)}
+        onPointerLeave={() => (paused.current = false)}
+        onTouchStart={() => (paused.current = true)}
+        onTouchEnd={() => setTimeout(() => (paused.current = false), 4000)}
+        className="no-scrollbar mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth px-5 pb-2 sm:px-8 lg:mt-14 lg:gap-6 lg:px-12"
+      >
+        {testimonials.map((t, i) => {
+          const c = palette[i % palette.length];
+          return (
+            <li key={t.name} className="w-[86%] shrink-0 snap-start sm:w-[26rem] lg:w-[28rem]">
+              <figure
+                className="flex h-full flex-col justify-between rounded-[10px] p-7 lg:p-9"
+                style={{ backgroundColor: c.bg, color: c.fg }}
+              >
+                <blockquote className="text-xl leading-snug font-light lg:text-2xl">
+                  &ldquo;{t.feedback.quote}&rdquo;
+                </blockquote>
+                <figcaption className="mt-10 flex items-center gap-4">
+                  <div
+                    className="relative flex size-12 shrink-0 items-center justify-center overflow-hidden rounded-full bg-white/35"
+                    style={{ color: c.fg }}
+                  >
+                    {t.feedback.photo ? (
+                      <Image src={t.feedback.photo} alt="" fill sizes="48px" className="object-cover" />
+                    ) : (
+                      <User aria-hidden="true" strokeWidth={1.5} className="size-6" />
+                    )}
+                  </div>
+                  <p className="min-w-0 flex-1 text-sm" style={{ color: c.sub }}>
+                    <span className="block text-base font-medium" style={{ color: c.fg }}>
+                      {t.feedback.person}
+                    </span>
+                    {t.feedback.role}
+                  </p>
+                  {/* The logos are dark artwork, so each sits on a small white pill. */}
+                  <span className="flex h-9 shrink-0 items-center rounded-[4px] bg-white px-3">
+                    {t.logo ? (
+                      <Image
+                        src={t.logo.src}
+                        alt={t.name}
+                        width={t.logo.width}
+                        height={t.logo.height}
+                        loading="eager"
+                        className="h-4 w-auto max-w-[5.5rem] object-contain"
+                      />
+                    ) : (
+                      <span className="text-xs font-medium text-ink">{t.name}</span>
+                    )}
+                  </span>
+                </figcaption>
+              </figure>
+            </li>
+          );
+        })}
+        {/* Trailing space so the last card can snap fully into view. */}
+        <li aria-hidden="true" className="w-1 shrink-0" />
+      </ul>
     </section>
   );
 }

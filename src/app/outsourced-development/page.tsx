@@ -87,7 +87,7 @@ export default function OutsourcedDevelopmentPage() {
     "@type": "FAQPage",
     mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
   };
-  const enquiry = `/contact?service=${encodeURIComponent("Custom Software Development")}`;
+  const enquiry = "/outsourced-development/proposal";
 
   return (
     <>
@@ -260,7 +260,7 @@ export default function OutsourcedDevelopmentPage() {
         </div>
       </section>
 
-      <CtaBand title="Ready to build your team?" />
+      <CtaBand title="Ready to build your team?" cta="Get a team proposal" href={enquiry} />
     </>
   );
 }
