@@ -6,7 +6,7 @@ import { SectionHeading } from "./ui/SectionHeading";
 
 export function Leadership() {
   return (
-    <section className="bg-paper py-24 lg:py-36">
+    <section className="bg-black pt-24 pb-36 lg:pt-36 lg:pb-52">
       <div className="container-site">
         <SectionHeading title="The people behind the work." />
 
@@ -15,7 +15,7 @@ export function Leadership() {
             <li key={m.role}>
               <Reveal delay={i * 0.1}>
                 <figure>
-                  <div className="relative aspect-[4/5] overflow-hidden rounded-[4px] bg-navy-700">
+                  <div className="relative aspect-[4/5] overflow-hidden rounded-[4px] bg-paper">
                     <Image
                       src={m.image}
                       alt={m.name ? `${m.name}, ${m.role} of ${site.name}` : `${m.role} of ${site.name}`}

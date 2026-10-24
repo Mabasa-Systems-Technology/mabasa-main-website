@@ -37,7 +37,7 @@ export function ServicesIndex({ items }: { items: Item[] }) {
   return (
     <>
       {/* Mobile / tablet: horizontal chips */}
-      <div className="sticky top-[72px] z-30 -mx-5 border-b border-line bg-white/90 backdrop-blur-xl sm:-mx-8 lg:hidden">
+      <div className="sticky top-[72px] z-30 -mx-5 border-b border-line bg-black/90 backdrop-blur-xl sm:-mx-8 lg:hidden">
         <div ref={mobileBar} className="no-scrollbar flex gap-2 overflow-x-auto px-5 py-3 sm:px-8">
           {items.map((i) => (
             <a
@@ -47,7 +47,7 @@ export function ServicesIndex({ items }: { items: Item[] }) {
               aria-current={active === i.slug ? "true" : undefined}
               className={cn(
                 "shrink-0 rounded-full border px-4 py-2 text-sm transition-colors duration-300",
-                active === i.slug ? "border-ink bg-ink text-white" : "border-line-strong text-ink-soft",
+                active === i.slug ? "border-white bg-white text-black" : "border-line-strong text-ink-soft",
               )}
             >
               {i.title}

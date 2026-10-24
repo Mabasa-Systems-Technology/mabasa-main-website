@@ -22,7 +22,7 @@ export default function ServicesPage() {
     <>
       <PageHero title="Six ways we help your business run better." compact />
 
-      <section className="bg-white pb-24 lg:pt-24 lg:pb-36">
+      <section className="bg-black pb-24 lg:pt-24 lg:pb-36">
         <div className="container-site lg:grid lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-3">
             <ServicesIndex items={services.map(({ slug, number, title }) => ({ slug, number, title }))} />

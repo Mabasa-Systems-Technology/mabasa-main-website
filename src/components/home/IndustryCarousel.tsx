@@ -33,7 +33,7 @@ export function IndustryCarousel() {
   };
 
   return (
-    <section className="overflow-hidden bg-white pb-28 lg:pb-40">
+    <section className="overflow-hidden bg-black pb-28 lg:pb-40">
       <div className="container-site">
         <div className="flex flex-col justify-between gap-8 border-t border-line pt-28 sm:flex-row sm:items-end lg:pt-40">
           <SectionHeading title="Industries we work with." />
@@ -45,7 +45,7 @@ export function IndustryCarousel() {
                 onClick={() => scroll(dir)}
                 disabled={dir === -1 ? edges.start : edges.end}
                 aria-label={dir === -1 ? "Previous industries" : "Next industries"}
-                className="flex size-12 items-center justify-center rounded-full border border-line-strong text-ink transition-colors duration-300 hover:border-ink hover:bg-ink hover:text-white disabled:pointer-events-none disabled:opacity-35"
+                className="flex size-12 items-center justify-center rounded-full border border-line-strong text-ink transition-colors duration-300 hover:border-ink hover:bg-white hover:text-black disabled:pointer-events-none disabled:opacity-35"
               >
                 {dir === -1 ? (
                   <ArrowLeft aria-hidden="true" strokeWidth={1.5} className="size-5" />

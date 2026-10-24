@@ -71,7 +71,7 @@ export default function HowWeWorkPage() {
       <JsonLd data={faqLd} />
       <PageHero title="From business challenge to lasting value." />
 
-      <section className="bg-white py-20 lg:py-28">
+      <section className="bg-black py-20 lg:py-28">
         <div className="container-site">
           {stages.map((s) => (
             <article

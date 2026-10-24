@@ -1,14 +1,15 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { Logo } from "./ui/Logo";
 import { ButtonLink } from "./ui/Button";
 import { LogIn } from "lucide-react";
 import { navigation, site } from "@/lib/site";
 import { cn } from "@/lib/cn";
+import wordmarkLight from "../../public/brand/wordmark-light.png";
 
 function isActive(pathname: string, href: string) {
   return href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`);
@@ -65,19 +66,21 @@ export function Header() {
     <>
       <a
         href="#main"
-        className="sr-only z-[60] rounded bg-white px-4 py-2 text-ink focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
+        className="sr-only z-[60] rounded bg-black px-4 py-2 text-ink focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
       >
         Skip to content
       </a>
       <header
         className={cn(
           "fixed inset-x-0 top-0 z-50 transition-[transform,background-color,border-color,box-shadow] duration-500 ease-out-expo",
-          solid ? "border-b border-line bg-white/90 backdrop-blur-xl" : "border-b border-transparent bg-transparent",
+          solid ? "border-b border-line bg-black/90 backdrop-blur-xl" : "border-b border-transparent bg-transparent",
           hidden && !open ? "-translate-y-full" : "translate-y-0",
         )}
       >
         <div className="container-site flex h-[72px] items-center justify-between gap-6 lg:h-20">
-          <Logo tone={solid ? "dark" : "light"} />
+          <Link href="/" aria-label="Blackroid — home" className="relative inline-flex shrink-0">
+            <Image src={wordmarkLight} alt="" priority className="h-6 w-auto lg:h-7" />
+          </Link>
 
           <nav aria-label="Primary" className="hidden lg:block">
             <ul className="flex items-center gap-1">

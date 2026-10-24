@@ -6,25 +6,25 @@
   --font-mono: var(--font-plex-mono), ui-monospace, SFMono-Regular, monospace;
 
   /* Neutrals */
-  --color-paper: #f5f5f4;
+  --color-paper: #0a0a0a;
   --color-white: #ffffff;
-  --color-ink: #0a1324;
-  --color-ink-soft: #2a3448;
-  --color-muted: #5e6778;
-  --color-line: #e5e5e5;
-  --color-line-strong: #cfcfd1;
+  --color-ink: #ffffff;
+  --color-ink-soft: #d2d2d2;
+  --color-muted: #9b9b9b;
+  --color-line: #242424;
+  --color-line-strong: #3b3b3b;
 
-  /* Navy (dark surfaces) — built around brand blue #002d72 */
-  --color-navy-950: #000c1f;
-  --color-navy-900: #00142f;
-  --color-navy-800: #001d45;
-  --color-navy-700: #002d72;
+  /* Black (dark surfaces). Token names keep "navy" so existing classes still resolve. */
+  --color-navy-950: #000000;
+  --color-navy-900: #080808;
+  --color-navy-800: #121212;
+  --color-navy-700: #1e1e1e;
 
-  /* Brand blue accent (#002d72) — used sparingly */
-  --color-accent: #002d72;
-  --color-accent-deep: #001d4a;
-  --color-accent-soft: #8fb0ea;
-  --color-accent-wash: #e9eef7;
+  /* Accent: white on the black surfaces. */
+  --color-accent: #ffffff;
+  --color-accent-deep: #d4d4d4;
+  --color-accent-soft: #b3b3b3;
+  --color-accent-wash: #161616;
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 
@@ -46,14 +46,14 @@
   }
 
   body {
-    @apply bg-white font-sans text-ink antialiased;
+    @apply bg-black font-sans text-ink antialiased;
     font-feature-settings: "ss01", "cv11";
     text-rendering: optimizeLegibility;
   }
 
   ::selection {
     background: var(--color-accent);
-    color: white;
+    color: black;
   }
 
   :focus-visible {
@@ -108,9 +108,9 @@
 /* ─── Hero gradient field ───────────────────────────────────────────────── */
 .hero-field {
   background:
-    radial-gradient(60% 70% at 80% 15%, rgb(143 176 234 / 0.35), transparent 70%),
-    radial-gradient(55% 60% at 20% 95%, rgb(0 45 114 / 0.7), transparent 70%),
-    linear-gradient(160deg, #001d45 0%, #00142f 55%, #000c1f 100%);
+    radial-gradient(60% 70% at 80% 15%, rgb(255 255 255 / 0.12), transparent 70%),
+    radial-gradient(55% 60% at 20% 95%, rgb(80 80 80 / 0.45), transparent 70%),
+    linear-gradient(160deg, #171717 0%, #0d0d0d 55%, #050505 100%);
 }
 
 .hero-orb {

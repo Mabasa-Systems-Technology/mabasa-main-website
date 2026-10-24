@@ -81,7 +81,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-white py-24 lg:py-36">
+      <section className="bg-black py-24 lg:py-36">
         <div className="container-site grid gap-16 lg:grid-cols-12">
           <Reveal className="lg:col-span-5">
             <h2 className="text-headline font-light text-balance">Built Around Business.</h2>
@@ -116,7 +116,7 @@ export default function AboutPage() {
 
       <Leadership />
 
-      <section className="relative isolate overflow-hidden bg-navy-950">
+      <section className="relative isolate -mt-20 overflow-hidden rounded-t-[3rem] bg-navy-950 lg:-mt-28 lg:rounded-t-[6rem]">
         <div className="relative aspect-[16/9] max-h-[640px] w-full sm:aspect-[21/9]">
           <Image
             src={unsplash("photo-1636706519609-988babca3dd5")}

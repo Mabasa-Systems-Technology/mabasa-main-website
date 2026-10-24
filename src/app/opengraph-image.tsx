@@ -21,7 +21,7 @@ export default async function OpengraphImage() {
         padding: "72px 80px",
         color: "white",
         background:
-          "radial-gradient(60% 70% at 85% 10%, rgba(143,176,234,0.35), transparent 70%), radial-gradient(55% 60% at 15% 95%, rgba(0,45,114,0.75), transparent 70%), linear-gradient(160deg, #001d45 0%, #00142f 55%, #000c1f 100%)",
+          "radial-gradient(60% 70% at 85% 10%, rgba(255,255,255,0.12), transparent 70%), radial-gradient(55% 60% at 15% 95%, rgba(80,80,80,0.5), transparent 70%), linear-gradient(160deg, #171717 0%, #0d0d0d 55%, #050505 100%)",
       }}
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}

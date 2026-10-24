@@ -97,7 +97,7 @@ export function ServicesShowcase() {
                 onFocus={() => setActive(i)}
                 className={cn(
                   "relative flex flex-col items-start gap-5 p-5 text-left transition-colors duration-300 lg:p-6",
-                  isActive ? "bg-navy-900 text-white" : "bg-white text-ink hover:bg-accent-wash",
+                  isActive ? "bg-navy-700 text-white" : "bg-black text-ink hover:bg-accent-wash",
                 )}
               >
                 {isActive && (

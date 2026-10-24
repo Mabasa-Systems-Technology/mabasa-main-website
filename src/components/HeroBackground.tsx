@@ -14,7 +14,7 @@ export function HeroBackground() {
         placeholder="blur"
         className="object-cover object-center"
       />
-      <div className="absolute inset-0 bg-[linear-gradient(to_top,rgb(0_12_31/0.6)_0%,rgb(0_12_31/0.25)_45%,transparent_75%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_top,rgb(5_5_5/0.6)_0%,rgb(5_5_5/0.25)_45%,transparent_75%)]" />
     </>
   );
 }

@@ -18,7 +18,7 @@ export default function IndustriesPage() {
     <>
       <PageHero title="Engineering that adapts to the sector you operate in." />
 
-      <section className="bg-white py-20 lg:py-28">
+      <section className="bg-black py-20 lg:py-28">
         <div className="container-site space-y-24 lg:space-y-36">
           {industries.map((ind, i) => (
             <article

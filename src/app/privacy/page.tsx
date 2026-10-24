@@ -22,7 +22,7 @@ export default function PrivacyPage() {
     <>
       <PageHero compact title="Privacy Policy" />
 
-      <section className="bg-white py-16 lg:py-24">
+      <section className="bg-black py-16 lg:py-24">
         <div className="container-site grid gap-12 lg:grid-cols-12">
           <aside className="lg:col-span-3">
             <div className="lg:sticky lg:top-32">
