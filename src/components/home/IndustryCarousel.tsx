@@ -36,7 +36,7 @@ export function IndustryCarousel() {
     <section className="overflow-hidden bg-white pb-28 lg:pb-40">
       <div className="container-site">
         <div className="flex flex-col justify-between gap-8 border-t border-line pt-28 sm:flex-row sm:items-end lg:pt-40">
-          <SectionHeading title="Industries we work with." />
+          <SectionHeading title="Sectors we focus on." />
           <div className="flex shrink-0 gap-2">
             {([-1, 1] as const).map((dir) => (
               <button

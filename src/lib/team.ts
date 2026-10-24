@@ -20,8 +20,7 @@ export type TeamMember = {
 export const team: TeamMember[] = [
   {
     name: "Lethabo Scofield",
-    founder: true,
-    role: "Founder & Chief Executive Officer",
+    role: "Chief Executive Officer",
     image: "/team/ceo.webp",
     focus: "50% 40%",
   },

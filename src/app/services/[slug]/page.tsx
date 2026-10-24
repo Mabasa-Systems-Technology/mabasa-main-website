@@ -70,7 +70,7 @@ export default async function ServicePage({ params }: Props) {
       <PageHero title={service.title}>
         <div className="mt-12 flex flex-col gap-3 sm:flex-row">
           <ButtonLink href={enquiryHref} variant="light">
-            Discuss your project
+            Discuss this challenge
           </ButtonLink>
           <ButtonLink href="/services" variant="outline-light" arrow={false}>
             All services
@@ -101,7 +101,7 @@ export default async function ServicePage({ params }: Props) {
           <Reveal className="lg:col-span-6">
             <p className="eyebrow text-accent">Capabilities</p>
             <ul className="mt-8 border-t border-line-strong">
-              {service.capabilities.map((c) => (
+              {service.capabilities.slice(0, 4).map((c) => (
                 <li key={c} className="border-b border-line-strong py-5 text-lg font-light text-ink">
                   {c}
                 </li>
@@ -111,7 +111,7 @@ export default async function ServicePage({ params }: Props) {
           <Reveal delay={0.1} className="lg:col-span-5 lg:col-start-8">
             <p className="eyebrow text-accent">What you receive</p>
             <ul className="mt-8 space-y-4">
-              {service.deliverables.map((d) => (
+              {service.deliverables.slice(0, 3).map((d) => (
                 <li key={d} className="flex gap-4 text-ink-soft">
                   <span aria-hidden="true" className="mt-3 h-px w-4 shrink-0 bg-accent" />
                   {d}
@@ -144,8 +144,8 @@ export default async function ServicePage({ params }: Props) {
       </section>
 
       <CtaBand
-        title={`Let's talk about your ${service.title.toLowerCase()} needs.`}
-        cta="Discuss Your Project"
+        title={`Discuss your ${service.title.toLowerCase()} challenge.`}
+        cta="Engage Blackroid"
         href={enquiryHref}
       />
     </>

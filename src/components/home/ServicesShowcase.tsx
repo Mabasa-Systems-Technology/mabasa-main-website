@@ -9,12 +9,12 @@ import { cn } from "@/lib/cn";
 
 /** Short label for the always-visible buttons, and the phrase shown in the headline. */
 const display: Record<string, { label: string; phrase: string; icon: LucideIcon }> = {
-  "custom-software-development": { label: "Software", phrase: "modernise systems.", icon: Code2 },
-  "ai-and-automation": { label: "AI & automation", phrase: "automate processes.", icon: Workflow },
+  "custom-software-development": { label: "Engineering", phrase: "modernise systems.", icon: Code2 },
+  "ai-and-automation": { label: "AI & automation", phrase: "automate with AI.", icon: Workflow },
   "cloud-and-infrastructure": { label: "Cloud", phrase: "run reliably.", icon: Cloud },
-  "data-engineering-and-analytics": { label: "Data & reports", phrase: "decide with data.", icon: BarChart3 },
-  "systems-integration": { label: "Integrations", phrase: "connect operations.", icon: Plug },
-  "technology-consulting": { label: "Consulting", phrase: "plan with clarity.", icon: Compass },
+  "data-engineering-and-analytics": { label: "Data", phrase: "trust their data.", icon: BarChart3 },
+  "systems-integration": { label: "Integration", phrase: "connect systems.", icon: Plug },
+  "technology-consulting": { label: "Advisory", phrase: "plan with clarity.", icon: Compass },
 };
 
 const SLIDE_SECONDS = 3.5;
@@ -40,7 +40,7 @@ export function ServicesShowcase() {
   return (
     <section id="services" className="bg-paper py-20 lg:py-28">
       <div className="container-site" onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)}>
-        <h2 className="sr-only">What we do</h2>
+        <h2 className="sr-only">Our capabilities</h2>
 
         {/* Headline: "We build" + the active service, which changes on its own. */}
         <div aria-hidden="true" className="text-headline font-light">
@@ -69,7 +69,7 @@ export function ServicesShowcase() {
             href={`/services/${current.slug}`}
             className="group inline-flex shrink-0 items-center gap-1.5 text-[0.9375rem] font-medium text-accent"
           >
-            Explore {currentDisplay.label}
+            View capability
             <ArrowUpRight
               aria-hidden="true"
               strokeWidth={1.75}
@@ -81,7 +81,7 @@ export function ServicesShowcase() {
         {/* All six services, always visible. */}
         <div
           role="group"
-          aria-label="Our services"
+          aria-label="Our capabilities"
           className="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-[4px] border border-line bg-line sm:grid-cols-3 lg:mt-12 lg:grid-cols-6"
         >
           {services.map((s, i) => {

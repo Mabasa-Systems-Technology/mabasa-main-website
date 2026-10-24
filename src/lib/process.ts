@@ -11,8 +11,9 @@ export type Stage = {
 export const stages: Stage[] = [
   {
     number: "01",
-    title: "Understand the Business",
-    summary: "Understand the organisation's objectives, operational environment, challenges, and constraints.",
+    title: "Understand the Challenge",
+    summary:
+      "Understand the organisation's objectives, operating environment, constraints and the problem that needs solving.",
     detail:
       "We start with the business problem, not the technology. We speak to the people involved, review how work gets done today, and establish what success needs to look like.",
     activities: [
@@ -26,9 +27,8 @@ export const stages: Stage[] = [
   },
   {
     number: "02",
-    title: "Identify Opportunities",
-    summary:
-      "Determine where improvements, new capabilities, or technology interventions could deliver meaningful value.",
+    title: "Define the Solution",
+    summary: "Shape the right approach, team and plan, and agree what success looks like before delivery begins.",
     detail:
       "We turn what we learned into a prioritised view of where change will matter most, and what it would take to deliver it. You know what you are getting, and why, before any engineering begins.",
     activities: [
@@ -37,13 +37,13 @@ export const stages: Stage[] = [
       "Solution approach, architecture and scope definition",
       "Delivery plan, milestones and estimates",
     ],
-    deliverables: ["Opportunity assessment", "Scoped and prioritised plan", "Fixed or phased proposal"],
+    deliverables: ["Options assessment", "Scoped and prioritised plan", "Fixed or phased proposal"],
     fromYou: ["Feedback on priorities and trade-offs", "Sign-off on scope and approach"],
   },
   {
     number: "03",
-    title: "Engineer the Solution",
-    summary: "Design and implement solutions using appropriate engineering, technology, and integration capabilities.",
+    title: "Coordinate Delivery",
+    summary: "Bring the right specialists together to design, build and integrate the solution, with clear ownership.",
     detail:
       "We build in short, visible increments and release carefully. You see working results regularly, priorities can be adjusted as we learn, and quality is built in through testing, review and controlled deployment.",
     activities: [

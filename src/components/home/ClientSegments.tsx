@@ -7,22 +7,22 @@ import { unsplash } from "@/lib/site";
 
 const segments = [
   {
-    title: "Startups",
-    image: unsplash("photo-1568658176307-bfbd2873abda"),
-    alt: "Two founders reviewing work on a laptop",
-    who: "Turning an idea into a dependable product.",
+    title: "Targeted challenges",
+    image: unsplash("photo-1762163516269-3c143e04175c"),
+    alt: "Server hardware in a rack with indicator lights",
+    who: "A defined problem, a focused team and a clear outcome.",
   },
   {
-    title: "Small & Medium Enterprises",
-    image: unsplash("photo-1687422808248-f807f4ea2a2e"),
-    alt: "A small business owner checking orders on his phone",
-    who: "Replacing manual work and disconnected tools.",
+    title: "Complex programmes",
+    image: unsplash("photo-1717386255950-f7fbe05eb6c0"),
+    alt: "Structured cabling and racks in a data centre",
+    who: "Coordinated delivery across systems, data and operations.",
   },
   {
-    title: "Growing Organisations",
-    image: unsplash("photo-1758518730136-1bf4fa26ccbf"),
-    alt: "A team of professionals meeting around a conference table",
-    who: "Systems that keep up as you scale.",
+    title: "Embedded teams",
+    image: unsplash("photo-1769739576456-0aefcff3f4b9"),
+    alt: "A team working together in a modern meeting room",
+    who: "Specialists who extend your organisation's capability over time.",
   },
 ];
 
@@ -30,7 +30,7 @@ export function ClientSegments() {
   return (
     <section className="bg-white py-28 lg:py-40">
       <div className="container-site">
-        <SectionHeading align="center" title="Built for businesses at every stage of growth." />
+        <SectionHeading align="center" title="How organisations engage Blackroid." />
         <div className="mt-16 grid gap-6 lg:mt-24 lg:grid-cols-3">
           {segments.map((s, i) => (
             <Reveal key={s.title} delay={i * 0.1} className="h-full">
@@ -58,7 +58,7 @@ export function ClientSegments() {
                 <div className="flex flex-1 flex-col p-6 lg:p-8">
                   <p className="text-lg leading-snug text-ink">{s.who}</p>
                   <span className="mt-auto inline-flex items-center gap-1.5 pt-6 text-sm font-medium text-accent">
-                    Talk to us
+                    Discuss an engagement
                     <ArrowUpRight
                       aria-hidden="true"
                       strokeWidth={1.75}

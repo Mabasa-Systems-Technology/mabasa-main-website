@@ -6,27 +6,28 @@ import { Reveal } from "@/components/ui/Reveal";
 import { site, unsplash } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Get a team proposal",
-  description: "Tell Blackroid who you need and for how long. We'll come back with a team, a plan and a price.",
+  title: "Request a team proposal",
+  description:
+    "Tell Blackroid what capability you need to add and for how long. We will propose the team, the structure and the terms.",
   alternates: { canonical: "/outsourced-development/proposal" },
 };
 
 const next = [
-  { title: "We read your request", text: "We look at the roles, size and timing." },
+  { title: "We read your request", text: "We look at the capability, duration and context." },
   { title: "We talk", text: "A short call to confirm the details." },
-  { title: "You get a proposal", text: "The team, the plan and the price." },
+  { title: "You get a proposal", text: "The team, the structure and the terms." },
 ];
 
 export default function ProposalPage() {
   return (
     <>
       <PageHero
-        title="Get a team proposal."
+        title="Discuss a team engagement."
         compact
         background={
           <>
             <Image
-              src={unsplash("photo-1522071820081-009f0129c71c")}
+              src={unsplash("photo-1769740333462-9a63bfa914bc")}
               alt=""
               fill
               priority

@@ -178,7 +178,7 @@ export function Header() {
             </Link>
             <div className="hidden sm:block">
               <ButtonLink href="/contact" variant={solid ? "primary" : "outline-light"} className="h-11 px-5">
-                Start a Project
+                Engage Blackroid
               </ButtonLink>
             </div>
             <button
@@ -267,7 +267,7 @@ export function Header() {
                   {site.publicEmail}
                 </a>
                 <ButtonLink href="/contact" variant="primary" className="w-full">
-                  Start a Project
+                  Engage Blackroid
                 </ButtonLink>
               </motion.div>
             </nav>

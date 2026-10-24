@@ -1,9 +1,9 @@
 export const site = {
   name: "Blackroid",
   legalName: "Blackroid (Pty) Ltd",
-  tagline: "Engineering better businesses.",
+  tagline: "Complex problems. Collective expertise.",
   description:
-    "Blackroid partners with organisations to solve complex business challenges, strengthen operations, and create lasting value through technology, engineering, and strategic execution.",
+    "Blackroid brings together specialised expertise to solve complex organisational challenges through technology, engineering and coordinated execution.",
   url: (process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000").replace(/\/$/, ""),
   locale: "en_ZA",
   country: "South Africa",
@@ -24,7 +24,7 @@ export const site = {
 export const navigation = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
-  { label: "Outsourcing", href: "/outsourced-development" },
+  { label: "Outsource", href: "/outsourced-development" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ] as const;

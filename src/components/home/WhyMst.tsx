@@ -5,23 +5,23 @@ import { SectionHeading } from "../ui/SectionHeading";
 export const differentiators = [
   {
     icon: Blocks,
-    title: "Engineering First",
-    text: "Solutions designed around sound technical principles and long-term maintainability.",
+    title: "Collective Expertise",
+    text: "Specialists across engineering, AI, data and business, assembled around each challenge.",
   },
   {
     icon: Compass,
     title: "Business Context",
-    text: "Technology decisions guided by real operational needs.",
+    text: "Technical decisions guided by the organisation's real operating needs.",
   },
   {
     icon: MessagesSquare,
-    title: "Direct Collaboration",
-    text: "Close communication between clients and the people building their systems.",
+    title: "Accountable Execution",
+    text: "One team taking responsibility from problem definition through implementation.",
   },
   {
     icon: TrendingUp,
-    title: "Built to Scale",
-    text: "Systems designed with performance, security, and future growth in mind.",
+    title: "Lasting Partnerships",
+    text: "Relationships built to continue beyond a single project.",
   },
 ];
 
@@ -31,7 +31,7 @@ export function WhyMst() {
       <div className="container-site grid gap-16 lg:grid-cols-12">
         <div className="lg:col-span-5">
           <div className="lg:sticky lg:top-32">
-            <SectionHeading title="A different approach to business challenges." />
+            <SectionHeading title="A different approach to organisational challenges." />
           </div>
         </div>
         <div className="grid gap-px overflow-hidden rounded-[4px] border border-line bg-line sm:grid-cols-2 lg:col-span-7">

@@ -1,8 +1,9 @@
 /**
  * Businesses Blackroid has worked with.
  *
- * `feedback` should be the client's own words, approved by them for publication.
- * The site shows a testimonial only when a quote, the person's name and their role are all filled in.
+ * `feedback` must be the client's own words, approved by them for publication.
+ * A testimonial is shown only when `approved` is true and the quote, name and role are all filled in.
+ * Nothing below is approved yet, so no testimonial appears on the site.
  *
  * PLACEHOLDER: every quote below is temporary text written to show how the rotating feedback looks.
  * Names and roles for Olyxee, FreightShift, TechXM and AFHCO are real; their quotes are NOT their words.
@@ -21,7 +22,7 @@ export type Client = {
    * `photo` is optional: a square portrait of the person in /public/people (e.g. "/people/jane.jpg").
    * Without it the card shows a neutral avatar.
    */
-  feedback?: { quote: string; person: string; role: string; photo?: string };
+  feedback?: { quote: string; person: string; role: string; photo?: string; approved?: boolean };
 };
 
 export const clients: Client[] = [
@@ -86,5 +87,5 @@ export const clients: Client[] = [
 
 export const testimonials = clients.filter(
   (c): c is Client & { feedback: NonNullable<Client["feedback"]> } =>
-    !!c.feedback?.quote && !!c.feedback.person && !!c.feedback.role,
+    c.feedback?.approved === true && !!c.feedback.quote && !!c.feedback.person && !!c.feedback.role,
 );

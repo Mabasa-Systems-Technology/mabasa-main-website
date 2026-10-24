@@ -9,7 +9,7 @@ import { stages } from "@/lib/process";
 export const metadata: Metadata = {
   title: "How We Work",
   description:
-    "Blackroid's business-first approach: Understand the Business, Identify Opportunities, Engineer the Solution, Measure and Improve, with clear deliverables, responsibilities and expectations at every step.",
+    "How Blackroid works: Understand the Challenge, Define the Solution, Coordinate Delivery, Measure and Improve, with clear deliverables, responsibilities and accountability at every step.",
   alternates: { canonical: "/how-we-work" },
 };
 
@@ -35,29 +35,29 @@ const models = [
 const faqs = [
   {
     q: "How does an engagement usually start?",
-    a: "With a conversation about the problem you want to solve. If there is a fit, we propose a short Understand the Business stage to establish the objectives and constraints properly before committing to a full scope and estimate.",
+    a: "With a conversation about the challenge. If there is a fit, we propose a short Understand the Challenge stage to establish the objectives, constraints and stakeholders before committing to a scope and plan.",
   },
   {
-    q: "Do you work with businesses that have no in-house technical team?",
-    a: "Yes. Many of the organisations we speak to do not have engineers on staff. We explain technical decisions in plain language and can provide ongoing support after launch.",
+    q: "Can you work alongside our internal teams?",
+    a: "Yes. Engagements can be structured so our specialists work alongside your people, with clear ownership and defined points of accountability.",
   },
   {
     q: "Can you work on an existing system someone else built?",
     a: "Yes. We typically begin with a technical review of the codebase and infrastructure, then recommend whether to improve, extend, stabilise or gradually replace it.",
   },
   {
-    q: "How do you price projects?",
-    a: "Pricing depends on scope and engagement model. Defined-scope work is usually quoted as a fixed or phased price after the Understand the Business stage; ongoing support and advisory work can be arranged on an agreed time-and-materials or retainer basis.",
+    q: "How do you price engagements?",
+    a: "Pricing depends on scope and engagement model. Defined-scope work is usually quoted as a fixed or phased price after the Understand the Challenge stage; ongoing and advisory work can be arranged on an agreed time-and-materials or retainer basis.",
   },
   {
-    q: "How long does a typical project take?",
-    a: "That depends entirely on scope. We would rather give you a realistic estimate after understanding the problem than a quick number that turns out to be wrong. Larger initiatives are broken into phases so value is delivered early.",
+    q: "How long does a typical engagement take?",
+    a: "That depends entirely on scope. We would rather give a realistic estimate after understanding the challenge than a quick number that proves wrong. Larger programmes are phased so value arrives early.",
   },
   {
     q: "How do you handle confidential information and personal data?",
     a: "We are happy to sign a non-disclosure agreement before detailed discussions. Systems we build are designed with access control, data minimisation and the requirements of the Protection of Personal Information Act (POPIA) in mind.",
   },
-];
+].slice(0, 4);
 
 export default function HowWeWorkPage() {
   const faqLd = {
@@ -69,7 +69,7 @@ export default function HowWeWorkPage() {
   return (
     <>
       <JsonLd data={faqLd} />
-      <PageHero title="From business challenge to lasting value." />
+      <PageHero title="From challenge to accountable delivery." />
 
       <section className="bg-white py-20 lg:py-28">
         <div className="container-site">
@@ -91,7 +91,7 @@ export default function HowWeWorkPage() {
                 <Reveal>
                   <h3 className="eyebrow text-accent">Activities</h3>
                   <ul className="mt-5 border-t border-line">
-                    {s.activities.map((a) => (
+                    {s.activities.slice(0, 3).map((a) => (
                       <li key={a} className="border-b border-line py-4 text-lg font-light text-ink">
                         {a}
                       </li>
@@ -102,7 +102,7 @@ export default function HowWeWorkPage() {
                   <div>
                     <h3 className="eyebrow text-muted">Deliverables</h3>
                     <ul className="mt-5 space-y-3">
-                      {s.deliverables.map((d) => (
+                      {s.deliverables.slice(0, 2).map((d) => (
                         <li key={d} className="flex gap-3 text-ink-soft">
                           <span aria-hidden="true" className="mt-3 h-px w-3 shrink-0 bg-accent" />
                           {d}

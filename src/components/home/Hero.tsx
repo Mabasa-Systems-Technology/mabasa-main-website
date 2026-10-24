@@ -5,7 +5,7 @@ import { useRef, type CSSProperties } from "react";
 import { ButtonLink } from "../ui/Button";
 import { HeroBackground } from "../HeroBackground";
 
-const headline = ["Engineering Better", "Businesses."];
+const headline = ["Hard problems need", "more than one mind."];
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -39,7 +39,7 @@ export function Hero() {
           <div>
             <div className="flex flex-col gap-3 sm:flex-row">
               <ButtonLink href="/contact" variant="light">
-                Discuss Your Business Challenges
+                Discuss Your Organisation&apos;s Challenge
               </ButtonLink>
               <ButtonLink href="/services" variant="outline-light">
                 Explore Our Capabilities

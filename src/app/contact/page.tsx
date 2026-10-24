@@ -8,7 +8,7 @@ import { site, unsplash } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Tell Blackroid about your project or the business challenge you're trying to solve. We'll help you explore the right technical approach.",
+    "Describe your organisation's challenge, objectives and the capabilities involved. Blackroid will respond with an informed view of how to approach it.",
   alternates: { canonical: "/contact" },
 };
 
@@ -40,7 +40,7 @@ export default async function ContactPage({ searchParams }: Props) {
         </div>
         <div className="container-site pt-36 pb-32 lg:pt-44 lg:pb-44">
           <h1 className="rise max-w-4xl text-display font-light text-balance">
-            Tell us about your business challenge.
+            Discuss your organisation&apos;s challenge.
           </h1>
         </div>
       </section>

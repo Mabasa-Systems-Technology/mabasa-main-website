@@ -9,14 +9,14 @@ import { cn } from "@/lib/cn";
 export const metadata: Metadata = {
   title: "Industries",
   description:
-    "How Blackroid applies software engineering, AI, cloud and data capabilities to challenges in financial services, logistics, retail, healthcare, professional services and manufacturing.",
+    "The sectors Blackroid focuses on: financial services, logistics, manufacturing, infrastructure, telecommunications and the public sector.",
   alternates: { canonical: "/industries" },
 };
 
 export default function IndustriesPage() {
   return (
     <>
-      <PageHero title="Engineering that adapts to the sector you operate in." />
+      <PageHero title="Specialist expertise for complex operating environments." />
 
       <section className="bg-white py-20 lg:py-28">
         <div className="container-site space-y-24 lg:space-y-36">
@@ -54,7 +54,7 @@ export default function IndustriesPage() {
                 <div className="mt-10">
                   <div>
                     <ul className="space-y-3">
-                      {ind.solutions.map((s) => (
+                      {ind.solutions.slice(0, 3).map((s) => (
                         <li
                           key={s}
                           className="border-t border-accent/25 pt-3 text-[0.9375rem] leading-relaxed text-ink-soft"

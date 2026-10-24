@@ -7,34 +7,34 @@ import { SectionHeading } from "../ui/SectionHeading";
 /** Common starting points for an engagement, each leading to a pre-filled enquiry. */
 const startingPoints = [
   {
-    problem: "Our core processes still run on spreadsheets and email.",
-    approach: "Replace them with a purpose-built internal platform.",
-    service: "Custom Software Development",
+    problem: "Critical systems are ageing and hard to change.",
+    approach: "Modernise them in controlled phases without disrupting operations.",
+    service: "Enterprise Software Engineering",
   },
   {
-    problem: "Our team spends hours re-capturing information from documents.",
-    approach: "Automate extraction and routing with practical AI.",
+    problem: "Skilled people are stuck in manual, document-heavy work.",
+    approach: "Automate extraction and routing with practical, governed AI.",
     service: "Artificial Intelligence & Automation",
   },
   {
-    problem: "Our systems don't talk to each other.",
-    approach: "Integrate them so data flows once, accurately.",
+    problem: "Core systems do not share data reliably.",
+    approach: "Integrate them so information flows once, accurately.",
     service: "Systems Integration",
   },
   {
-    problem: "Deployments are risky and our hosting is outgrowing us.",
+    problem: "Infrastructure must scale securely.",
     approach: "Move to well-architected, automated cloud infrastructure.",
     service: "Cloud & Infrastructure",
   },
   {
-    problem: "We can't get reliable numbers without manual work.",
-    approach: "Build pipelines and reporting your leadership can trust.",
+    problem: "Leadership cannot get trusted operational data.",
+    approach: "Build pipelines and reporting leadership can rely on.",
     service: "Data Engineering & Analytics",
   },
   {
-    problem: "We need to make a major technical decision.",
-    approach: "Get an independent architecture and feasibility assessment.",
-    service: "Technology Consulting",
+    problem: "A major technology decision needs an independent view.",
+    approach: "Get an architecture and feasibility assessment grounded in your objectives.",
+    service: "Technology Advisory",
   },
 ];
 
@@ -43,7 +43,7 @@ export function SelectedWork() {
     return (
       <section className="bg-paper py-28 lg:py-40">
         <div className="container-site">
-          <SectionHeading title="Recent engagements." />
+          <SectionHeading title="Selected engagements." />
           <div className="mt-16 grid gap-5 lg:grid-cols-2">
             {caseStudies.map((c) => (
               <Reveal key={c.slug}>
@@ -71,7 +71,7 @@ export function SelectedWork() {
       <div className="container-site">
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <SectionHeading title="Recognise the problem?" />
+            <SectionHeading title="Does this sound familiar?" />
           </div>
           <ul className="border-t border-line-strong lg:col-span-8">
             {startingPoints.map((p, i) => (

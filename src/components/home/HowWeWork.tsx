@@ -6,7 +6,7 @@ import { stages } from "@/lib/process";
 import { TextLink } from "../ui/Button";
 import { cn } from "@/lib/cn";
 
-const idle = "Four stages, from business challenge to lasting value.";
+const idle = "Four stages, from challenge to accountable delivery.";
 
 /** A slim, quiet timeline: names only, with the summary revealed on hover, focus or tap. */
 export function HowWeWork() {

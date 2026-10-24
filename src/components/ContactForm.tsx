@@ -338,14 +338,14 @@ export function ContactForm({ initialService, publicEmail }: { initialService?: 
           </fieldset>
 
           <fieldset className="mt-10 border-t border-line pt-10">
-            <legend className="sr-only">Your project</legend>
+            <legend className="sr-only">Your challenge</legend>
             <p aria-hidden="true" className="text-xl font-light tracking-tight text-ink">
-              Your project
+              Your challenge
             </p>
             <div className="mt-6 space-y-8">
               <ChipGroup
                 name="service"
-                legend="What do you need help with?"
+                legend="Which capability is involved?"
                 options={serviceOptions}
                 value={values.service}
                 onChange={(v) => update("service", v)}
@@ -353,7 +353,7 @@ export function ContactForm({ initialService, publicEmail }: { initialService?: 
               />
               <ChipGroup
                 name="budget"
-                legend="Estimated budget"
+                legend="Indicative budget"
                 options={budgetOptions}
                 value={values.budget}
                 onChange={(v) => update("budget", v)}
@@ -361,13 +361,13 @@ export function ContactForm({ initialService, publicEmail }: { initialService?: 
                 optional
               />
               <div>
-                <TextField id="message" label="Tell us about it" error={errors.message}>
+                <TextField id="message" label="Describe the challenge" error={errors.message}>
                   <textarea
                     id="message"
                     name="message"
                     rows={6}
                     maxLength={5000}
-                    placeholder="e.g. We track orders in spreadsheets and want a simple system our warehouse and sales teams can share. We'd like something live by March."
+                    placeholder="e.g. Our order, warehouse and finance systems do not share data, and monthly reporting takes days. We need an integrated approach and a delivery plan for the next two quarters."
                     value={values.message}
                     onChange={(e) => update("message", e.target.value)}
                     onBlur={() => blur("message")}

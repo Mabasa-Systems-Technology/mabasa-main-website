@@ -1,19 +1,19 @@
 import { z } from "zod";
 
 export const startingPointOptions = [
-  "Starting from scratch",
-  "I have a website or app",
-  "I have systems to fix or connect",
+  "A new initiative",
+  "An existing system to extend",
+  "Systems to modernise or integrate",
   "Not sure yet",
 ] as const;
 
 export const roleOptions = [
-  "Developers",
-  "Designers",
-  "Testers",
-  "Data and AI specialists",
+  "Engineers",
+  "Architects",
+  "AI and data specialists",
   "Cloud and security",
-  "Project manager",
+  "QA and testing",
+  "Delivery lead",
 ] as const;
 
 export const durationOptions = [
@@ -41,12 +41,12 @@ export const proposalSchema = z.object({
     .trim()
     .min(2, "Please enter your company name.")
     .max(160, "Company name is too long."),
-  startingPoint: z.enum(startingPointOptions, { message: "Please tell us where you are starting from." }),
+  startingPoint: z.enum(startingPointOptions, { message: "Please tell us what the starting point is." }),
   link: z.string().trim().max(300, "That address is too long.").optional().or(z.literal("")),
-  roles: z.array(z.enum(roleOptions)).min(1, "Choose at least one role you need.").max(roleOptions.length),
+  roles: z.array(z.enum(roleOptions)).min(1, "Choose at least one capability you need.").max(roleOptions.length),
   duration: z.enum(durationOptions, { message: "Please choose how long you need the team." }),
   message: z
-    .string({ error: "Please tell us what you want to build." })
+    .string({ error: "Please describe what the team should deliver." })
     .trim()
     .min(20, "Please tell us a little more, at least 20 characters.")
     .max(5000, "Please keep this under 5,000 characters."),

@@ -32,22 +32,22 @@ const empty: Values = {
 
 /** What we ask for in the description depends on where the visitor is starting from. */
 const prompts: Record<string, { label: string; placeholder: string }> = {
-  "Starting from scratch": {
-    label: "Tell us about your idea",
-    placeholder: "What you want to build, who it is for, and what it must do.",
+  "A new initiative": {
+    label: "Describe the initiative",
+    placeholder: "What you need to deliver, the objectives and any constraints.",
   },
-  "I have a website or app": {
-    label: "What should change?",
-    placeholder: "What is not working today, and what you want improved or added.",
+  "An existing system to extend": {
+    label: "What should the team deliver?",
+    placeholder: "The system involved, what it must do next and where capacity or skills are short.",
   },
-  "I have systems to fix or connect": {
-    label: "What needs fixing or connecting?",
-    placeholder: "Which systems are involved and where they fall short.",
+  "Systems to modernise or integrate": {
+    label: "Describe the systems involved",
+    placeholder: "Which systems are involved, what is not working and what the outcome should be.",
   },
 };
 const defaultPrompt = {
   label: "What are you trying to achieve?",
-  placeholder: "Tell us the goal and we will help shape the team.",
+  placeholder: "Describe the objective and we will help shape the team.",
 };
 
 const input =
@@ -237,28 +237,28 @@ export function ProposalForm() {
       </div>
 
       <Chips
-        legend="Where are you starting from?"
+        legend="What is the starting point?"
         name="startingPoint"
         options={startingPointOptions}
         selected={[values.startingPoint]}
         onToggle={(o) => set("startingPoint", o)}
         error={errors.startingPoint}
       />
-      {values.startingPoint === "I have a website or app" && (
-        <Field id="link" label="Your website or app address (optional)" error={errors.link}>
+      {values.startingPoint === "An existing system to extend" && (
+        <Field id="link" label="Address of the system (optional)" error={errors.link}>
           <input
             id="link"
             inputMode="url"
             autoComplete="url"
             value={values.link}
             onChange={(e) => set("link", e.target.value)}
-            placeholder="www.yourcompany.co.za"
+            placeholder="e.g. https://system.yourcompany.co.za"
             className={cn(input, errors.link ? "border-red-600" : "border-line-strong")}
           />
         </Field>
       )}
       <Chips
-        legend="Who do you need on the team?"
+        legend="Which capabilities do you need?"
         name="roles"
         options={roleOptions}
         selected={values.roles}
@@ -330,7 +330,7 @@ export function ProposalForm() {
         className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-[3px] bg-accent px-6 text-[0.9375rem] font-medium text-white transition-colors duration-300 hover:bg-accent-deep disabled:opacity-60"
       >
         {sending ? <Loader2 aria-hidden="true" className="size-4 animate-spin" /> : null}
-        {sending ? "Sending" : "Get my team proposal"}
+        {sending ? "Sending" : "Request a team proposal"}
       </button>
     </form>
   );

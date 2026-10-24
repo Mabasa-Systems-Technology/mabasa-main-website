@@ -12,7 +12,7 @@ import markLight from "../../../public/brand/mark-light.png";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Blackroid is a business-focused technology company helping organisations address complex operational and technical challenges. Learn about our approach, our principles and our leadership.",
+    "Blackroid is a technology-led enterprise solutions and execution firm. Learn about our collective-expertise model, our principles and our leadership.",
   alternates: { canonical: "/about" },
 };
 
@@ -31,20 +31,12 @@ export default function AboutPage() {
               style={{ "--d": "0.12s" } as CSSProperties}
             >
               <p>
-                Blackroid is an enterprise technology company that helps organisations design, develop, and modernise
-                their technology.
-              </p>
-              <p>
-                We specialise in software engineering, artificial intelligence, automation, and strategic technology
-                consulting, delivering solutions that address complex business challenges and improve operational
-                efficiency.
-              </p>
-              <p>
-                Our approach combines engineering expertise with a deep understanding of business needs to build
-                practical, scalable systems that support long-term growth.
+                Blackroid is an enterprise solutions and execution firm. We bring together specialists in engineering,
+                artificial intelligence, data and business to solve complex organisational challenges.
               </p>
               <p className="font-semibold text-white">
-                Blackroid is built on a simple principle: engineering technology that moves business forward.
+                Blackroid is built on one conviction: complex challenges need coordinated expertise, not isolated
+                specialists.
               </p>
             </div>
           </div>
@@ -58,31 +50,18 @@ export default function AboutPage() {
       <section className="bg-white py-24 lg:py-36">
         <div className="container-site grid gap-16 lg:grid-cols-12">
           <Reveal className="lg:col-span-5">
-            <h2 className="text-headline font-light text-balance">Built Around Business.</h2>
+            <h2 className="text-headline font-light text-balance">Built Around Collective Expertise.</h2>
           </Reveal>
           <Reveal
             delay={0.1}
             className="space-y-6 text-lg leading-relaxed text-ink-soft lg:col-span-6 lg:col-start-7 lg:pt-12"
           >
             <p>
-              Blackroid is a business-focused technology company established to help organisations address complex
-              operational and technical challenges.
+              Blackroid is a technology-led enterprise solutions and execution firm. We work on complex organisational
+              challenges where no single discipline holds the answer.
             </p>
             <p>
-              We combine business understanding, engineering expertise, and strategic thinking to develop solutions that
-              improve how organisations function.
-            </p>
-            <p>
-              Our approach begins with the problem, not the technology. We seek to understand what an organisation needs
-              to achieve, identify the constraints standing in its way, and determine how best to address them.
-            </p>
-            <p>
-              We believe sustainable progress comes from building the right capabilities, strengthening existing
-              operations, and making deliberate decisions about where technology can create value.
-            </p>
-            <p>
-              Blackroid is being developed with a long-term perspective, one that prioritises enduring business
-              relationships, practical execution, and opportunities to create lasting value.
+              For each challenge we assemble the specialists it needs and take responsibility for coordinating the work.
             </p>
           </Reveal>
         </div>
@@ -105,7 +84,7 @@ export default function AboutPage() {
           />
           <div className="container-site absolute inset-x-0 bottom-0 pb-10">
             <p className="max-w-xl text-xl font-light text-white lg:text-2xl">
-              Based in South Africa, working with businesses that are building what comes next.
+              Based in South Africa, solving complex challenges for organisations that depend on technology.
             </p>
           </div>
         </div>

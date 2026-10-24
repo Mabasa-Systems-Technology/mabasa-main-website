@@ -81,7 +81,7 @@ export function Footer() {
                 </li>
                 <li>
                   <Link href="/contact" className={link}>
-                    Start a project
+                    Engage Blackroid
                   </Link>
                 </li>
                 <li className="pt-2 text-white/70">
