@@ -25,16 +25,16 @@ npm run dev                  # http://localhost:3000
 
 See [`.env.example`](.env.example) for the full list.
 
-| Variable                                                                       | Required        | Notes                                                                                             |
-| ------------------------------------------------------------------------------ | --------------- | ------------------------------------------------------------------------------------------------- |
-| `NEXT_PUBLIC_SITE_URL`                                                         | Yes (prod)      | Canonical URL used in metadata, sitemap, Open Graph, structured data.                             |
-| `CONTACT_TO_EMAIL`                                                             | No              | Enquiry destination. Defaults to `info@blackroid.com`.                                            |
-| `CONTACT_FROM_EMAIL`                                                           | Yes (for email) | Sender address on a domain verified with your provider.                                           |
-| `RESEND_API_KEY`                                                               | One of these    | Uses [Resend](https://resend.com) when set.                                                       |
-| `SMTP_HOST` / `SMTP_PORT` / `SMTP_USER` / `SMTP_PASSWORD` / `SMTP_SECURE`      | One of these    | Any SMTP provider, used when no Resend key is set.                                                |
-| `NEXT_PUBLIC_CONTACT_EMAIL`                                                    | No              | Public address shown on the site. Defaults to `info@blackroid.com`.                               |
-| `NEXT_PUBLIC_CLIENT_PORTAL_URL`                                                | No              | Address of the client portal login. Until set, the Login links open the built-in `/login` page.   |
-| `NEXT_PUBLIC_LINKEDIN_URL` / `NEXT_PUBLIC_INSTAGRAM_URL` / `NEXT_PUBLIC_X_URL` | No              | Profile addresses for the top-bar icons. WhatsApp uses the phone number; unset icons link to `#`. |
+| Variable                                                                       | Required        | Notes                                                                                                                                                                                |
+| ------------------------------------------------------------------------------ | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `NEXT_PUBLIC_SITE_URL`                                                         | Yes (prod)      | Canonical URL used in metadata, sitemap, Open Graph, structured data.                                                                                                                |
+| `CONTACT_TO_EMAIL`                                                             | No              | Enquiry destination. Defaults to `info@blackroid.com`.                                                                                                                               |
+| `CONTACT_FROM_EMAIL`                                                           | Yes (for email) | Sender address on a domain verified with your provider.                                                                                                                              |
+| `RESEND_API_KEY`                                                               | One of these    | Uses [Resend](https://resend.com) when set.                                                                                                                                          |
+| `SMTP_HOST` / `SMTP_PORT` / `SMTP_USER` / `SMTP_PASSWORD` / `SMTP_SECURE`      | One of these    | Any SMTP provider, used when no Resend key is set.                                                                                                                                   |
+| `NEXT_PUBLIC_CONTACT_EMAIL`                                                    | No              | Public address shown on the site. Defaults to `info@blackroid.com`.                                                                                                                  |
+| `NEXT_PUBLIC_CLIENT_PORTAL_URL`                                                | No              | Address of the client portal (for example `https://portal.blackroid.com`). When set, Login links and `/login` go straight to it. Until then `/login` is a standalone sign-in screen. |
+| `NEXT_PUBLIC_LINKEDIN_URL` / `NEXT_PUBLIC_INSTAGRAM_URL` / `NEXT_PUBLIC_X_URL` | No              | Profile addresses for the top-bar icons. WhatsApp uses the phone number; unset icons link to `#`.                                                                                    |
 
 If email delivery is not configured, the contact API responds with `503` and the form shows a clear "temporarily unavailable" message - it never pretends a submission succeeded.
 

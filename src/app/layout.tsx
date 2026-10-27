@@ -4,6 +4,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Providers } from "@/components/Providers";
 import { CookieBanner } from "@/components/CookieBanner";
+import { HideOnPortal } from "@/components/HideOnPortal";
 import { JsonLd } from "@/components/JsonLd";
 import { site } from "@/lib/site";
 import { services } from "@/lib/services";
@@ -140,9 +141,13 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en-ZA" className={`${interTight.variable} ${plexMono.variable}`}>
       <body>
         <Providers>
-          <Header />
+          <HideOnPortal>
+            <Header />
+          </HideOnPortal>
           <main id="main">{children}</main>
-          <Footer />
+          <HideOnPortal>
+            <Footer />
+          </HideOnPortal>
           <CookieBanner />
         </Providers>
         <JsonLd data={structuredData} />
