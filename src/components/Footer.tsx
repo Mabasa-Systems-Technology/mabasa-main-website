@@ -39,11 +39,6 @@ export function Footer() {
                   </li>
                 ))}
                 <li>
-                  <Link href="/outsourced-development" className={link}>
-                    Outsourced Development
-                  </Link>
-                </li>
-                <li>
                   <Link href={site.clientPortalUrl} className={link}>
                     Login
                   </Link>

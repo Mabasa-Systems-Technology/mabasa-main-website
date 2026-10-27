@@ -28,7 +28,10 @@ const nextConfig: NextConfig = {
       ["data-engineering-and-analytics", "artificial-intelligence-and-data"],
       ["custom-software-development", "engineering-and-implementation"],
     ];
-    const pages = [{ source: "/industries", destination: "/business-review", permanent: true }];
+    const pages = [
+      { source: "/industries", destination: "/outsourced-development", permanent: true },
+      { source: "/business-review", destination: "/outsourced-development", permanent: true },
+    ];
     return pages.concat(
       moved.map(([from, to]) => ({
         source: `/services/${from}`,

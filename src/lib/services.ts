@@ -97,7 +97,7 @@ export const services: Service[] = [
     ],
     image: unsplash("photo-1462396240927-52058a6a84ec"),
     imageAlt: "Glass office towers seen from below",
-    related: { label: "Outsourced Development", href: "/outsourced-development" },
+    related: { label: "Outsource a team", href: "/outsourced-development" },
   },
 ];
 

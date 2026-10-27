@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
-import { Clock, Eye, ListChecks, Plus, Users } from "lucide-react";
+import { CalendarCheck, Clock, Plus, UserCheck, Users } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { CtaBand } from "@/components/CtaBand";
 import { JsonLd } from "@/components/JsonLd";
@@ -11,11 +10,17 @@ import { unsplash } from "@/lib/site";
 import teamsHero from "../../../public/images/dedicated-teams.webp";
 
 export const metadata: Metadata = {
-  title: "Outsourced Development",
+  title: "Outsource Your Team",
   description:
-    "Outsourced development from Blackroid, part of Engineering & Implementation, delivered from South Africa, Pakistan and the UK.",
+    "Skip recruitment. Blackroid provides an experienced team accountable for delivering your solution on time, from South Africa, Pakistan and the UK.",
   alternates: { canonical: "/outsourced-development" },
 };
+
+const pains = [
+  { title: "Recruitment takes months." },
+  { title: "Engineers who do not perform." },
+  { title: "Deadlines that keep slipping." },
+];
 
 const hubs = [
   {
@@ -42,24 +47,28 @@ const hubs = [
 ];
 
 const benefits = [
-  { icon: Users, title: "Specialists, not headcount" },
-  { icon: ListChecks, title: "Structured delivery" },
-  { icon: Eye, title: "Technical oversight" },
-  { icon: Clock, title: "Overlapping hours" },
+  {
+    icon: Users,
+    title: "A complete team",
+    text: "Engineers, architects, testers and a delivery lead, working as one.",
+  },
+  { icon: CalendarCheck, title: "Delivery on time", text: "A plan, milestones and regular reporting." },
+  { icon: UserCheck, title: "One accountable lead", text: "A single point of contact for the outcome." },
+  { icon: Clock, title: "No recruitment", text: "No hiring, onboarding or management overhead." },
 ];
 
 const faqs = [
   {
-    q: "Do we keep control of delivery?",
-    a: "Yes. You set priorities and approve work before release.",
+    q: "Do we have to manage the engineers?",
+    a: "No. A Blackroid delivery lead runs the team. You set priorities and approve the work.",
   },
   {
-    q: "Is this staff augmentation?",
-    a: "It can include embedded capacity, but engagements are built around an outcome, with oversight.",
+    q: "What if the team underperforms?",
+    a: "Progress is reviewed against agreed milestones, and the team is adjusted when needed.",
   },
   {
     q: "How is it priced?",
-    a: "After a short call we propose the team, plan and terms.",
+    a: "After a short call we propose the team, the plan and the terms.",
   },
 ];
 
@@ -75,16 +84,8 @@ export default function OutsourcedDevelopmentPage() {
     <>
       <JsonLd data={faqLd} />
       <PageHero
-        title="Outsourced Development."
-        lead={
-          <>
-            Part of{" "}
-            <Link href="/services/engineering-and-implementation" className="underline underline-offset-4">
-              Engineering &amp; Implementation
-            </Link>
-            .
-          </>
-        }
+        title="Stop recruiting. Start delivering."
+        lead="An experienced team, accountable for your solution and your deadline."
         background={
           <>
             <Image
@@ -102,34 +103,45 @@ export default function OutsourcedDevelopmentPage() {
       >
         <div className="mt-12">
           <ButtonLink href={enquiry} variant="light">
-            Discuss a team engagement
+            Get a team proposal
           </ButtonLink>
         </div>
       </PageHero>
 
+      <section className="bg-paper py-24 lg:py-32">
+        <div className="container-site">
+          <Reveal className="max-w-3xl">
+            <h2 className="text-headline font-light text-balance">Sound familiar?</h2>
+          </Reveal>
+          <ul className="mt-12 grid gap-8 sm:grid-cols-3 lg:mt-16">
+            {pains.map((p, i) => (
+              <li key={p.title}>
+                <Reveal delay={i * 0.08}>
+                  <p className="border-t border-ink pt-6 text-2xl font-light tracking-tight lg:text-3xl">{p.title}</p>
+                </Reveal>
+              </li>
+            ))}
+          </ul>
+          <Reveal delay={0.2}>
+            <p className="mt-14 max-w-3xl text-title font-light text-balance text-accent">
+              Outsource the whole team instead. We build it, run it and answer for the result.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
       <section className="bg-white py-24 lg:py-36">
         <div className="container-site">
           <Reveal className="max-w-3xl">
-            <h2 className="text-headline font-light text-balance">Three hubs. One accountable team.</h2>
+            <h2 className="text-headline font-light text-balance">What you get.</h2>
           </Reveal>
-          <div className="mt-14 grid gap-6 lg:mt-20 lg:grid-cols-3">
-            {hubs.map((h, i) => (
-              <Reveal key={h.country} delay={i * 0.1} className="h-full">
-                <article className="overflow-hidden rounded-[4px] bg-paper">
-                  <div className="relative aspect-[16/9] bg-navy-900">
-                    <Image
-                      src={h.image}
-                      alt={h.alt}
-                      fill
-                      sizes="(min-width: 1024px) 50vw, 100vw"
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="p-8 lg:p-10">
-                    <h3 className="text-[2rem] font-light tracking-tight lg:text-[2.25rem]">{h.country}</h3>
-                    <p className="mt-3 text-lg text-ink-soft">{h.line}</p>
-                    <p className="mt-6 text-sm text-muted">{h.time}</p>
-                  </div>
+          <div className="mt-14 grid gap-px overflow-hidden rounded-[4px] border border-line bg-line sm:grid-cols-2 lg:mt-20 lg:grid-cols-4">
+            {benefits.map((b, i) => (
+              <Reveal key={b.title} delay={i * 0.08} className="h-full">
+                <article className="h-full bg-white p-8 lg:p-10">
+                  <b.icon aria-hidden="true" strokeWidth={1.25} className="size-8 text-accent" />
+                  <h3 className="mt-10 text-2xl font-light tracking-tight">{b.title}</h3>
+                  <p className="mt-2 text-ink-soft">{b.text}</p>
                 </article>
               </Reveal>
             ))}
@@ -149,9 +161,11 @@ export default function OutsourcedDevelopmentPage() {
         <div aria-hidden="true" className="absolute inset-0 -z-10 bg-navy-950/75" />
         <div className="container-site py-24 lg:py-32">
           <Reveal className="max-w-3xl">
-            <h2 className="text-headline font-light text-balance">Tell us what you need. We will propose the team.</h2>
+            <h2 className="text-headline font-light text-balance">
+              Tell us what you need built. We will propose the team and the timeline.
+            </h2>
             <ButtonLink href={enquiry} variant="light" className="mt-10">
-              Request a team proposal
+              Get a team proposal
             </ButtonLink>
           </Reveal>
         </div>
@@ -160,14 +174,26 @@ export default function OutsourcedDevelopmentPage() {
       <section className="bg-white py-24 lg:py-36">
         <div className="container-site">
           <Reveal className="max-w-3xl">
-            <h2 className="text-headline font-light text-balance">What you get.</h2>
+            <h2 className="text-headline font-light text-balance">One team. Three hubs.</h2>
           </Reveal>
-          <div className="mt-14 grid gap-px overflow-hidden rounded-[4px] border border-line bg-line sm:grid-cols-2 lg:mt-20 lg:grid-cols-4">
-            {benefits.map((b, i) => (
-              <Reveal key={b.title} delay={i * 0.08} className="h-full">
-                <article className="h-full bg-white p-8 lg:p-10">
-                  <b.icon aria-hidden="true" strokeWidth={1.25} className="size-8 text-accent" />
-                  <h3 className="mt-10 text-2xl font-light tracking-tight">{b.title}</h3>
+          <div className="mt-14 grid gap-6 lg:mt-20 lg:grid-cols-3">
+            {hubs.map((h, i) => (
+              <Reveal key={h.country} delay={i * 0.1} className="h-full">
+                <article className="overflow-hidden rounded-[4px] bg-paper">
+                  <div className="relative aspect-[16/9] bg-navy-900">
+                    <Image
+                      src={h.image}
+                      alt={h.alt}
+                      fill
+                      sizes="(min-width: 1024px) 33vw, 100vw"
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="p-8 lg:p-10">
+                    <h3 className="text-[2rem] font-light tracking-tight lg:text-[2.25rem]">{h.country}</h3>
+                    <p className="mt-3 text-lg text-ink-soft">{h.line}</p>
+                    <p className="mt-6 text-sm text-muted">{h.time}</p>
+                  </div>
                 </article>
               </Reveal>
             ))}
@@ -198,12 +224,7 @@ export default function OutsourcedDevelopmentPage() {
         </div>
       </section>
 
-      <CtaBand
-        title="Need capacity without the risk?"
-        body="We will propose the team and the terms. No obligation."
-        cta="Request a team proposal"
-        href={enquiry}
-      />
+      <CtaBand title="Ready to stop recruiting?" cta="Get a team proposal" href={enquiry} />
     </>
   );
 }

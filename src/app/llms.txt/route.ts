@@ -30,9 +30,8 @@ ${stages.map((s) => `${Number(s.number)}. ${s.title}: ${s.summary}`).join("\n")}
 ## Key pages
 - [Home](${site.url}/)
 - [Expertise](${site.url}/services)
-- [Business Review](${site.url}/business-review): a focused review of where an organisation loses time and money
 - [How we work](${site.url}/how-we-work)
-- [Outsourced Development](${site.url}/outsourced-development): part of Engineering & Implementation
+- [Outsource a team](${site.url}/outsourced-development): an experienced team from South Africa, Pakistan and the UK, accountable for delivery, so organisations do not have to recruit
 - [About](${site.url}/about)
 - [Contact](${site.url}/contact)
 
