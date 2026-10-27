@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import type { CSSProperties } from "react";
 import Image from "next/image";
-import { HeroBackground } from "@/components/HeroBackground";
+import { BarChart3, Blocks, Cpu, Gauge, LifeBuoy, PackageCheck, RefreshCw, Search, Target } from "lucide-react";
 import { CtaBand } from "@/components/CtaBand";
 import { Leadership } from "@/components/Leadership";
 import { Principles } from "@/components/Principles";
 import { Reveal } from "@/components/ui/Reveal";
 import { unsplash } from "@/lib/site";
 import markLight from "../../../public/brand/mark-light.png";
+import aboutHero from "../../../public/images/about-hero.webp";
 
 export const metadata: Metadata = {
   title: "About",
@@ -16,12 +16,19 @@ export const metadata: Metadata = {
   alternates: { canonical: "/about" },
 };
 
+const approach = [
+  { icon: Search, label: "Understand the business problem" },
+  { icon: Target, label: "Establish clear objectives" },
+  { icon: PackageCheck, label: "Deliver the appropriate solution" },
+  { icon: LifeBuoy, label: "Support it after delivery" },
+];
+
 const focus = [
-  "Business Performance",
-  "Technology Transformation",
-  "Artificial Intelligence",
-  "Enterprise Engineering",
-  "Operational Improvement",
+  { icon: BarChart3, label: "Business Performance" },
+  { icon: RefreshCw, label: "Technology Transformation" },
+  { icon: Cpu, label: "Artificial Intelligence" },
+  { icon: Blocks, label: "Enterprise Engineering" },
+  { icon: Gauge, label: "Operational Improvement" },
 ];
 
 export default function AboutPage() {
@@ -29,25 +36,22 @@ export default function AboutPage() {
     <>
       <section className="relative isolate overflow-hidden bg-navy-950 text-white">
         <div aria-hidden="true" className="absolute inset-0 -z-10">
-          <HeroBackground />
+          <Image
+            src={aboutHero}
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            placeholder="blur"
+            className="object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-navy-950/55" />
         </div>
         <div className="container-site grid items-center gap-12 pt-40 pb-16 lg:min-h-[72svh] lg:grid-cols-12 lg:pb-24">
           <div className="lg:col-span-7">
-            <h1 className="rise text-display font-light text-balance">About Blackroid</h1>
-            <div
-              className="rise mt-8 max-w-2xl space-y-5 text-lg leading-relaxed text-white/80 lg:text-xl"
-              style={{ "--d": "0.12s" } as CSSProperties}
-            >
-              <p>Blackroid is an independent business and technology services firm.</p>
-              <p>
-                We work with organisations to address complex business challenges through strategic advisory, technology
-                expertise and disciplined implementation.
-              </p>
-              <p>
-                Our capabilities bring together business understanding, engineering and technology to support
-                organisational performance and long-term transformation.
-              </p>
-            </div>
+            <h1 className="rise text-headline font-light text-balance">
+              We solve business problems with strategy and technology.
+            </h1>
           </div>
           {/* The official B monogram, large, to balance the text column. */}
           <div aria-hidden="true" className="hidden lg:col-span-5 lg:flex lg:justify-end">
@@ -57,28 +61,49 @@ export default function AboutPage() {
       </section>
 
       <section className="bg-white py-24 lg:py-36">
-        <div className="container-site grid gap-16 lg:grid-cols-12">
-          <Reveal className="lg:col-span-5">
-            <h2 className="text-headline font-light text-balance">Our Approach.</h2>
-          </Reveal>
-          <Reveal
-            delay={0.1}
-            className="space-y-6 text-lg leading-relaxed text-ink-soft lg:col-span-6 lg:col-start-7 lg:pt-12"
-          >
-            <p>
-              We focus on understanding the business problem, establishing clear objectives and delivering appropriate
-              solutions.
-            </p>
-            <p>Our work combines advisory expertise with technical implementation and ongoing support.</p>
-            <p className="eyebrow pt-6 text-accent">Our Focus</p>
-            <ul className="border-t border-line-strong">
-              {focus.map((f) => (
-                <li key={f} className="border-b border-line-strong py-4 text-lg font-light text-ink">
-                  {f}
-                </li>
-              ))}
-            </ul>
-          </Reveal>
+        <div className="container-site">
+          <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
+            <Reveal className="lg:col-span-5">
+              <h2 className="text-headline font-light text-balance">About.</h2>
+            </Reveal>
+            <Reveal
+              delay={0.1}
+              className="space-y-6 text-lg leading-relaxed text-ink-soft lg:col-span-6 lg:col-start-7"
+            >
+              <p>
+                Blackroid is an independent business and technology services firm. We work with organisations to address
+                complex business challenges through strategic advisory, technology expertise and disciplined
+                implementation.
+              </p>
+              <p>
+                Our capabilities bring together business understanding, engineering and technology to support
+                organisational performance and long-term transformation.
+              </p>
+            </Reveal>
+          </div>
+
+          <div className="mt-16 grid gap-6 lg:mt-24 lg:grid-cols-2">
+            {[
+              { title: "How we work", items: approach },
+              { title: "Our focus", items: focus },
+            ].map((panel, i) => (
+              <Reveal key={panel.title} delay={i * 0.1} className="h-full">
+                <div className="h-full rounded-[4px] border border-line bg-paper p-8 lg:p-12">
+                  <h3 className="text-2xl font-light tracking-tight lg:text-3xl">{panel.title}</h3>
+                  <ul className="mt-8 space-y-5">
+                    {panel.items.map((item) => (
+                      <li key={item.label} className="flex items-center gap-4">
+                        <span className="flex size-11 shrink-0 items-center justify-center rounded-full border border-line-strong bg-white text-accent">
+                          <item.icon aria-hidden="true" strokeWidth={1.5} className="size-5" />
+                        </span>
+                        <span className="text-lg text-ink">{item.label}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
