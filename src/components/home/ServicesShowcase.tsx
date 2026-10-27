@@ -3,18 +3,17 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { ArrowUpRight, BarChart3, Cloud, Code2, Compass, Plug, Workflow, type LucideIcon } from "lucide-react";
+import { ArrowUpRight, BarChart3, Code2, Compass, Plug, Workflow, type LucideIcon } from "lucide-react";
 import { services } from "@/lib/services";
 import { cn } from "@/lib/cn";
 
 /** Short label for the always-visible buttons, and the phrase shown in the headline. */
 const display: Record<string, { label: string; phrase: string; icon: LucideIcon }> = {
-  "custom-software-development": { label: "Engineering", phrase: "modernise systems.", icon: Code2 },
-  "ai-and-automation": { label: "AI & automation", phrase: "automate with AI.", icon: Workflow },
-  "cloud-and-infrastructure": { label: "Cloud", phrase: "run reliably.", icon: Cloud },
-  "data-engineering-and-analytics": { label: "Data", phrase: "trust their data.", icon: BarChart3 },
-  "systems-integration": { label: "Integration", phrase: "connect systems.", icon: Plug },
-  "technology-consulting": { label: "Advisory", phrase: "plan with clarity.", icon: Compass },
+  "strategy-and-advisory": { label: "Strategy", phrase: "set direction.", icon: Compass },
+  "technology-transformation": { label: "Technology", phrase: "modernise systems.", icon: Plug },
+  "artificial-intelligence-and-data": { label: "AI & Data", phrase: "apply AI and data.", icon: Workflow },
+  "operations-and-performance": { label: "Operations", phrase: "perform better.", icon: BarChart3 },
+  "engineering-and-implementation": { label: "Engineering", phrase: "build and deliver.", icon: Code2 },
 };
 
 const SLIDE_SECONDS = 3.5;
@@ -40,7 +39,7 @@ export function ServicesShowcase() {
   return (
     <section id="services" className="bg-paper py-20 lg:py-28">
       <div className="container-site" onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)}>
-        <h2 className="sr-only">Our capabilities</h2>
+        <h2 className="sr-only">Expertise</h2>
 
         {/* Headline: "We build" + the active service, which changes on its own. */}
         <div aria-hidden="true" className="text-headline font-light">
@@ -82,7 +81,7 @@ export function ServicesShowcase() {
         <div
           role="group"
           aria-label="Our capabilities"
-          className="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-[4px] border border-line bg-line sm:grid-cols-3 lg:mt-12 lg:grid-cols-6"
+          className="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-[4px] border border-line bg-line sm:grid-cols-3 lg:mt-12 lg:grid-cols-5"
         >
           {services.map((s, i) => {
             const d = display[s.slug];

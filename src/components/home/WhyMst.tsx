@@ -3,26 +3,10 @@ import { Reveal } from "../ui/Reveal";
 import { SectionHeading } from "../ui/SectionHeading";
 
 export const differentiators = [
-  {
-    icon: Blocks,
-    title: "Collective Expertise",
-    text: "Specialists across engineering, AI, data and business, assembled around each challenge.",
-  },
-  {
-    icon: Compass,
-    title: "Business Context",
-    text: "Technical decisions guided by the organisation's real operating needs.",
-  },
-  {
-    icon: MessagesSquare,
-    title: "Accountable Execution",
-    text: "One team taking responsibility from problem definition through implementation.",
-  },
-  {
-    icon: TrendingUp,
-    title: "Lasting Partnerships",
-    text: "Relationships built to continue beyond a single project.",
-  },
+  { icon: Compass, title: "Independent advice", text: "Recommendations based on the organisation's interest." },
+  { icon: Blocks, title: "Business first", text: "Technology decisions guided by business objectives." },
+  { icon: MessagesSquare, title: "Technical depth", text: "Engineering expertise behind every recommendation." },
+  { icon: TrendingUp, title: "Disciplined delivery", text: "Clear objectives and accountable implementation." },
 ];
 
 export function WhyMst() {
@@ -31,7 +15,7 @@ export function WhyMst() {
       <div className="container-site grid gap-16 lg:grid-cols-12">
         <div className="lg:col-span-5">
           <div className="lg:sticky lg:top-32">
-            <SectionHeading title="A different approach to organisational challenges." />
+            <SectionHeading title="Our approach." />
           </div>
         </div>
         <div className="grid gap-px overflow-hidden rounded-[4px] border border-line bg-line sm:grid-cols-2 lg:col-span-7">

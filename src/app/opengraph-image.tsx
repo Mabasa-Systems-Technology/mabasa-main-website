@@ -2,7 +2,7 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
 
-export const alt = "Blackroid | Complex problems. Collective expertise.";
+export const alt = "Blackroid | Strategy. Technology. Execution.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -28,10 +28,10 @@ export default async function OpengraphImage() {
       <img src={logoSrc} height={84} alt="" />
       <div style={{ display: "flex", flexDirection: "column" }}>
         <div style={{ fontSize: 76, lineHeight: 1.05, letterSpacing: -2.5, maxWidth: 960 }}>
-          Complex problems. Collective expertise.
+          Strategy. Technology. Execution.
         </div>
         <div style={{ marginTop: 32, fontSize: 26, color: "rgba(255,255,255,0.7)" }}>
-          Engineering · AI & data · Cloud · Integration · Advisory
+          Advisory · Technology · AI & Data · Operations · Engineering
         </div>
       </div>
     </div>,

@@ -9,14 +9,14 @@ import { cn } from "@/lib/cn";
 export const metadata: Metadata = {
   title: "Industries",
   description:
-    "The sectors Blackroid focuses on: financial services, logistics, manufacturing, infrastructure, telecommunications and the public sector.",
+    "Sectors Blackroid intends to serve: financial services, industrial and manufacturing, logistics, professional services, technology and telecommunications.",
   alternates: { canonical: "/industries" },
 };
 
 export default function IndustriesPage() {
   return (
     <>
-      <PageHero title="Specialist expertise for complex operating environments." />
+      <PageHero title="Industries." lead="Sectors Blackroid intends to serve." />
 
       <section className="bg-white py-20 lg:py-28">
         <div className="container-site space-y-24 lg:space-y-36">

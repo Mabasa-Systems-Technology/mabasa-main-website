@@ -12,9 +12,17 @@ import markLight from "../../../public/brand/mark-light.png";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Blackroid is a technology-led enterprise solutions and execution firm. Learn about our collective-expertise model, our principles and our leadership.",
+    "Blackroid is an independent business and technology services firm focused on performance, transformation and engineering.",
   alternates: { canonical: "/about" },
 };
+
+const focus = [
+  "Business Performance",
+  "Technology Transformation",
+  "Artificial Intelligence",
+  "Enterprise Engineering",
+  "Operational Improvement",
+];
 
 export default function AboutPage() {
   return (
@@ -30,13 +38,14 @@ export default function AboutPage() {
               className="rise mt-8 max-w-2xl space-y-5 text-lg leading-relaxed text-white/80 lg:text-xl"
               style={{ "--d": "0.12s" } as CSSProperties}
             >
+              <p>Blackroid is an independent business and technology services firm.</p>
               <p>
-                Blackroid is an enterprise solutions and execution firm. We bring together specialists in engineering,
-                artificial intelligence, data and business to solve complex organisational challenges.
+                We work with organisations to address complex business challenges through strategic advisory, technology
+                expertise and disciplined implementation.
               </p>
-              <p className="font-semibold text-white">
-                Blackroid is built on one conviction: complex challenges need coordinated expertise, not isolated
-                specialists.
+              <p>
+                Our capabilities bring together business understanding, engineering and technology to support
+                organisational performance and long-term transformation.
               </p>
             </div>
           </div>
@@ -50,19 +59,25 @@ export default function AboutPage() {
       <section className="bg-white py-24 lg:py-36">
         <div className="container-site grid gap-16 lg:grid-cols-12">
           <Reveal className="lg:col-span-5">
-            <h2 className="text-headline font-light text-balance">Built Around Collective Expertise.</h2>
+            <h2 className="text-headline font-light text-balance">Our Approach.</h2>
           </Reveal>
           <Reveal
             delay={0.1}
             className="space-y-6 text-lg leading-relaxed text-ink-soft lg:col-span-6 lg:col-start-7 lg:pt-12"
           >
             <p>
-              Blackroid is a technology-led enterprise solutions and execution firm. We work on complex organisational
-              challenges where no single discipline holds the answer.
+              We focus on understanding the business problem, establishing clear objectives and delivering appropriate
+              solutions.
             </p>
-            <p>
-              For each challenge we assemble the specialists it needs and take responsibility for coordinating the work.
-            </p>
+            <p>Our work combines advisory expertise with technical implementation and ongoing support.</p>
+            <p className="eyebrow pt-6 text-accent">Our Focus</p>
+            <ul className="border-t border-line-strong">
+              {focus.map((f) => (
+                <li key={f} className="border-b border-line-strong py-4 text-lg font-light text-ink">
+                  {f}
+                </li>
+              ))}
+            </ul>
           </Reveal>
         </div>
       </section>
@@ -83,9 +98,7 @@ export default function AboutPage() {
             className="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-transparent to-transparent"
           />
           <div className="container-site absolute inset-x-0 bottom-0 pb-10">
-            <p className="max-w-xl text-xl font-light text-white lg:text-2xl">
-              Based in South Africa, solving complex challenges for organisations that depend on technology.
-            </p>
+            <p className="max-w-xl text-xl font-light text-white lg:text-2xl">Based in South Africa.</p>
           </div>
         </div>
       </section>

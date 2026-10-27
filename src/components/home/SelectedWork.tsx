@@ -9,32 +9,32 @@ const startingPoints = [
   {
     problem: "Critical systems are ageing and hard to change.",
     approach: "Modernise them in controlled phases without disrupting operations.",
-    service: "Enterprise Software Engineering",
+    service: "Engineering & Implementation",
   },
   {
     problem: "Skilled people are stuck in manual, document-heavy work.",
     approach: "Automate extraction and routing with practical, governed AI.",
-    service: "Artificial Intelligence & Automation",
+    service: "Artificial Intelligence & Data",
   },
   {
     problem: "Core systems do not share data reliably.",
     approach: "Integrate them so information flows once, accurately.",
-    service: "Systems Integration",
+    service: "Technology Transformation",
   },
   {
-    problem: "Infrastructure must scale securely.",
-    approach: "Move to well-architected, automated cloud infrastructure.",
-    service: "Cloud & Infrastructure",
+    problem: "Processes are slow, manual and hard to measure.",
+    approach: "Review and redesign how work gets done.",
+    service: "Operations & Performance",
   },
   {
     problem: "Leadership cannot get trusted operational data.",
     approach: "Build pipelines and reporting leadership can rely on.",
-    service: "Data Engineering & Analytics",
+    service: "Artificial Intelligence & Data",
   },
   {
     problem: "A major technology decision needs an independent view.",
     approach: "Get an architecture and feasibility assessment grounded in your objectives.",
-    service: "Technology Advisory",
+    service: "Strategy & Advisory",
   },
 ];
 

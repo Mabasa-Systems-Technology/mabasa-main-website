@@ -18,6 +18,9 @@ export function Footer() {
         <div className="grid gap-14 lg:grid-cols-12">
           <div className="lg:col-span-3">
             <Logo tone="light" />
+            <p className="mt-6 max-w-xs text-sm leading-relaxed text-white/60">
+              Business advisory, technology and transformation services.
+            </p>
             <BbbeeBadge className="mt-10 h-28 w-auto" />
           </div>
 
@@ -35,6 +38,11 @@ export function Footer() {
                     </Link>
                   </li>
                 ))}
+                <li>
+                  <Link href="/outsourced-development" className={link}>
+                    Outsourced Development
+                  </Link>
+                </li>
                 <li>
                   <Link href={site.clientPortalUrl} className={link}>
                     Login
@@ -81,7 +89,7 @@ export function Footer() {
                 </li>
                 <li>
                   <Link href="/contact" className={link}>
-                    Engage Blackroid
+                    Contact us
                   </Link>
                 </li>
                 <li className="pt-2 text-white/70">

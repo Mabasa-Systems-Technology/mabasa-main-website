@@ -5,7 +5,7 @@ import { useRef, type CSSProperties } from "react";
 import { ButtonLink } from "../ui/Button";
 import { HeroBackground } from "../HeroBackground";
 
-const headline = ["Hard problems need", "more than one mind."];
+const headline = ["Strategy. Technology.", "Execution."];
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -35,14 +35,15 @@ export function Hero() {
           ))}
         </h1>
 
+        <p className="rise mt-6 max-w-xl text-lg text-white/80 lg:text-xl" style={{ "--d": "0.5s" } as CSSProperties}>
+          Business advisory, technology and transformation services.
+        </p>
+
         <div className="rise mt-10" style={{ "--d": "0.6s" } as CSSProperties}>
           <div>
             <div className="flex flex-col gap-3 sm:flex-row">
               <ButtonLink href="/contact" variant="light">
-                Discuss Your Organisation&apos;s Challenge
-              </ButtonLink>
-              <ButtonLink href="/services" variant="outline-light">
-                Explore Our Capabilities
+                Contact Us
               </ButtonLink>
             </div>
           </div>

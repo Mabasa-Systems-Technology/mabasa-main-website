@@ -79,14 +79,14 @@ export function ServicesList({ items }: { items: Service[] }) {
                         tabIndex={isOpen ? 0 : -1}
                         className="inline-flex h-12 items-center rounded-[3px] bg-accent px-6 text-[0.9375rem] font-medium text-white transition-colors hover:bg-accent-deep"
                       >
-                        View capability
+                        Learn more
                       </Link>
                       <Link
                         href={`/contact?service=${encodeURIComponent(s.title)}`}
                         tabIndex={isOpen ? 0 : -1}
                         className="group inline-flex items-center gap-1.5 text-[0.9375rem] font-medium text-accent"
                       >
-                        Discuss this capability
+                        Contact us
                         <ArrowUpRight
                           aria-hidden="true"
                           strokeWidth={1.75}

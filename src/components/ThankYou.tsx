@@ -9,7 +9,7 @@ const copy = {
   enquiry: {
     line: "We'll read it and reply by email.",
     primary: { label: "Back to home", href: "/" },
-    secondary: { label: "Our services", href: "/services" },
+    secondary: { label: "Our expertise", href: "/services" },
   },
   proposal: {
     line: "We'll come back with the team, the structure and the terms.",

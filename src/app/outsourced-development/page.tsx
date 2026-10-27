@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { Clock, Eye, ListChecks, Plus, Users } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { CtaBand } from "@/components/CtaBand";
@@ -10,9 +11,9 @@ import { unsplash } from "@/lib/site";
 import teamsHero from "../../../public/images/dedicated-teams.webp";
 
 export const metadata: Metadata = {
-  title: "Dedicated specialist teams",
+  title: "Outsourced Development",
   description:
-    "Dedicated specialist teams from Blackroid, delivered from South Africa, Pakistan and the UK with structured oversight.",
+    "Outsourced development from Blackroid, part of Engineering & Implementation, delivered from South Africa, Pakistan and the UK.",
   alternates: { canonical: "/outsourced-development" },
 };
 
@@ -74,7 +75,16 @@ export default function OutsourcedDevelopmentPage() {
     <>
       <JsonLd data={faqLd} />
       <PageHero
-        title="Extend your team with specialists."
+        title="Outsourced Development."
+        lead={
+          <>
+            Part of{" "}
+            <Link href="/services/engineering-and-implementation" className="underline underline-offset-4">
+              Engineering &amp; Implementation
+            </Link>
+            .
+          </>
+        }
         background={
           <>
             <Image

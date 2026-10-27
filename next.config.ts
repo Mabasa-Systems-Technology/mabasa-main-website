@@ -19,6 +19,21 @@ const nextConfig: NextConfig = {
     formats: ["image/avif", "image/webp"],
     remotePatterns: [{ protocol: "https", hostname: "images.unsplash.com", pathname: "/photo-*" }],
   },
+  async redirects() {
+    const moved: Array<[string, string]> = [
+      ["technology-consulting", "strategy-and-advisory"],
+      ["systems-integration", "technology-transformation"],
+      ["cloud-and-infrastructure", "technology-transformation"],
+      ["ai-and-automation", "artificial-intelligence-and-data"],
+      ["data-engineering-and-analytics", "artificial-intelligence-and-data"],
+      ["custom-software-development", "engineering-and-implementation"],
+    ];
+    return moved.map(([from, to]) => ({
+      source: `/services/${from}`,
+      destination: `/services/${to}`,
+      permanent: true,
+    }));
+  },
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },
