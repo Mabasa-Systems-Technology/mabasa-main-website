@@ -5,7 +5,7 @@ import { useRef, type CSSProperties } from "react";
 import { ButtonLink } from "../ui/Button";
 import { HeroBackground } from "../HeroBackground";
 
-const headline = ["Strategy. Technology.", "Execution."];
+const headline = ["We fix what holds", "your business back."];
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -36,7 +36,7 @@ export function Hero() {
         </h1>
 
         <p className="rise mt-6 max-w-xl text-lg text-white/80 lg:text-xl" style={{ "--d": "0.5s" } as CSSProperties}>
-          Business advisory, technology and transformation services.
+          Strategy. Technology. Execution. One accountable team.
         </p>
 
         <div className="rise mt-10" style={{ "--d": "0.6s" } as CSSProperties}>

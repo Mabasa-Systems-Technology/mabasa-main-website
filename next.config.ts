@@ -28,11 +28,14 @@ const nextConfig: NextConfig = {
       ["data-engineering-and-analytics", "artificial-intelligence-and-data"],
       ["custom-software-development", "engineering-and-implementation"],
     ];
-    return moved.map(([from, to]) => ({
-      source: `/services/${from}`,
-      destination: `/services/${to}`,
-      permanent: true,
-    }));
+    const pages = [{ source: "/industries", destination: "/business-review", permanent: true }];
+    return pages.concat(
+      moved.map(([from, to]) => ({
+        source: `/services/${from}`,
+        destination: `/services/${to}`,
+        permanent: true,
+      })),
+    );
   },
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];

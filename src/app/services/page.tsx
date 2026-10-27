@@ -22,7 +22,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <CtaBand title="Speak with Blackroid." />
+      <CtaBand />
     </>
   );
 }

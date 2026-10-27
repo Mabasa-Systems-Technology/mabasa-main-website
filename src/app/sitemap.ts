@@ -9,7 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ["/services", 0.9],
     ["/outsourced-development", 0.8],
     ["/outsourced-development/proposal", 0.6],
-    ["/industries", 0.8],
+    ["/business-review", 0.8],
     ["/how-we-work", 0.8],
     ["/about", 0.7],
     ["/contact", 0.9],

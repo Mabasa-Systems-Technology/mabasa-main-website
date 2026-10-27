@@ -1,6 +1,5 @@
 import { site } from "@/lib/site";
 import { services } from "@/lib/services";
-import { industries } from "@/lib/industries";
 import { stages } from "@/lib/process";
 
 export const dynamic = "force-static";
@@ -25,15 +24,13 @@ ${site.name} is an independent business and technology services firm. It provide
 ## Services
 ${services.map((s) => `- [${s.title}](${site.url}/services/${s.slug}): ${s.plain}`).join("\n")}
 
-## Industries
-${industries.map((i) => `- [${i.name}](${site.url}/industries#${i.slug}): ${i.summary}`).join("\n")}
-
 ## How we work
 ${stages.map((s) => `${Number(s.number)}. ${s.title}: ${s.summary}`).join("\n")}
 
 ## Key pages
 - [Home](${site.url}/)
 - [Expertise](${site.url}/services)
+- [Business Review](${site.url}/business-review): a focused review of where an organisation loses time and money
 - [How we work](${site.url}/how-we-work)
 - [Outsourced Development](${site.url}/outsourced-development): part of Engineering & Implementation
 - [About](${site.url}/about)

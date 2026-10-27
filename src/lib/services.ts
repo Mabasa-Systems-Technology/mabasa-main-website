@@ -47,8 +47,8 @@ export const services: Service[] = [
       "Systems integration",
       "Cloud and infrastructure",
     ],
-    image: unsplash("photo-1584169417032-d34e8d805e8b"),
-    imageAlt: "An aisle of server racks in a data centre",
+    image: unsplash("photo-1606857521015-7f9fcf423740"),
+    imageAlt: "Professionals working in a large modern office",
   },
   {
     slug: "artificial-intelligence-and-data",
@@ -63,8 +63,8 @@ export const services: Service[] = [
       "Data engineering and integration",
       "Reporting and analytics",
     ],
-    image: unsplash("photo-1762163516269-3c143e04175c"),
-    imageAlt: "Server hardware in a rack with indicator lights",
+    image: unsplash("photo-1526628953301-3e589a6a8b74"),
+    imageAlt: "Performance dashboards on a monitoring screen",
   },
   {
     slug: "operations-and-performance",
@@ -79,8 +79,8 @@ export const services: Service[] = [
       "Performance measurement and reporting",
       "Transformation programme support",
     ],
-    image: unsplash("photo-1569968201228-01aebb252e80"),
-    imageAlt: "Machinery inside a large industrial facility",
+    image: unsplash("photo-1781559818983-c32838ee3d55"),
+    imageAlt: "An operations manager reviewing a tablet in a warehouse",
   },
   {
     slug: "engineering-and-implementation",
@@ -95,8 +95,8 @@ export const services: Service[] = [
       "Quality assurance and testing",
       "Ongoing support",
     ],
-    image: unsplash("photo-1785682117028-6fcf2c0b515b"),
-    imageAlt: "An engineer working on enterprise server equipment",
+    image: unsplash("photo-1462396240927-52058a6a84ec"),
+    imageAlt: "Glass office towers seen from below",
     related: { label: "Outsourced Development", href: "/outsourced-development" },
   },
 ];

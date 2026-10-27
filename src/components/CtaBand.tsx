@@ -4,9 +4,9 @@ import { Reveal } from "./ui/Reveal";
 import { unsplash } from "@/lib/site";
 
 export function CtaBand({
-  title = "Speak with Blackroid.",
-  body,
-  cta = "Contact Us",
+  title = "Tell us the problem.",
+  body = "We will tell you the next step. No obligation.",
+  cta = "Talk to a specialist",
   href = "/contact",
 }: {
   title?: string;

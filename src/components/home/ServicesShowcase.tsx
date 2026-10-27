@@ -1,32 +1,31 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { ArrowUpRight, BarChart3, Code2, Compass, Plug, Workflow, type LucideIcon } from "lucide-react";
 import { services } from "@/lib/services";
 import { cn } from "@/lib/cn";
 
-/** Short label for the always-visible buttons, and the phrase shown in the headline. */
-const display: Record<string, { label: string; phrase: string; icon: LucideIcon }> = {
-  "strategy-and-advisory": { label: "Strategy", phrase: "set direction.", icon: Compass },
-  "technology-transformation": { label: "Technology", phrase: "modernise systems.", icon: Plug },
-  "artificial-intelligence-and-data": { label: "AI & Data", phrase: "apply AI and data.", icon: Workflow },
-  "operations-and-performance": { label: "Operations", phrase: "perform better.", icon: BarChart3 },
-  "engineering-and-implementation": { label: "Engineering", phrase: "build and deliver.", icon: Code2 },
+/** The words that complete "We help organisations ...", one per practice. */
+const phrases: Record<string, string> = {
+  "strategy-and-advisory": "set direction.",
+  "technology-transformation": "modernise systems.",
+  "artificial-intelligence-and-data": "apply AI and data.",
+  "operations-and-performance": "perform better.",
+  "engineering-and-implementation": "build and deliver.",
 };
 
-const SLIDE_SECONDS = 3.5;
+const SLIDE_SECONDS = 4;
 const ease = [0.16, 1, 0.3, 1] as const;
 
 export function ServicesShowcase() {
   const [active, setActive] = useState(0);
   const [hovering, setHovering] = useState(false);
   const reduceMotion = useReducedMotion();
-  // Cycles on its own; pauses on hover and for reduced-motion users.
+  // Moves on by itself; pauses on hover and for reduced-motion visitors.
   const autoplay = !hovering && !reduceMotion;
 
-  // Advance on a plain timer (restarts whenever the selection or play state changes).
   useEffect(() => {
     if (!autoplay) return;
     const t = setTimeout(() => setActive((a) => (a + 1) % services.length), SLIDE_SECONDS * 1000);
@@ -34,15 +33,18 @@ export function ServicesShowcase() {
   }, [active, autoplay]);
 
   const current = services[active];
-  const currentDisplay = display[current.slug];
 
   return (
-    <section id="services" className="bg-paper py-20 lg:py-28">
-      <div className="container-site" onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)}>
+    <section id="services" className="bg-white py-24 lg:py-36">
+      <div
+        className="container-site grid items-center gap-12 lg:grid-cols-12 lg:gap-16"
+        onMouseEnter={() => setHovering(true)}
+        onMouseLeave={() => setHovering(false)}
+      >
         <h2 className="sr-only">Expertise</h2>
 
-        {/* Headline: "We build" + the active service, which changes on its own. */}
-        <div aria-hidden="true" className="text-headline font-light">
+        {/* The statement, finished by the active practice. */}
+        <div aria-hidden="true" className="text-headline font-light lg:col-span-5">
           <p className="text-ink">We help organisations</p>
           <div className="relative h-[1.2em] overflow-hidden">
             <AnimatePresence mode="wait" initial={false}>
@@ -54,73 +56,71 @@ export function ServicesShowcase() {
                 exit={{ y: "-100%", opacity: 0 }}
                 transition={{ duration: 0.55, ease }}
               >
-                {currentDisplay.phrase}
+                {phrases[current.slug]}
               </motion.p>
             </AnimatePresence>
           </div>
         </div>
 
-        <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between lg:mt-8">
-          <p aria-live="polite" className="max-w-xl text-lg leading-relaxed text-ink-soft">
-            {current.plain}
-          </p>
+        {/* One image at a time, titled, changing with the phrase. */}
+        <div className="lg:col-span-7">
           <Link
             href={`/services/${current.slug}`}
-            className="group inline-flex shrink-0 items-center gap-1.5 text-[0.9375rem] font-medium text-accent"
+            aria-label={`${current.title}: view capability`}
+            className="group relative block aspect-[4/3] overflow-hidden rounded-[4px] rounded-tr-[56px] bg-navy-900"
           >
-            View capability
-            <ArrowUpRight
+            {services.map((s, i) => (
+              <div
+                key={s.slug}
+                aria-hidden={i !== active}
+                className={cn(
+                  "absolute inset-0 transition-opacity duration-700 ease-out-expo",
+                  i === active ? "opacity-100" : "opacity-0",
+                )}
+              >
+                <Image
+                  src={s.image}
+                  alt={i === active ? s.imageAlt : ""}
+                  fill
+                  sizes="(min-width: 1024px) 58vw, 100vw"
+                  className="object-cover transition-transform duration-[1.6s] ease-out-expo group-hover:scale-[1.03]"
+                />
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-navy-950/10 to-transparent"
+                />
+                <div className="absolute inset-x-0 bottom-0 p-6 text-white lg:p-10">
+                  <p className="font-mono text-xs text-white/70">{s.number}</p>
+                  <p className="mt-2 text-3xl font-light tracking-tight lg:text-4xl">{s.title}</p>
+                </div>
+              </div>
+            ))}
+            {/* Countdown to the next image. */}
+            <span
+              key={`${active}-${autoplay}`}
               aria-hidden="true"
-              strokeWidth={1.75}
-              className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              className="absolute bottom-0 left-0 h-0.5 w-full origin-left bg-white"
+              style={
+                autoplay ? { animation: `bar-fill ${SLIDE_SECONDS}s linear forwards` } : { transform: "scaleX(0)" }
+              }
             />
           </Link>
-        </div>
 
-        {/* All six services, always visible. */}
-        <div
-          role="group"
-          aria-label="Our capabilities"
-          className="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-[4px] border border-line bg-line sm:grid-cols-3 lg:mt-12 lg:grid-cols-5"
-        >
-          {services.map((s, i) => {
-            const d = display[s.slug];
-            const Icon = d.icon;
-            const isActive = i === active;
-            return (
+          <div className="mt-5 flex items-center gap-2" role="group" aria-label="Choose a practice">
+            {services.map((s, i) => (
               <button
                 key={s.slug}
                 type="button"
-                aria-pressed={isActive}
+                aria-label={s.title}
+                aria-pressed={i === active}
                 onClick={() => setActive(i)}
-                onFocus={() => setActive(i)}
                 className={cn(
-                  "relative flex flex-col items-start gap-5 p-5 text-left transition-colors duration-300 lg:p-6",
-                  isActive ? "bg-navy-900 text-white" : "bg-white text-ink hover:bg-accent-wash",
+                  "h-1.5 rounded-full transition-all duration-500",
+                  i === active ? "w-8 bg-ink" : "w-1.5 bg-line-strong hover:bg-muted",
                 )}
-              >
-                {isActive && (
-                  <span
-                    key={`${active}-${autoplay}`}
-                    aria-hidden="true"
-                    className="absolute inset-x-0 top-0 h-0.5 origin-left bg-accent-soft"
-                    style={autoplay ? { animation: `bar-fill ${SLIDE_SECONDS}s linear forwards` } : undefined}
-                  />
-                )}
-                <span className="flex w-full items-center justify-between">
-                  <Icon
-                    aria-hidden="true"
-                    strokeWidth={1.5}
-                    className={cn("size-6", isActive ? "text-white" : "text-accent")}
-                  />
-                  <span className={cn("font-mono text-[0.7rem]", isActive ? "text-white/50" : "text-muted")}>
-                    {s.number}
-                  </span>
-                </span>
-                <span className="text-[0.9375rem] font-medium">{d.label}</span>
-              </button>
-            );
-          })}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>

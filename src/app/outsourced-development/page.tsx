@@ -198,7 +198,12 @@ export default function OutsourcedDevelopmentPage() {
         </div>
       </section>
 
-      <CtaBand title="Ready to extend your team?" cta="Request a team proposal" href={enquiry} />
+      <CtaBand
+        title="Need capacity without the risk?"
+        body="We will propose the team and the terms. No obligation."
+        cta="Request a team proposal"
+        href={enquiry}
+      />
     </>
   );
 }

@@ -129,7 +129,7 @@ export default async function ServicePage({ params }: Props) {
         </div>
       </section>
 
-      <CtaBand title="Speak with Blackroid." cta="Contact Us" href={enquiryHref} />
+      <CtaBand href={enquiryHref} />
     </>
   );
 }
