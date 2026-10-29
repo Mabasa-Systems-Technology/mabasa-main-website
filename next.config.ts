@@ -29,6 +29,7 @@ const nextConfig: NextConfig = {
       ["custom-software-development", "engineering-and-implementation"],
     ];
     const pages = [
+      { source: "/careers", destination: "https://www.olyxee.com/careers", permanent: false },
       { source: "/industries", destination: "/outsourced-development", permanent: true },
       { source: "/business-review", destination: "/outsourced-development", permanent: true },
     ];

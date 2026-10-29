@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "motion/react";
 import { User } from "lucide-react";
@@ -17,6 +17,15 @@ const SLIDE_MS = 6000;
 export function Clients() {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
+  const row = useRef<HTMLUListElement>(null);
+
+  // On a narrow screen the logo row scrolls; keep the current logo centred in it.
+  useEffect(() => {
+    const list = row.current;
+    const tab = list?.children[active] as HTMLElement | undefined;
+    if (!list || !tab || list.scrollWidth <= list.clientWidth) return;
+    list.scrollTo({ left: tab.offsetLeft - (list.clientWidth - tab.clientWidth) / 2, behavior: "smooth" });
+  }, [active]);
 
   useEffect(() => {
     if (paused || testimonials.length < 2) return;
@@ -42,9 +51,14 @@ export function Clients() {
           onPointerLeave={() => setPaused(false)}
           className="mt-10 border-t border-line-strong lg:mt-14"
         >
-          <ul role="tablist" aria-label="Clients" className="no-scrollbar flex overflow-x-auto">
+          <ul
+            ref={row}
+            role="tablist"
+            aria-label="Clients"
+            className="no-scrollbar relative flex overflow-x-auto scroll-smooth"
+          >
             {testimonials.map((c, i) => (
-              <li key={c.name} role="presentation" className="min-w-0 flex-1 basis-0">
+              <li key={c.name} role="presentation" className="w-36 shrink-0 sm:w-44 lg:min-w-0 lg:flex-1 lg:basis-0">
                 <button
                   type="button"
                   role="tab"
@@ -52,8 +66,8 @@ export function Clients() {
                   aria-label={c.name}
                   onClick={() => setActive(i)}
                   className={cn(
-                    "relative flex h-20 w-full min-w-[7.5rem] items-center justify-center px-4 transition-opacity duration-300",
-                    i === active ? "opacity-100" : "opacity-40 hover:opacity-70",
+                    "relative flex h-20 w-full items-center justify-center px-4 transition-opacity duration-300",
+                    i === active ? "opacity-100" : "opacity-50 hover:opacity-80",
                   )}
                 >
                   {c.logo ? (
@@ -63,7 +77,10 @@ export function Clients() {
                       width={c.logo.width}
                       height={c.logo.height}
                       loading="eager"
-                      className="h-6 w-auto max-w-[7.5rem] object-contain grayscale"
+                      className={cn(
+                        "h-6 w-auto max-w-[7.5rem] object-contain transition-[filter] duration-300",
+                        i !== active && "grayscale",
+                      )}
                     />
                   ) : (
                     <span className="truncate text-sm font-medium tracking-tight text-ink">{c.name}</span>

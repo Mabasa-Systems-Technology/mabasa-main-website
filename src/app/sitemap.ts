@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ["/how-we-work", 0.8],
     ["/about", 0.7],
     ["/customer-stories/freightshift", 0.6],
+    ["/customer-stories/techxm", 0.6],
     ["/contact", 0.9],
     ["/privacy", 0.3],
   ];

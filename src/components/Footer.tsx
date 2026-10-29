@@ -21,7 +21,6 @@ export function Footer() {
             <p className="mt-6 max-w-xs text-sm leading-relaxed text-white/60">
               Business advisory, technology and transformation services.
             </p>
-            <BbbeeBadge className="mt-10 h-28 w-auto" />
           </div>
 
           <nav
@@ -42,6 +41,11 @@ export function Footer() {
                   <Link href={site.clientPortalUrl} className={link}>
                     Login
                   </Link>
+                </li>
+                <li>
+                  <a href="https://www.olyxee.com/careers" target="_blank" rel="noopener noreferrer" className={link}>
+                    Careers
+                  </a>
                 </li>
                 <li>
                   <Link href="/privacy" className={link}>
@@ -99,7 +103,10 @@ export function Footer() {
           <p>
             © {year} {site.legalName}. All rights reserved.
           </p>
-          <p>{site.country}</p>
+          <div className="flex items-center justify-between gap-6 sm:justify-end">
+            <p>{site.country}</p>
+            <BbbeeBadge className="h-14 w-auto shrink-0" />
+          </div>
         </div>
       </div>
 

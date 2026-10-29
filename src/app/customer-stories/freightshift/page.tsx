@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import type { ComponentProps, ReactNode } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { CtaBand } from "@/components/CtaBand";
+import { Photo, Section } from "@/components/story/StoryParts";
 import { Reveal } from "@/components/ui/Reveal";
 import { freightshiftStory as story } from "@/lib/stories";
 import teamFloor from "../../../../public/images/stories/freightshift-team-floor.webp";
@@ -18,39 +17,6 @@ export const metadata: Metadata = {
     "How Blackroid approaches logistics transformation as a business problem first, for a China to South Africa freight forwarder.",
   alternates: { canonical: story.href },
 };
-
-function Section({ heading, children }: { heading: string; children: ReactNode }) {
-  return (
-    <section className="bg-white py-16 lg:py-24">
-      <div className="container-site grid gap-8 lg:grid-cols-12 lg:gap-16">
-        <Reveal className="lg:col-span-5">
-          <h2 className="text-3xl font-light text-balance lg:text-4xl">{heading}</h2>
-        </Reveal>
-        <Reveal delay={0.1} className="space-y-6 text-lg leading-relaxed text-ink-soft lg:col-span-6 lg:col-start-7">
-          {children}
-        </Reveal>
-      </div>
-    </section>
-  );
-}
-
-function Photo({
-  src,
-  alt,
-  className,
-  sizes,
-}: {
-  src: ComponentProps<typeof Image>["src"];
-  alt: string;
-  className?: string;
-  sizes: string;
-}) {
-  return (
-    <div className={`relative overflow-hidden rounded-[4px] bg-paper ${className ?? ""}`}>
-      <Image src={src} alt={alt} fill sizes={sizes} placeholder="blur" className="object-cover" />
-    </div>
-  );
-}
 
 export default function FreightShiftStoryPage() {
   return (
